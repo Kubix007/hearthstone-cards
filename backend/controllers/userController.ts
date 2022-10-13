@@ -94,7 +94,7 @@ export const getMe = asyncHandler(async (req: IUserRequest, res: Response) => {
 });
 
 //Generate JWT
-const generateToken = (id: any) => {
+const generateToken = (id: number) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: "30d",
   });

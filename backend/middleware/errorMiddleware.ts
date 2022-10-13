@@ -1,6 +1,12 @@
-import { ErrorRequestHandler } from "express";
+import { ErrorRequestHandler, Response } from "express";
+import { Error } from "mongoose";
 
-export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
+export const errorHandler: ErrorRequestHandler = (
+  err: Error,
+  _req,
+  res: Response,
+  _next
+) => {
   const statusCode = res.statusCode ? res.statusCode : 500;
 
   res.status(statusCode);
