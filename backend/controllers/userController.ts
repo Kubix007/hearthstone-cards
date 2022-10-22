@@ -11,13 +11,14 @@ const jwt = require("jsonwebtoken");
 // @access Public
 export const registerUser = asyncHandler(
   async (req: Request, res: Response) => {
-    const { login, email, password } = req.body as {
+    const { login, email, password, passwordRepeat } = req.body as {
       login: string;
       email: string;
       password: string;
+      passwordRepeat: string;
     };
 
-    if (!login || !email || !password) {
+    if (!login || !email || !password || !passwordRepeat) {
       res.status(400);
       throw new Error("Proszę wypełnij wszystkie pola");
     }
@@ -27,6 +28,12 @@ export const registerUser = asyncHandler(
     if (userExists) {
       res.status(400);
       throw new Error("Użytkownik już istnieje");
+    }
+
+    //Check if passwords match
+    if (!(password === passwordRepeat)) {
+      res.status(400);
+      throw new Error("Podane hasła różnią się od siebie");
     }
 
     //Hash password

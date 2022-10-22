@@ -47,6 +47,10 @@ const Login = () => {
       navigate("/");
     }
 
+    if (isSuccess) {
+      toast.success("Pomyślnie zalogowano");
+    }
+
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
 
@@ -139,9 +143,9 @@ const Login = () => {
             >
               Zaloguj się
             </Button>
-            <Grid container>
+            <Grid container justifyContent="center">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link variant="body2" onClick={() => navigate("/register")}>
                   {"Nie posiadasz konta? Zarejestruj się"}
                 </Link>
               </Grid>

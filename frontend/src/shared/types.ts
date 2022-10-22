@@ -10,7 +10,7 @@ export interface IRegisterUserData {
   login: string;
   email: string;
   password: string;
-  password2: string;
+  passwordRepeat: string;
 }
 
 export interface ILoginUserData {
