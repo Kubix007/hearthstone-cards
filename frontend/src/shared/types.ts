@@ -6,6 +6,14 @@ export interface IAuthState {
   message: string;
 }
 
+export interface ICardsState {
+  cards: ICardData[];
+  isError: boolean;
+  isSuccess: boolean;
+  isLoading: boolean;
+  message: string;
+}
+
 export interface IRegisterUserData {
   login: string;
   email: string;
@@ -23,4 +31,29 @@ export interface IUserData {
   login: string;
   email: string;
   token: string;
+}
+
+export interface ICardData {
+  id: number;
+  collectible: number;
+  slug: string;
+  classId: number;
+  multiClassIds: number[];
+  spellSchoolId: number;
+  cardTypeId: number;
+  cardSetId: number;
+  rarityId: number;
+  artistName: string;
+  manaCost: number;
+  name: string;
+  text: string;
+  image: string;
+  imageGold: string;
+  flavorText: string;
+  cropImage: string;
+  keywordIds: number[];
+  duels: {
+    relevant: boolean;
+    constructed: boolean;
+  };
 }

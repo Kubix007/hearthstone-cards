@@ -26,8 +26,8 @@ const settings = ["Moje decki", "Ustawienia profilu", "Wyloguj się"];
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const dispatch: AppDispatch = useDispatch();
   const { user } = useSelector((state: RootState) => state.auth);
+  const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -132,9 +132,8 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <NavLink to={page.link}>
+              <NavLink to={page.link} key={page.name}>
                 <Button
-                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >

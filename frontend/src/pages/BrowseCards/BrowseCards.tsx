@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
 import { reset } from "../../features/auth/authSlice";
+import { getAllCards } from "../../features/cards/cardsSlice";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -13,6 +14,13 @@ const BrowseCards = () => {
     (state: RootState) => state.auth
   );
 
+  const {
+    cards,
+    isLoading: isLoadingCards,
+    isError: isErrorCards,
+    message: messageCards,
+  } = useSelector((state: RootState) => state.cards);
+
   useEffect(() => {
     if (isError) {
       console.log(message);
@@ -21,6 +29,8 @@ const BrowseCards = () => {
     if (!user) {
       navigate("/login");
     }
+
+    dispatch(getAllCards());
 
     return () => {
       dispatch(reset());
