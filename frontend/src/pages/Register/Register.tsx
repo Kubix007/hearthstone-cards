@@ -60,7 +60,6 @@ const Register = () => {
 
     if (isSuccess || user) {
       navigate("/");
-      toast.success("Pomyślnie utworzono konto");
     }
 
     if (isSuccess) {

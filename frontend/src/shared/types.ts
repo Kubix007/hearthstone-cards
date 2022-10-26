@@ -1,5 +1,5 @@
 export interface IAuthState {
-  user: string;
+  user: IUserData;
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;
@@ -16,4 +16,11 @@ export interface IRegisterUserData {
 export interface ILoginUserData {
   email: string;
   password: string;
+}
+
+export interface IUserData {
+  _id: string;
+  login: string;
+  email: string;
+  token: string;
 }
