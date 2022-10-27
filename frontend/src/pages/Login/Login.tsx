@@ -18,6 +18,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { login, reset } from "../../features/auth/authSlice";
 import Spinner from "../../components/Spinner";
+import * as Styles from "./Login.style";
 
 const validationSchema = yup.object({
   email: yup
@@ -92,7 +93,17 @@ const Login = () => {
           backgroundPosition: "center",
         }}
       />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid
+        item
+        xs={12}
+        sm={8}
+        md={5}
+        style={{ backgroundColor: "#e8d5a8" }}
+        component={Paper}
+        elevation={6}
+        square
+      >
+        <Styles.LoginHeader />
         <Box
           sx={{
             my: 8,
@@ -102,14 +113,15 @@ const Login = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "blue" }}>
-            <LockOutlined />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Zaloguj się
-          </Typography>
+          <Styles.LoginLabel variant="h5">Logowanie</Styles.LoginLabel>
           <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
             <TextField
+              style={{
+                backgroundColor: "white",
+              }}
+              InputLabelProps={{
+                style: { fontFamily: "BelweBoldBT" },
+              }}
               margin="normal"
               required
               fullWidth
@@ -122,6 +134,10 @@ const Login = () => {
               helperText={formik.touched.email && formik.errors.email}
             />
             <TextField
+              style={{ backgroundColor: "white" }}
+              InputLabelProps={{
+                style: { fontFamily: "BelweBoldBT" },
+              }}
               margin="normal"
               required
               fullWidth
@@ -134,20 +150,23 @@ const Login = () => {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
             />
-            <Button
+            <Styles.ButtonLogin
               type="submit"
               fullWidth
               color="primary"
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Zaloguj się
-            </Button>
+              Zaloguj sie
+            </Styles.ButtonLogin>
             <Grid container justifyContent="center">
               <Grid item>
-                <Link variant="body2" onClick={() => navigate("/register")}>
+                <Styles.LoginLink
+                  variant="body2"
+                  onClick={() => navigate("/register")}
+                >
                   {"Nie posiadasz konta? Zarejestruj się"}
-                </Link>
+                </Styles.LoginLink>
               </Grid>
             </Grid>
           </Box>

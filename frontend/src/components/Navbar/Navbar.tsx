@@ -128,7 +128,11 @@ const Navbar = () => {
             {pages.map((page) => (
               <NavbarLink to={page.link} key={page.name}>
                 <Button
-                  style={{ fontFamily: "BelweBoldBT", color: "#fcd144" }}
+                  style={{
+                    fontFamily: "BelweBoldBT",
+                    color: "#fcd144",
+                    fontSize: "16px",
+                  }}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
