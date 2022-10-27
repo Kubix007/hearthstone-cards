@@ -8,6 +8,7 @@ import { getAllCards } from "../../features/cards/cardsSlice";
 import * as Styles from "./BrowseCards.style";
 import * as SharedStyles from "../../shared/styles";
 import CardsLayout from "../../components/CardsLayout";
+import FilterBar from "../../components/FilterBar";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -45,6 +46,7 @@ const BrowseCards = () => {
   }
   return (
     <SharedStyles.Container>
+      <FilterBar />
       <Styles.Cards>
         {cards.cards.map((card) => (
           <CardsLayout key={card.id} cards={card} />

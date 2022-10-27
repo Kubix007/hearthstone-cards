@@ -3,9 +3,15 @@ body {
   font-family: Belwe Bold, Georgia, Times, Times New Roman, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e8d5a8;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+@font-face {
+  font-family: "BelweBoldBT";
+  src: local("BelweBoldBT"), url(./fonts/BelweBoldBT.ttf) format("opentype");
 }

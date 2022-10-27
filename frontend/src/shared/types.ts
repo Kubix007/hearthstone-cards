@@ -59,3 +59,10 @@ export interface ICardData {
     constructed: boolean;
   };
 }
+
+export interface IFilterState {
+  pagination: {
+    page: number;
+    perPage: number;
+  };
+}

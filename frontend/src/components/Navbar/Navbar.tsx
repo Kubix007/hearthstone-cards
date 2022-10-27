@@ -16,9 +16,10 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../app/store";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, reset } from "../../features/auth/authSlice";
+import { NavbarLink } from "./Navbar.style";
 
 const pages = [
-  { name: "Przeglądaj karty", link: "/browsecards" },
+  { name: "Przegladaj karty", link: "/browsecards" },
   { name: "Stwórz swój deck", link: "/createdeck" },
 ];
 const settings = ["Moje decki", "Ustawienia profilu", "Wyloguj się"];
@@ -53,27 +54,20 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar
+      position="static"
+      style={{
+        background:
+          "url(https://d2vkoy1na2a6o6.cloudfront.net/images/nav/newNav/wood_middle_repeat-b357e74839b5f16173c2f35d36ce22cae24d5b552e2eb1dd1fd7d3091eeccca8eb8ab5c0a2c42e9476357ac2c744e8e22ddc08c5d27be8c670fb9630065a9c01.png)",
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Hearthstone Cards
-          </Typography>
+          <img
+            src="https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt62186dab5d281404/5f57a8b338c0eb4e910ab301/logo_new_webp.webp"
+            alt="abc"
+            height="60px"
+          />
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -132,14 +126,15 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <NavLink to={page.link} key={page.name}>
+              <NavbarLink to={page.link} key={page.name}>
                 <Button
+                  style={{ fontFamily: "BelweBoldBT", color: "#fcd144" }}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
                 >
                   {page.name}
                 </Button>
-              </NavLink>
+              </NavbarLink>
             ))}
           </Box>
 
