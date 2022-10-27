@@ -7,7 +7,9 @@ export interface IAuthState {
 }
 
 export interface ICardsState {
-  cards: ICardData[];
+  cards: {
+    cards: ICardData[];
+  };
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;

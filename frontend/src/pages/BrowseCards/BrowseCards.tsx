@@ -5,6 +5,9 @@ import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
 import { reset } from "../../features/auth/authSlice";
 import { getAllCards } from "../../features/cards/cardsSlice";
+import * as Styles from "./BrowseCards.style";
+import * as SharedStyles from "../../shared/styles";
+import CardsLayout from "../../components/CardsLayout";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -40,7 +43,15 @@ const BrowseCards = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  return <div>Przeglądaj karty</div>;
+  return (
+    <SharedStyles.Container>
+      <Styles.Cards>
+        {cards.cards.map((card) => (
+          <CardsLayout key={card.id} cards={card} />
+        ))}
+      </Styles.Cards>
+    </SharedStyles.Container>
+  );
 };
 
 export default BrowseCards;
