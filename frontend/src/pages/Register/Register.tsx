@@ -15,9 +15,11 @@ import {
   Link,
   TextField,
   Typography,
+  Container,
 } from "@mui/material";
 import { LockOutlined } from "@mui/icons-material";
 import * as yup from "yup";
+import * as Styles from "./Register.style";
 
 const validationSchema = yup.object({
   login: yup
@@ -93,25 +95,9 @@ const Register = () => {
   }
 
   return (
-    <Grid container component="main" sx={{ height: "100vh" }}>
-      <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
-        sx={{
-          backgroundImage:
-            "url(https://d2q63o9r0h0ohi.cloudfront.net/_next/static/images/default-4fff3c606c794dc03a915b9071f562d3.jpg)",
-          backgroundRepeat: "no-repeat",
-          backgroundColor: (t) =>
-            t.palette.mode === "light"
-              ? t.palette.grey[50]
-              : t.palette.grey[900],
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+    <Grid component="main" sx={{ height: "100vh" }}>
+      <Styles.RegisterHeader />
+      <Container maxWidth="xs">
         <Box
           sx={{
             my: 8,
@@ -121,14 +107,9 @@ const Register = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "blue" }}>
-            <LockOutlined />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-            Zarejestruj się
-          </Typography>
+          <Styles.Registerlabel variant="h5">Rejestracja</Styles.Registerlabel>
           <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
-            <TextField
+            <Styles.RegisterTextField
               margin="normal"
               required
               fullWidth
@@ -140,7 +121,7 @@ const Register = () => {
               error={formik.touched.login && Boolean(formik.errors.login)}
               helperText={formik.touched.login && formik.errors.login}
             />
-            <TextField
+            <Styles.RegisterTextField
               margin="normal"
               required
               fullWidth
@@ -152,7 +133,7 @@ const Register = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
-            <TextField
+            <Styles.RegisterTextField
               margin="normal"
               required
               fullWidth
@@ -165,7 +146,7 @@ const Register = () => {
               error={formik.touched.password && Boolean(formik.errors.password)}
               helperText={formik.touched.password && formik.errors.password}
             />
-            <TextField
+            <Styles.RegisterTextField
               margin="normal"
               required
               fullWidth
@@ -183,25 +164,28 @@ const Register = () => {
                 formik.touched.passwordRepeat && formik.errors.passwordRepeat
               }
             />
-            <Button
+            <Styles.ButtonRegister
               type="submit"
               fullWidth
               color="primary"
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
             >
-              Zarejstruj się
-            </Button>
+              Zarejestruj sie
+            </Styles.ButtonRegister>
             <Grid container justifyContent="center">
               <Grid item>
-                <Link variant="body2" onClick={() => navigate("/login")}>
-                  {"Posiadasz już konto? Zaloguj się"}
-                </Link>
+                <Styles.RegisterLink
+                  variant="body2"
+                  onClick={() => navigate("/login")}
+                >
+                  {"Posiadasz już konto? Zaloguj sie"}
+                </Styles.RegisterLink>
               </Grid>
             </Grid>
           </Box>
         </Box>
-      </Grid>
+      </Container>
     </Grid>
   );
 };

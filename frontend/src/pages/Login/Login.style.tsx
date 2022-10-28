@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Button, Typography, Link } from "@mui/material";
+import { Button, Typography, Link, TextField } from "@mui/material";
 
 export const ButtonLogin = styled(Button)`
   background: url(https://d2vkoy1na2a6o6.cloudfront.net/images/fireside-gatherings/form-button-bg-10bf9ae28b5cf03a69a819cf5856a5dbf41b436433f5e5864e422339f916f25063b18a9d740474d458e76dd71f53083c5c39e2845e13d20a9252305d7d25a01b.jpg);
@@ -41,4 +41,13 @@ export const LoginHeader = styled.div`
   height: 10%;
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/bg_wood_tile.aff07b7098441e60ef43293207da2c2b.jpg);
   box-shadow: 0 3px 6px 0 rgb(0 0 0 / 45%);
+`;
+
+export const LoginTextField = styled(TextField)`
+  &.MuiTextField-root {
+    background-color: white;
+    > .MuiFormLabel-root {
+      font-family: BelweBoldBT;
+    }
+  }
 `;

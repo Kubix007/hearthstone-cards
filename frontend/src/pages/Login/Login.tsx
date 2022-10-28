@@ -1,14 +1,4 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Grid,
-  Link,
-  Paper,
-  TextField,
-  Typography,
-} from "@mui/material";
-import { LockOutlined } from "@mui/icons-material";
+import { Box, Container, Grid, TextField } from "@mui/material";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import { AppDispatch, RootState } from "../../app/store";
@@ -75,35 +65,9 @@ const Login = () => {
   }
 
   return (
-    <Grid container component="main" sx={{ height: "100vh" }}>
-      <Grid
-        item
-        xs={false}
-        sm={4}
-        md={7}
-        sx={{
-          backgroundImage:
-            "url(https://d2q63o9r0h0ohi.cloudfront.net/_next/static/images/default-4fff3c606c794dc03a915b9071f562d3.jpg)",
-          backgroundRepeat: "no-repeat",
-          backgroundColor: (t) =>
-            t.palette.mode === "light"
-              ? t.palette.grey[50]
-              : t.palette.grey[900],
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      />
-      <Grid
-        item
-        xs={12}
-        sm={8}
-        md={5}
-        style={{ backgroundColor: "#e8d5a8" }}
-        component={Paper}
-        elevation={6}
-        square
-      >
-        <Styles.LoginHeader />
+    <Grid component="main" sx={{ height: "100vh" }}>
+      <Styles.LoginHeader />
+      <Container maxWidth="xs">
         <Box
           sx={{
             my: 8,
@@ -115,13 +79,7 @@ const Login = () => {
         >
           <Styles.LoginLabel variant="h5">Logowanie</Styles.LoginLabel>
           <Box component="form" onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
-            <TextField
-              style={{
-                backgroundColor: "white",
-              }}
-              InputLabelProps={{
-                style: { fontFamily: "BelweBoldBT" },
-              }}
+            <Styles.LoginTextField
               margin="normal"
               required
               fullWidth
@@ -133,11 +91,7 @@ const Login = () => {
               error={formik.touched.email && Boolean(formik.errors.email)}
               helperText={formik.touched.email && formik.errors.email}
             />
-            <TextField
-              style={{ backgroundColor: "white" }}
-              InputLabelProps={{
-                style: { fontFamily: "BelweBoldBT" },
-              }}
+            <Styles.LoginTextField
               margin="normal"
               required
               fullWidth
@@ -171,7 +125,7 @@ const Login = () => {
             </Grid>
           </Box>
         </Box>
-      </Grid>
+      </Container>
     </Grid>
   );
 };
