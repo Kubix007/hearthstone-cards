@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Button, Typography, Link, TextField } from "@mui/material";
+import { Button, Typography, Link, TextField, Grid } from "@mui/material";
+import { FormSideProps } from "./Register.types";
 
 export const ButtonRegister = styled(Button)`
   background: url(https://d2vkoy1na2a6o6.cloudfront.net/images/fireside-gatherings/form-button-bg-10bf9ae28b5cf03a69a819cf5856a5dbf41b436433f5e5864e422339f916f25063b18a9d740474d458e76dd71f53083c5c39e2845e13d20a9252305d7d25a01b.jpg);
@@ -49,5 +50,11 @@ export const RegisterTextField = styled(TextField)`
     > .MuiFormLabel-root {
       font-family: BelweBoldBT;
     }
+  }
+`;
+
+export const FormSide = styled(Grid)<FormSideProps>`
+  &.MuiPaper-root {
+    background-color: #e8d5a8;
   }
 `;
