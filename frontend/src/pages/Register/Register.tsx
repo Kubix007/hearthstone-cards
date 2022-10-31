@@ -6,7 +6,7 @@ import { AppDispatch, RootState } from "../../app/store";
 import { toast } from "react-toastify";
 import { register, reset } from "../../features/auth/authSlice";
 import Spinner from "../../components/Spinner";
-import { Box, Grid, Container, Paper } from "@mui/material";
+import { Box, Grid, Paper } from "@mui/material";
 import * as yup from "yup";
 import * as Styles from "./Register.style";
 

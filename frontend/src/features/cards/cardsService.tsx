@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API_URL = "https://us.api.blizzard.com/hearthstone/";
-const ACCESS_TOKEN = "EULthXgJVGsYj2RZnnjOQRQR3l1jSsWIa2";
+const ACCESS_TOKEN = "EUI3nxBUsz6qGwjSmnVi8gxnjTMWW9wPsk";
 const LOCALE = "en_US";
 
 // Get all cards
