@@ -1,5 +1,6 @@
 import * as Styles from "./FilterBart.style";
 import ManaCostFilter from "../ManaCostFilter";
+import ClassFilter from "../ClassFilter";
 
 const FilterBar = () => {
   return (
@@ -7,6 +8,7 @@ const FilterBar = () => {
       <Styles.FilterBarContainer>
         &nbsp;
         <Styles.FiltersContainer>
+          <ClassFilter />
           <ManaCostFilter />
         </Styles.FiltersContainer>
       </Styles.FilterBarContainer>

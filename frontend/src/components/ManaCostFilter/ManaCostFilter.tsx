@@ -16,7 +16,7 @@ const ManaCostFilter = () => {
           }}
         >
           {manaCrystals.map((item) => (
-            <Styles.ManaCrystal>{item}</Styles.ManaCrystal>
+            <Styles.ManaCrystal key={item}>{item}</Styles.ManaCrystal>
           ))}
         </div>
       </Styles.ManaCostFilterContainerCenter>

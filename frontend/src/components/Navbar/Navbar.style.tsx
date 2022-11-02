@@ -15,4 +15,7 @@ export const NavbarLink = styled(NavLink)`
   &:hover {
     border-bottom: 4px solid #fcd144;
   }
+  &:onclick {
+    text-decoration: none;
+  }
 `;

@@ -12,7 +12,7 @@ export const Card = styled(Paper)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 24px;
+  margin: 10px;
   background-color: transparent;
   box-shadow: none;
   &.MuiPaper-root {
@@ -22,7 +22,7 @@ export const Card = styled(Paper)`
 `;
 
 export const Cover = styled.img`
-  height: 280px;
+  height: 320px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 3px 3px);
