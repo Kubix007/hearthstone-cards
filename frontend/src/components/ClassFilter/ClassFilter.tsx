@@ -1,5 +1,4 @@
-import { MenuItem, SelectChangeEvent } from "@mui/material";
-import e from "express";
+import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
 import * as Styles from "./ClassFilter.style";
 
