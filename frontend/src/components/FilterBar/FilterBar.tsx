@@ -2,6 +2,7 @@ import * as Styles from "./FilterBart.style";
 import ManaCostFilter from "../ManaCostFilter";
 import ClassFilter from "../ClassFilter";
 import TypeCardsFilter from "../TypeCardsFilter";
+import SearchFilter from "../SearchFilter";
 
 const FilterBar = () => {
   return (
@@ -12,6 +13,7 @@ const FilterBar = () => {
           <TypeCardsFilter />
           <ClassFilter />
           <ManaCostFilter />
+          <SearchFilter />
         </Styles.FiltersContainer>
       </Styles.FilterBarContainer>
     </div>

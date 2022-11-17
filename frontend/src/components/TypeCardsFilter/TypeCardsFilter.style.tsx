@@ -67,7 +67,6 @@ export const TypeCardName = styled(Typography)`
     font-family: BelweBoldBT;
     color: rgb(255, 255, 255);
     margin-left: 4px;
-    margin-bottom: 10px;
     font-size: 16px;
     color: white;
     text-shadow: rgb(0 0 0) 2px 0px 0px, rgb(0 0 0) 1.75517px 0.95885px 0px,
@@ -88,11 +87,11 @@ export const TypeCardName = styled(Typography)`
 export const TypeCard = styled(Typography)`
   &.MuiTypography-root {
     font-family: BelweBoldBT;
-    color: rgb(255, 255, 255);
-    margin-left: 12px;
     font-size: 14px;
+    padding-left: 10px;
     color: rgb(204, 204, 204);
     text-transform: uppercase;
+    background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/bg_dropdownmenu_middle_middle.a5d2539fa7fc8c29fcc0a304710f97e9.png);
   }
 `;
 
