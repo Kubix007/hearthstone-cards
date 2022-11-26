@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box, Input, InputBase, OutlinedInput } from "@mui/material";
+import { Box, Input } from "@mui/material";
 import { ReactComponent as SearchIconSvg } from "../../img/SearchIcon.svg";
 
 export const SearchFilterContainer = styled(Box)`

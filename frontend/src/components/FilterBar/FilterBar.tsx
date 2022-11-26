@@ -3,6 +3,7 @@ import ManaCostFilter from "../ManaCostFilter";
 import ClassFilter from "../ClassFilter";
 import TypeCardsFilter from "../TypeCardsFilter";
 import SearchFilter from "../SearchFilter";
+import DetailsFilterButton from "../DetailsFilter/DetailsFilterButton";
 
 const FilterBar = () => {
   return (
@@ -14,6 +15,7 @@ const FilterBar = () => {
           <ClassFilter />
           <ManaCostFilter />
           <SearchFilter />
+          <DetailsFilterButton />
         </Styles.FiltersContainer>
       </Styles.FilterBarContainer>
     </div>

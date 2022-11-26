@@ -12,6 +12,7 @@ export const NavbarDrawer = styled(Drawer)`
 export const NavbarLink = styled(NavLink)`
   border-bottom: 4px solid;
   border-bottom-color: transparent;
+  text-decoration: none;
   &:hover {
     border-bottom: 4px solid #fcd144;
   }

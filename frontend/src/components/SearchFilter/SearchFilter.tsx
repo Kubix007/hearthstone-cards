@@ -1,8 +1,6 @@
-import { VisibilityOff } from "@mui/icons-material";
-import { IconButton, InputAdornment, TextField } from "@mui/material";
+import { IconButton, InputAdornment } from "@mui/material";
 import * as Styles from "./SearchFilter.style";
-import { ReactComponent as SearchIcon } from "../../img/SearchIcon.svg";
-import React, { EventHandler, useState } from "react";
+import { useState } from "react";
 
 const SearchFilter = () => {
   const [inputValue, setInputValue] = useState("");

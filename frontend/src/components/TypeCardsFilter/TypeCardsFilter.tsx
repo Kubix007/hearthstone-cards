@@ -67,7 +67,8 @@ const TypeCardsFilter = () => {
         MenuProps={{
           MenuListProps: {
             style: {
-              height: 400,
+              maxWidth: 300,
+              maxHeight: 400,
               background:
                 "url(https://d2q63o9r0h0ohi.cloudfront.net/images/bg_dropdownmenu_middle_middle.a5d2539fa7fc8c29fcc0a304710f97e9.png)",
             },
