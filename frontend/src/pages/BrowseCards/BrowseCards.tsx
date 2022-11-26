@@ -47,11 +47,13 @@ const BrowseCards = () => {
   return (
     <SharedStyles.Container>
       <FilterBar />
-      <Styles.Cards>
-        {cards.cards.map((card) => (
-          <CardsLayout key={card.id} cards={card} />
-        ))}
-      </Styles.Cards>
+      <Styles.CardsContainer>
+        <Styles.Cards>
+          {cards.cards.map((card) => (
+            <CardsLayout key={card.id} cards={card} />
+          ))}
+        </Styles.Cards>
+      </Styles.CardsContainer>
     </SharedStyles.Container>
   );
 };

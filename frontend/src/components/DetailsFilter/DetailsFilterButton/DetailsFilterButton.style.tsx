@@ -27,12 +27,12 @@ export const DetailsFilterIcon = styled(FilterIcon)`
 
 export const LeftDetailsFilterLayout = styled(Box)`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/dropdown_left-e13ea6f6636ed54f41135d277e2f6ef7be483a670e3612745f087e9c2cb1040934ac8b1f08fb884cde36102fa16c4a34a887daf88382abba0c14b5463a1c5a69.png);
-  width: 25px;
+  width: 24px;
   height: 54px;
 `;
 
 export const RightDetailsFilterLayout = styled(Box)`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/dropdown_right-c01d7da8270c3c49674ae17a03e11456d668846c64594e38191ddb64ab28af7eb5babe8fbfd5b1c52a44b9253b954cd6ce31daca74174a0c19f346e300871ca7.png);
-  width: 25px;
+  width: 24px;
   height: 54px;
 `;
