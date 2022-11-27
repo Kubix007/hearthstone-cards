@@ -5,6 +5,7 @@ import DetailsFilterCardType from "../DetailsFilterCardType";
 import DetailsFilterMinionType from "../DetailsFilterMinionType";
 import DetailsFilterSpellSchool from "../DetailsFilterSpellSchool";
 import DetailsFilterRarity from "../DetailsFilterRarity";
+import DetailsFilterKeywords from "../DetailsFilterKeywords";
 
 const DetailsFilterContainer = () => {
   return (
@@ -15,6 +16,7 @@ const DetailsFilterContainer = () => {
       <DetailsFilterMinionType />
       <DetailsFilterSpellSchool />
       <DetailsFilterRarity />
+      <DetailsFilterKeywords />
     </Styles.DetailsFilterContainer>
   );
 };
