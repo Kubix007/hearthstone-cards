@@ -4,6 +4,7 @@ import DetailsFilterHealth from "../DetailsFilterHealth";
 import DetailsFilterCardType from "../DetailsFilterCardType";
 import DetailsFilterMinionType from "../DetailsFilterMinionType";
 import DetailsFilterSpellSchool from "../DetailsFilterSpellSchool";
+import DetailsFilterRarity from "../DetailsFilterRarity";
 
 const DetailsFilterContainer = () => {
   return (
@@ -13,6 +14,7 @@ const DetailsFilterContainer = () => {
       <DetailsFilterCardType />
       <DetailsFilterMinionType />
       <DetailsFilterSpellSchool />
+      <DetailsFilterRarity />
     </Styles.DetailsFilterContainer>
   );
 };
