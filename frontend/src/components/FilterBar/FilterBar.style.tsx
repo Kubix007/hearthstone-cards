@@ -27,4 +27,5 @@ export const FiltersContainer = styled(Box)`
 export const Container = styled(Box)`
   margin-bottom: 20px;
   width: 100%;
+  filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 6px 6px);
 `;

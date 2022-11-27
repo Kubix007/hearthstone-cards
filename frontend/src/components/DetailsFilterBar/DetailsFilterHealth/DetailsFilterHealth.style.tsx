@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Box, InputBase, Select, Typography, MenuItem } from "@mui/material";
-import { Props } from "./DetailsFilterAttack.types";
+import { Props } from "./DetailsFIlterHealth.types";
 
 export const Container = styled(Box)`
   display: flex;
