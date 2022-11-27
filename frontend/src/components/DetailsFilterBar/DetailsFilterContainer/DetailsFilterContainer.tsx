@@ -3,6 +3,7 @@ import DetailsFilterAttack from "../DetailsFilterAttack";
 import DetailsFilterHealth from "../DetailsFilterHealth";
 import DetailsFilterCardType from "../DetailsFilterCardType";
 import DetailsFilterMinionType from "../DetailsFilterMinionType";
+import DetailsFilterSpellSchool from "../DetailsFilterSpellSchool";
 
 const DetailsFilterContainer = () => {
   return (
@@ -11,6 +12,7 @@ const DetailsFilterContainer = () => {
       <DetailsFilterHealth />
       <DetailsFilterCardType />
       <DetailsFilterMinionType />
+      <DetailsFilterSpellSchool />
     </Styles.DetailsFilterContainer>
   );
 };
