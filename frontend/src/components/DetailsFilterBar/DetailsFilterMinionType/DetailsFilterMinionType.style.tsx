@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Box, InputBase, Select, Typography, MenuItem } from "@mui/material";
-import { Props } from "./DetailsFilterTypeCard.type";
+import { Props } from "./DetailsFilterMinionType.types";
 
 export const Container = styled(Box)`
   display: flex;
@@ -22,7 +22,7 @@ export const RightListLayout = styled(Box)`
 
 export const SelectClass = styled(Select)<Props>`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/dropdown_middle_stretch-b4d7a6b9617ba5a39daa4055174b483c4e2963f28fc0d16857f0603bf95218a75968c9d6672f8fa01f979cb372bc3eac84f07c91b73afe0b109d7f424102b22c.png);
-  width: 180px;
+  width: 190px;
   height: 54px;
   border: none;
 `;

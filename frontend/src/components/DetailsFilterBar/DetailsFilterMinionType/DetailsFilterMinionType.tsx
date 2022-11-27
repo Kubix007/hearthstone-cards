@@ -1,30 +1,34 @@
 import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
-import * as Styles from "./DetailsFilterTypeCard.style";
+import * as Styles from "./DetailsFilterMinionType.style";
 
-const typeCard = [
-  "Dowolny rodzaj karty",
-  "Bohater",
-  "Stronnik",
-  "Zaklęcie",
-  "Broń",
-  "Lokalizacja",
+const minionType = [
+  "Dowolny typ stronnika",
+  "Bestia",
+  "Demon",
+  "Kolcozwierz",
+  "Mech",
+  "Murlok",
+  "Naga",
+  "Nieumarły",
+  "Pirat",
+  "Smok",
 ];
 
-const DetailsFilterTypeCard = () => {
-  const [selectedTypeCard, setSelectedTypeCard] = useState(
-    "Dowolny rodzaj karty"
+const DetailsFilterMinionType = () => {
+  const [selectedMinionType, setSelectedMinionType] = useState(
+    "Dowolny typ stronnika"
   );
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectedTypeCard(event.target.value);
+    setSelectedMinionType(event.target.value);
   };
 
   return (
     <Styles.Container>
       <Styles.LeftListLayout />
       <Styles.SelectClass
-        value={selectedTypeCard}
+        value={selectedMinionType}
         onChange={handleChange}
         input={<Styles.SelectInput />}
         MenuProps={{
@@ -36,7 +40,7 @@ const DetailsFilterTypeCard = () => {
           },
         }}
       >
-        {typeCard.map((item) => (
+        {minionType.map((item) => (
           <Styles.SelectMenuItem key={item} value={item}>
             <Styles.SelectName>{item}</Styles.SelectName>
           </Styles.SelectMenuItem>
@@ -47,4 +51,4 @@ const DetailsFilterTypeCard = () => {
   );
 };
 
-export default DetailsFilterTypeCard;
+export default DetailsFilterMinionType;
