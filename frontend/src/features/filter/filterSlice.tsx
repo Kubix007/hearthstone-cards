@@ -41,9 +41,18 @@ export const filterSlice = createSlice({
         (x) => x !== action.payload
       );
     },
+    changeClass(state, action) {
+      state.filters.class = action.payload;
+    },
   },
 });
 
-export const { reset, changePage, changePerPage, addManaCost, reduceManaCost } =
-  filterSlice.actions;
+export const {
+  reset,
+  changePage,
+  changePerPage,
+  addManaCost,
+  reduceManaCost,
+  changeClass,
+} = filterSlice.actions;
 export default filterSlice.reducer;

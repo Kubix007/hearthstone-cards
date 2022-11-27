@@ -13,19 +13,12 @@ import FilterBar from "../../components/FilterBar";
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const { cards } = useSelector((state: RootState) => state.cards);
 
   const { user, isLoading, isError, message } = useSelector(
     (state: RootState) => state.auth
   );
-
-  const { filters } = useSelector((state: RootState) => state.filter);
-
-  const {
-    cards,
-    isLoading: isLoadingCards,
-    isError: isErrorCards,
-    message: messageCards,
-  } = useSelector((state: RootState) => state.cards);
 
   useEffect(() => {
     if (isError) {

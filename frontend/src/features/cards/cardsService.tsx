@@ -12,6 +12,7 @@ const getAllCards = async (filters: IFilters) => {
       locale: LOCALE,
       access_token: ACCESS_TOKEN,
       manaCost: filters.manaCost.join(),
+      class: filters.class,
     },
   };
 
