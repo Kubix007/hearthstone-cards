@@ -65,4 +65,33 @@ export interface IFilterState {
     page: number;
     perPage: number;
   };
+  filters: {
+    set: string;
+    class: string;
+    manaCost: string[];
+    attack: string;
+    health: string;
+    rarity: string;
+    type: string;
+    minionType: string;
+    keyword: string;
+    textFilter: string;
+    gameMode: string;
+    sort: string;
+  };
+}
+
+export interface IFilters {
+  set: string;
+  class: string;
+  manaCost: string[];
+  attack: string;
+  health: string;
+  rarity: string;
+  type: string;
+  minionType: string;
+  keyword: string;
+  textFilter: string;
+  gameMode: string;
+  sort: string;
 }

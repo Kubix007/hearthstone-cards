@@ -8,4 +8,8 @@ export const DetailsFilterContainer = styled(Box)`
   filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 6px 6px);
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  @media only screen and (max-width: 1700px) {
+    height: fit-content;
+  }
 `;

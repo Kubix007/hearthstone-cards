@@ -18,6 +18,8 @@ const BrowseCards = () => {
     (state: RootState) => state.auth
   );
 
+  const { filters } = useSelector((state: RootState) => state.filter);
+
   const {
     cards,
     isLoading: isLoadingCards,
@@ -34,12 +36,12 @@ const BrowseCards = () => {
       navigate("/login");
     }
 
-    dispatch(getAllCards());
+    dispatch(getAllCards(filters));
 
     return () => {
       dispatch(reset());
     };
-  }, [user, navigate, isError, message, dispatch]);
+  }, [user, navigate, isError, message, dispatch, filters]);
 
   if (isLoading) {
     return <Spinner />;

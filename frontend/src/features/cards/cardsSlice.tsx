@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ICardsState } from "../../shared/types";
+import { ICardsState, IFilters } from "../../shared/types";
 import cardService from "./cardsService";
 
 const initialState: ICardsState = {
@@ -15,9 +15,9 @@ const initialState: ICardsState = {
 //Get all cards
 export const getAllCards = createAsyncThunk(
   "cards/getAll",
-  async (_, thunkAPI) => {
+  async (filters: IFilters, thunkAPI) => {
     try {
-      return await cardService.getAllCards();
+      return await cardService.getAllCards(filters);
     } catch (error: any) {
       const message =
         (error.response &&
