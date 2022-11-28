@@ -38,112 +38,112 @@ import { Props } from "./TypeCardImage.types";
 
 const TypeCardImage = ({ svgImageName, width, height }: Props) => {
   switch (svgImageName) {
-    case "Karty standardowe": {
+    case "standard": {
       return <StandardCardSet width={width} height={height} />;
     }
-    case "Dzikie karty": {
+    case "wild": {
       return <WildCardSet width={width} height={height} />;
     }
-    case "Popioły Rubieży": {
+    case "ashes-of-outland": {
       return <AshesOfOutland width={width} height={height} />;
     }
-    case "Czarna Góra": {
+    case "blackrock-mountain": {
       return <BlackrockMountain width={width} height={height} />;
     }
-    case "Gobliny vs Gnomy": {
+    case "goblins-vs-gnomes": {
       return <GoblinsGnomes width={width} height={height} />;
     }
-    case "Karty klasyczne": {
+    case "classic-cards": {
       return <ClassicCards width={width} height={height} />;
     }
-    case "Karty bazowe": {
+    case "core": {
       return <CoreCards width={width} height={height} />;
     }
-    case "Bieżące karty na Arenie": {
+    case "arena": {
       return <CurrentArenaCards width={width} height={height} />;
     }
-    case "Bieżące karty w Starciach": {
+    case "duels": {
       return <CurrentDuelCards width={width} height={height} />;
     }
-    case "Klątwa Naxxramas": {
+    case "naxxramas": {
       return <CurseOfNaxxramas width={width} height={height} />;
     }
-    case "Początkujący łowca demonów": {
+    case "demonhunter-initiate": {
       return <DemonHunterInitiate width={width} height={height} />;
     }
-    case "Wejście smoków": {
+    case "descent-of-dragons": {
       return <DescentOfDragons width={width} height={height} />;
     }
-    case "Zahartowani przez pustkowia": {
+    case "forged-in-the-barrens": {
       return <ForgedInTheBarrens width={width} height={height} />;
     }
-    case "Rozbici w Dolinie Alterak": {
+    case "fractured-in-alterac-valley": {
       return <FracturedInAlteracValley width={width} height={height} />;
     }
-    case "Przebudzenie Galakronda": {
+    case "galakronds-awakening": {
       return <GalakrondsAwakening width={width} height={height} />;
     }
-    case "Podróż do wnętrza Un'Goro": {
+    case "journey-to-ungoro": {
       return <JourneyToUngoro width={width} height={height} />;
     }
-    case "Rycerze Mroźnego Tronu": {
+    case "knights-of-the-frozen-throne": {
       return <KnightsOfTheFrozenThrone width={width} height={height} />;
     }
-    case "Koboldy i katakumby": {
+    case "kobolds-and-catacombs": {
       return <KoboldsCatacombs width={width} height={height} />;
     }
-    case "Liga odkrywców": {
+    case "league-of-explorers": {
       return <LeagueOfExplorers width={width} height={height} />;
     }
-    case "Karty historyczne": {
+    case "legacy": {
       return <LegacyCards width={width} height={height} />;
     }
-    case "Wielki Turniej": {
+    case "the-grand-tournament": {
       return <GrandTournament width={width} height={height} />;
     }
-    case "Obłędny Festyn Lunomroku": {
+    case "madness-at-the-darkmoon-faire": {
       return <MadnessAtTheDarkmoonFaire width={width} height={height} />;
     }
-    case "Pochód Króla Lisza": {
+    case "march-of-the-lich-king": {
       return <MarchOfTheLichKing width={width} height={height} />;
     }
-    case "Ciemne zaułki Gadżetonu": {
+    case "mean-streets-of-gadgetzan": {
       return <MeanStreetsOfGadgetzan width={width} height={height} />;
     }
-    case "Morderstwo w twierdzy Nathria": {
+    case "murder-at-castle-nathria": {
       return <MurderAtCastleNathria width={width} height={height} />;
     }
-    case "Pewnej nocy w Karazhanie": {
+    case "one-night-in-karazhan": {
       return <OneNightInKarazhan width={width} height={height} />;
     }
-    case "Szlak Arthasa": {
+    case "path-of-arthas": {
       return <PathOfArthas width={width} height={height} />;
     }
-    case "Rozróba Rastakana": {
+    case "rastakhans-rumble": {
       return <RastakhanRumble width={width} height={height} />;
     }
-    case "Wyjście z cienia": {
+    case "rise-of-shadows": {
       return <RiseOfShadows width={width} height={height} />;
     }
-    case "Wybawcy Uldum": {
+    case "saviors-of-uldum": {
       return <SaviorOfUldum width={width} height={height} />;
     }
-    case "Scholomancjum": {
+    case "scholomance-academy": {
       return <SholomanceAcademy width={width} height={height} />;
     }
-    case "Projekt Hukatomba": {
+    case "the-boomsday-project": {
       return <TheBoomsdayProject width={width} height={height} />;
     }
-    case "Zjednoczeni w Wichrogrodzie": {
+    case "united-in-stormwind": {
       return <UnitedInStormwind width={width} height={height} />;
     }
-    case "Wyprawa do Zatopionego Miasta": {
+    case "voyage-to-the-sunken-city": {
       return <VoyageToTheSunkenCity width={width} height={height} />;
     }
-    case "Przedwieczni Bogowie": {
+    case "whispers-of-the-old-gods": {
       return <WhispersOfTheOldGods width={width} height={height} />;
     }
-    case "Wiedźmi Las": {
+    case "the-witchwood": {
       return <Witchwood width={width} height={height} />;
     }
     default: {

@@ -44,6 +44,9 @@ export const filterSlice = createSlice({
     changeClass(state, action) {
       state.filters.class = action.payload;
     },
+    changeSet(state, action) {
+      state.filters.set = action.payload;
+    },
   },
 });
 
@@ -54,5 +57,6 @@ export const {
   addManaCost,
   reduceManaCost,
   changeClass,
+  changeSet,
 } = filterSlice.actions;
 export default filterSlice.reducer;
