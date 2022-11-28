@@ -1,8 +1,8 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Styles from "./ClassFilter.style";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import { changeClass } from "../../../features/filter/filterSlice";
 
 const classes = [
@@ -63,14 +63,23 @@ const classes = [
 ];
 
 const ClassFilter = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
   const [className, setClassName] = useState({
-    name: "Wszystkie klasy",
+    name: filters.class.name,
     image:
       "https://d2q63o9r0h0ohi.cloudfront.net/images/icons/classes/icon_class_all-6964ad24bb858e15c61243fc19943c1ba8cc7d348f9bf36232587f1f5e089277e24e303a1c198e02e8adb751a86d44890ab62a1a189b9cbea3b4f17d7da3eba7.png",
   });
 
+  useEffect(() => {
+    setClassName({
+      name: classes.filter((x) => x.name === filters.class.name)[0].value,
+      image: classes.filter((x) => x.name === filters.class.name)[0].image,
+    });
+  }, [filters]);
+
   const handleChange = (event: SelectChangeEvent) => {
+    const targetName = classes.filter((x) => x.value === event.target.value);
     setClassName({
       name: event.target.value,
       image: classes.filter((x) => x.value === event.target.value)[0].image,
@@ -78,7 +87,9 @@ const ClassFilter = () => {
     if (event.target.value === "Wszystkie klasy") {
       event.target.value = "";
     }
-    dispatch(changeClass(event.target.value));
+    dispatch(
+      changeClass({ name: targetName[0].name, value: event.target.value })
+    );
   };
   return (
     <Styles.ClassFilterContainer>

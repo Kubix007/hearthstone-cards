@@ -9,6 +9,9 @@ export interface IAuthState {
 export interface ICardsState {
   cards: {
     cards: ICardData[];
+    cardCount: number;
+    pageCount: number;
+    page: number;
   };
   isError: boolean;
   isSuccess: boolean;
@@ -66,8 +69,14 @@ export interface IFilterState {
     perPage: number;
   };
   filters: {
-    set: string;
-    class: string;
+    set: {
+      name: string;
+      value: string;
+    };
+    class: {
+      name: string;
+      value: string;
+    };
     manaCost: string[];
     attack: string;
     health: string;
@@ -76,14 +85,23 @@ export interface IFilterState {
     minionType: string;
     keyword: string;
     textFilter: string;
-    gameMode: string;
+    gameMode: {
+      name: string;
+      value: string;
+    };
     sort: string;
   };
 }
 
 export interface IFilters {
-  set: string;
-  class: string;
+  set: {
+    name: string;
+    value: string;
+  };
+  class: {
+    name: string;
+    value: string;
+  };
   manaCost: string[];
   attack: string;
   health: string;
@@ -92,6 +110,9 @@ export interface IFilters {
   minionType: string;
   keyword: string;
   textFilter: string;
-  gameMode: string;
+  gameMode: {
+    name: string;
+    value: string;
+  };
   sort: string;
 }

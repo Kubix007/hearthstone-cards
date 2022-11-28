@@ -9,12 +9,15 @@ import * as Styles from "./BrowseCards.style";
 import * as SharedStyles from "../../shared/styles";
 import CardsLayout from "../../components/CardsLayout";
 import FilterBar from "../../components/FilterBar";
+import FilterTags from "../../components/FilterTags";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const { filters } = useSelector((state: RootState) => state.filter);
-  const { cards } = useSelector((state: RootState) => state.cards);
+  const { cards, isLoading: isLoadingCards } = useSelector(
+    (state: RootState) => state.cards
+  );
 
   const { user, isLoading, isError, message } = useSelector(
     (state: RootState) => state.auth
@@ -39,18 +42,29 @@ const BrowseCards = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  return (
-    <SharedStyles.Container>
-      <FilterBar />
-      <Styles.CardsContainer>
-        <Styles.Cards>
-          {cards.cards.map((card) => (
-            <CardsLayout key={card.id} cards={card} />
-          ))}
-        </Styles.Cards>
-      </Styles.CardsContainer>
-    </SharedStyles.Container>
-  );
+
+  if (isLoadingCards) {
+    return (
+      <SharedStyles.Container>
+        <FilterBar />
+        <Spinner />
+      </SharedStyles.Container>
+    );
+  } else {
+    return (
+      <SharedStyles.Container>
+        <FilterBar />
+        <FilterTags />
+        <Styles.CardsContainer>
+          <Styles.Cards>
+            {cards.cards.map((card) => (
+              <CardsLayout key={card.id} cards={card} />
+            ))}
+          </Styles.Cards>
+        </Styles.CardsContainer>
+      </SharedStyles.Container>
+    );
+  }
 };
 
 export default BrowseCards;

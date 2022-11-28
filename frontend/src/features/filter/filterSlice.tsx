@@ -7,8 +7,14 @@ const initialState: IFilterState = {
     perPage: 30,
   },
   filters: {
-    set: "",
-    class: "",
+    set: {
+      name: "Karty standardowe",
+      value: "standard",
+    },
+    class: {
+      name: "Wszystkie klasy",
+      value: "",
+    },
     manaCost: [],
     attack: "",
     health: "",
@@ -17,7 +23,10 @@ const initialState: IFilterState = {
     minionType: "",
     keyword: "",
     textFilter: "",
-    gameMode: "",
+    gameMode: {
+      name: "",
+      value: "",
+    },
     sort: "",
   },
 };
@@ -41,11 +50,17 @@ export const filterSlice = createSlice({
         (x) => x !== action.payload
       );
     },
+    clearManaCost(state, action) {
+      state.filters.manaCost = action.payload;
+    },
     changeClass(state, action) {
       state.filters.class = action.payload;
     },
     changeSet(state, action) {
       state.filters.set = action.payload;
+    },
+    changeGameMode(state, action) {
+      state.filters.gameMode = action.payload;
     },
   },
 });
@@ -58,5 +73,7 @@ export const {
   reduceManaCost,
   changeClass,
   changeSet,
+  changeGameMode,
+  clearManaCost,
 } = filterSlice.actions;
 export default filterSlice.reducer;

@@ -9,3 +9,19 @@ body {
   font-family: "BelweBoldBT";
   src: local("BelweBoldBT"), url(./fonts/BelweBoldBT.ttf) format("opentype");
 }
+
+@font-face {
+  font-family: "BelweLightBT";
+  src: local("BelweLightBT"), url(./fonts/BelweLightBT.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: "BelweMediumBT";
+  src: local("BelweMediumBT"), url(./fonts/BelweMediumBT.ttf) format("opentype");
+}
+
+@font-face {
+  font-family: "BelweCondensedBT";
+  src: local("BelweCondensedBT"),
+    url(./fonts/BelweCondensedBT.ttf) format("opentype");
+}

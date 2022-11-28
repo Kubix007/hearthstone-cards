@@ -4,7 +4,10 @@ import * as Styles from "./TypeCardsFilter.style";
 import TypeCardImage from "./TypeCardImage";
 import { AppDispatch } from "../../../app/store";
 import { useDispatch } from "react-redux";
-import { changeSet } from "../../../features/filter/filterSlice";
+import {
+  changeSet,
+  changeGameMode,
+} from "../../../features/filter/filterSlice";
 
 const typeCards = [
   { name: "Karty standardowe", type: "none", value: "standard" },
@@ -111,11 +114,31 @@ const typeCards = [
 
 const TypeCardsFilter = () => {
   const dispatch: AppDispatch = useDispatch();
-  const [typeCardName, setTypeCardName] = useState("standard");
+  const [typeCardName, setTypeCardName] = useState({
+    name: "Karty standardowe",
+    value: "standard",
+  });
 
   const handleChange = (event: SelectChangeEvent) => {
-    setTypeCardName(event.target.value);
-    dispatch(changeSet(event.target.value));
+    const targetName = typeCards.filter((x) => x.value === event.target.value);
+    if (event.target.value === "arena" || event.target.value === "duels") {
+      dispatch(
+        changeGameMode({
+          value: event.target.value,
+          name: targetName[0].name,
+        })
+      );
+      dispatch(changeSet({ value: "", name: "" }));
+    } else {
+      dispatch(
+        changeSet({ value: event.target.value, name: targetName[0].name })
+      );
+      dispatch(changeGameMode({ value: "", name: "" }));
+    }
+    setTypeCardName({
+      name: targetName[0].name,
+      value: event.target.value,
+    });
   };
 
   return (
@@ -123,14 +146,14 @@ const TypeCardsFilter = () => {
       <Styles.LeftListLayout>
         <Styles.LeftListLogo>
           <TypeCardImage
-            svgImageName={typeCardName}
+            svgImageName={typeCardName.value}
             width="33px"
             height="33px"
           />
         </Styles.LeftListLogo>
       </Styles.LeftListLayout>
       <Styles.SelectClass
-        value={typeCardName}
+        value={typeCardName.value}
         onChange={handleChange}
         input={<Styles.SelectInput />}
         MenuProps={{

@@ -10,4 +10,5 @@ export const Cards = styled(Box)`
 
 export const CardsContainer = styled(Box)`
   display: flex;
+  margin-top: 20px;
 `;

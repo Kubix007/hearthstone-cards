@@ -45,6 +45,7 @@ const ManaCostFilter = () => {
         >
           {manaCrystals.map((item) => (
             <Styles.ManaCrystal
+              className="manaCrystal"
               id={item.toString()}
               onClick={handleClick}
               key={item}
