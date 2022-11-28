@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Box, InputBase, Select, Typography, MenuItem } from "@mui/material";
-import { ReactComponent as Arrow } from "../../img/Arrow.svg";
 import { Props } from "./ClassFilter.types";
 
 export const ClassFilterContainer = styled(Box)`
@@ -23,22 +22,6 @@ export const RightListLayout = styled(Box)`
 export const LeftListLogo = styled.img`
   margin-top: 10px;
   margin-left: 2px;
-`;
-
-export const ArrowDown = styled(Arrow)`
-  width: 17px;
-  height: 17px;
-  transform: rotate(-90deg);
-  margin-top: -3px;
-  margin-right: -28px;
-`;
-
-export const ArrowUp = styled(Arrow)`
-  width: 17px;
-  height: 17px;
-  transform: rotate(90deg);
-  margin-top: -3px;
-  margin-right: -28px;
 `;
 
 export const SelectClass = styled(Select)<Props>`

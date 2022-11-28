@@ -1,10 +1,10 @@
 import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
 import * as Styles from "./TypeCardsFilter.style";
-import TypeCardImage from "../TypeCardImage";
-import { AppDispatch } from "../../app/store";
+import TypeCardImage from "./TypeCardImage";
+import { AppDispatch } from "../../../app/store";
 import { useDispatch } from "react-redux";
-import { changeSet } from "../../features/filter/filterSlice";
+import { changeSet } from "../../../features/filter/filterSlice";
 
 const typeCards = [
   { name: "Karty standardowe", type: "none", value: "standard" },

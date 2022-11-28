@@ -1,8 +1,11 @@
 import React from "react";
 import * as Styles from "./ManaCostFilter.style";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../app/store";
-import { addManaCost, reduceManaCost } from "../../features/filter/filterSlice";
+import { AppDispatch } from "../../../app/store";
+import {
+  addManaCost,
+  reduceManaCost,
+} from "../../../features/filter/filterSlice";
 
 const ManaCostFilter = () => {
   const manaCrystals = [1, 2, 3, 4, 5, 6, 7, 8, 9, "10+"];

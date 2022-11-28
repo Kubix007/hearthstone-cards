@@ -2,8 +2,8 @@ import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
 import * as Styles from "./ClassFilter.style";
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../app/store";
-import { changeClass } from "../../features/filter/filterSlice";
+import { AppDispatch } from "../../../app/store";
+import { changeClass } from "../../../features/filter/filterSlice";
 
 const classes = [
   {
