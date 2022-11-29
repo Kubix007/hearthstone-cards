@@ -20,7 +20,10 @@ const initialState: IFilterState = {
       name: "Dowolny atak",
       value: "",
     },
-    health: "",
+    health: {
+      name: "Dowolne zdrowie",
+      value: "",
+    },
     rarity: "",
     type: "",
     minionType: "",
@@ -71,6 +74,9 @@ export const filterSlice = createSlice({
     changeAttack(state, action) {
       state.filters.attack = action.payload;
     },
+    changeHealth(state, action) {
+      state.filters.health = action.payload;
+    },
   },
 });
 
@@ -86,5 +92,6 @@ export const {
   clearManaCost,
   changeTextFilter,
   changeAttack,
+  changeHealth,
 } = filterSlice.actions;
 export default filterSlice.reducer;

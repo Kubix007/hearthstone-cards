@@ -82,7 +82,10 @@ export interface IFilterState {
       name: string;
       value: string;
     };
-    health: string;
+    health: {
+      name: string;
+      value: string;
+    };
     rarity: string;
     type: string;
     minionType: string;
@@ -110,7 +113,10 @@ export interface IFilters {
     name: string;
     value: string;
   };
-  health: string;
+  health: {
+    name: string;
+    value: string;
+  };
   rarity: string;
   type: string;
   minionType: string;

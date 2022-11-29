@@ -6,6 +6,8 @@ import {
   changeClass,
   clearManaCost,
   changeTextFilter,
+  changeAttack,
+  changeHealth,
 } from "../../features/filter/filterSlice";
 import FilterTagsButton from "./FIlterTagsButton";
 
@@ -62,6 +64,22 @@ const FilterTags = () => {
           filters={filters.textFilter}
           dispatchAction={changeTextFilter}
           initialValue={""}
+        />
+      ) : null}
+      {/* TextFilter ATTACK */}
+      {filters.attack.name && filters.attack.name !== "Dowolny atak" ? (
+        <FilterTagsButton
+          filters={filters.attack.name}
+          dispatchAction={changeAttack}
+          initialValue={{ value: "", name: "Dowolny atak" }}
+        />
+      ) : null}
+      {/* TextFilter HEALTH */}
+      {filters.health.name && filters.health.name !== "Dowolne zdrowie" ? (
+        <FilterTagsButton
+          filters={filters.health.name}
+          dispatchAction={changeHealth}
+          initialValue={{ value: "", name: "Dowolne zdrowie" }}
         />
       ) : null}
     </Styles.FilterTagsContainer>

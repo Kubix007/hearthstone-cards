@@ -1,11 +1,11 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
-import DetailsFilterAttackIcon from "../../../img/DetailsFilterImg/DetailsFilterAttackIcon.png";
-import * as Styles from "./DetailsFilterAttack.style";
 import { useDispatch } from "react-redux";
 import { changeAttack } from "../../../features/filter/filterSlice";
+import DetailsFilterAttackIcon from "../../../img/DetailsFilterImg/DetailsFilterAttackIcon.png";
+import * as Styles from "./DetailsFilterAttack.style";
 
 const attacks = [
   { name: "Dowolny atak", value: "Dowolny atak" },
@@ -41,6 +41,12 @@ const DetailsFilterAttack = () => {
     }
     dispatch(changeAttack({ name: targetName[0].name, value: value }));
   };
+
+  useEffect(() => {
+    if (filters.attack.value === "") {
+      setAttackNumber({ value: "Dowolny atak", name: filters.attack.name });
+    }
+  }, [filters.attack]);
 
   return (
     <Styles.Container>

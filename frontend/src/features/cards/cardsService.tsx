@@ -17,6 +17,7 @@ const getAllCards = async (filters: IFilters) => {
       gameMode: filters.gameMode.value,
       textFilter: filters.textFilter,
       attack: filters.attack.value,
+      health: filters.health.value,
     },
   };
 
