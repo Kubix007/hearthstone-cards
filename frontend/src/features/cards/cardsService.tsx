@@ -15,6 +15,7 @@ const getAllCards = async (filters: IFilters) => {
       class: filters.class.value,
       set: filters.set.value,
       gameMode: filters.gameMode.value,
+      textFilter: filters.textFilter,
     },
   };
 

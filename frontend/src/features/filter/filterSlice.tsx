@@ -62,6 +62,9 @@ export const filterSlice = createSlice({
     changeGameMode(state, action) {
       state.filters.gameMode = action.payload;
     },
+    changeTextFilter(state, action) {
+      state.filters.textFilter = action.payload;
+    },
   },
 });
 
@@ -75,5 +78,6 @@ export const {
   changeSet,
   changeGameMode,
   clearManaCost,
+  changeTextFilter,
 } = filterSlice.actions;
 export default filterSlice.reducer;
