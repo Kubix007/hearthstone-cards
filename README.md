@@ -1,5 +1,7 @@
 # hearthstone-cards
 Hearthstone-Cards (Work in progress)
 
-Backend: npm run server
-Frontend: npm start
+Backend: 
+"npm run server"
+Frontend: 
+"npm start"
