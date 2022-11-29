@@ -78,7 +78,10 @@ export interface IFilterState {
       value: string;
     };
     manaCost: string[];
-    attack: string;
+    attack: {
+      name: string;
+      value: string;
+    };
     health: string;
     rarity: string;
     type: string;
@@ -103,7 +106,10 @@ export interface IFilters {
     value: string;
   };
   manaCost: string[];
-  attack: string;
+  attack: {
+    name: string;
+    value: string;
+  };
   health: string;
   rarity: string;
   type: string;

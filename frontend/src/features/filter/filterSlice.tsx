@@ -16,7 +16,10 @@ const initialState: IFilterState = {
       value: "",
     },
     manaCost: [],
-    attack: "",
+    attack: {
+      name: "Dowolny atak",
+      value: "",
+    },
     health: "",
     rarity: "",
     type: "",
@@ -65,6 +68,9 @@ export const filterSlice = createSlice({
     changeTextFilter(state, action) {
       state.filters.textFilter = action.payload;
     },
+    changeAttack(state, action) {
+      state.filters.attack = action.payload;
+    },
   },
 });
 
@@ -79,5 +85,6 @@ export const {
   changeGameMode,
   clearManaCost,
   changeTextFilter,
+  changeAttack,
 } = filterSlice.actions;
 export default filterSlice.reducer;

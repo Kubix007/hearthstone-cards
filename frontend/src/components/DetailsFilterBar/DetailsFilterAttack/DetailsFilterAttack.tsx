@@ -1,27 +1,45 @@
 import { SelectChangeEvent } from "@mui/material";
 import { useState } from "react";
+import { useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import DetailsFilterAttackIcon from "../../../img/DetailsFilterImg/DetailsFilterAttackIcon.png";
 import * as Styles from "./DetailsFilterAttack.style";
+import { useDispatch } from "react-redux";
+import { changeAttack } from "../../../features/filter/filterSlice";
 
 const attacks = [
-  "Dowolny atak",
-  "Atak: 0",
-  "Atak: 1",
-  "Atak: 2",
-  "Atak: 3",
-  "Atak: 4",
-  "Atak: 5",
-  "Atak: 6",
-  "Atak: 7",
-  "Atak: 8",
-  "Atak: 9",
+  { name: "Dowolny atak", value: "Dowolny atak" },
+  { name: "Atak: 0", value: "0" },
+  { name: "Atak: 1", value: "1" },
+  { name: "Atak: 2", value: "2" },
+  { name: "Atak: 3", value: "3" },
+  { name: "Atak: 4", value: "4" },
+  { name: "Atak: 5", value: "5" },
+  { name: "Atak: 6", value: "6" },
+  { name: "Atak: 7", value: "7" },
+  { name: "Atak: 8", value: "8" },
+  { name: "Atak: 9", value: "9" },
 ];
 
 const DetailsFilterAttack = () => {
-  const [attackNumber, setAttackNumber] = useState("Dowolny atak");
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const dispatch: AppDispatch = useDispatch();
+  const [attackNumber, setAttackNumber] = useState({
+    value: "Dowolny atak",
+    name: "Dowolny atak",
+  });
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAttackNumber(event.target.value);
+    let value = event.target.value;
+    const targetName = attacks.filter((x) => x.value === value);
+    setAttackNumber({
+      value: attacks.filter((x) => x.value === value)[0].value,
+      name: attacks.filter((x) => x.value === value)[0].name,
+    });
+    if (value === "Dowolny atak") {
+      value = "";
+    }
+    dispatch(changeAttack({ name: targetName[0].name, value: value }));
   };
 
   return (
@@ -35,7 +53,7 @@ const DetailsFilterAttack = () => {
         />
       </Styles.LeftListLayout>
       <Styles.SelectClass
-        value={attackNumber}
+        value={attackNumber.value}
         onChange={handleChange}
         input={<Styles.SelectInput />}
         MenuProps={{
@@ -48,8 +66,8 @@ const DetailsFilterAttack = () => {
         }}
       >
         {attacks.map((item) => (
-          <Styles.SelectMenuItem key={item} value={item}>
-            <Styles.SelectName>{item}</Styles.SelectName>
+          <Styles.SelectMenuItem key={item.name} value={item.value}>
+            <Styles.SelectName>{item.name}</Styles.SelectName>
           </Styles.SelectMenuItem>
         ))}
       </Styles.SelectClass>

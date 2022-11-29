@@ -47,7 +47,11 @@ const SearchFilter = () => {
           endAdornment={
             <InputAdornment position="end">
               <IconButton edge="end">
-                <Styles.SearchIcon />
+                {inputValue ? (
+                  <Styles.ClearInputIcon onClick={() => setInputValue("")} />
+                ) : (
+                  <Styles.SearchIcon />
+                )}
               </IconButton>
             </InputAdornment>
           }

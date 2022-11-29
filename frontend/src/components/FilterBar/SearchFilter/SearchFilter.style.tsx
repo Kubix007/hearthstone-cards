@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Box, Input } from "@mui/material";
 import { ReactComponent as SearchIconSvg } from "../../../img/SearchIcon.svg";
+import { ReactComponent as ClearIconSvg } from "../../../img/ClearInputIcon.svg";
 
 export const SearchFilterContainer = styled(Box)`
   display: flex;
@@ -34,6 +35,11 @@ export const SearchInput = styled(Input)`
 `;
 
 export const SearchIcon = styled(SearchIconSvg)`
+  fill: gold;
+  height: 22px;
+`;
+
+export const ClearInputIcon = styled(ClearIconSvg)`
   fill: gold;
   height: 22px;
 `;

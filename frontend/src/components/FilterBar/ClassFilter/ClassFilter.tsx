@@ -76,20 +76,19 @@ const ClassFilter = () => {
       name: classes.filter((x) => x.name === filters.class.name)[0].value,
       image: classes.filter((x) => x.name === filters.class.name)[0].image,
     });
-  }, [filters]);
+  }, [filters.class]);
 
   const handleChange = (event: SelectChangeEvent) => {
-    const targetName = classes.filter((x) => x.value === event.target.value);
+    let value = event.target.value;
+    const targetName = classes.filter((x) => x.value === value);
     setClassName({
-      name: event.target.value,
-      image: classes.filter((x) => x.value === event.target.value)[0].image,
+      name: value,
+      image: classes.filter((x) => x.value === value)[0].image,
     });
-    if (event.target.value === "Wszystkie klasy") {
-      event.target.value = "";
+    if (value === "Wszystkie klasy") {
+      value = "";
     }
-    dispatch(
-      changeClass({ name: targetName[0].name, value: event.target.value })
-    );
+    dispatch(changeClass({ name: targetName[0].name, value: value }));
   };
   return (
     <Styles.ClassFilterContainer>
