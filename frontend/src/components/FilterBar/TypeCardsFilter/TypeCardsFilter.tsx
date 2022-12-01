@@ -143,9 +143,20 @@ const TypeCardsFilter = () => {
   };
 
   useEffect(() => {
-    setTypeCardName({ name: filters.set.name, value: filters.set.value });
-  }, [filters.set]);
-
+    if (typeCardName.value === "arena") {
+      setTypeCardName({
+        name: filters.gameMode.name,
+        value: filters.gameMode.value,
+      });
+    } else if (typeCardName.value === "duels") {
+      setTypeCardName({
+        name: filters.gameMode.name,
+        value: filters.gameMode.value,
+      });
+    } else {
+      setTypeCardName({ name: filters.set.name, value: filters.set.value });
+    }
+  }, [filters.set, filters.gameMode, typeCardName.value]);
   return (
     <Styles.TypeCardsFilterContainer>
       <Styles.LeftListLayout>
