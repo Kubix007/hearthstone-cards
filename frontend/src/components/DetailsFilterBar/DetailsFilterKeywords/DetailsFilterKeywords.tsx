@@ -1,66 +1,83 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
+import { changeKeyword } from "../../../features/filter/filterSlice";
 import * as Styles from "./DetailsFilterKeywords.style";
 
 const keywords = [
-  "Dowolne słowo kluczowe",
-  "Adaptuj",
-  "Agonia",
-  "Boska tarcza",
-  "Części zamienne",
-  "Dwuczar",
-  "Echo",
-  "Erupcja magii",
-  "Furia wichru",
-  "Honorowe zabójstwo",
-  "Inspiracja",
-  "Inwokuj",
-  "Kolos +X",
-  "Kombinacja",
-  "Kontra",
-  "Kradzież życia",
-  "Magnetyzm",
-  "Manomania (X)",
-  "Megafuria wichru",
-  "Nasyć",
-  "Niewrażliwość",
-  "Obłęd",
-  "Obrażenia zaklęć",
-  "Obrażenia zaklęć Natury",
-  "Odkryj",
-  "Odrodzenie",
-  "Okrzyk bojowy",
-  "Początek gry",
-  "Prowokacja",
-  "Przeciążenie",
-  "Rekrutuj",
-  "Rzeź",
-  "Sekret",
-  "Seria zadań",
-  "Sługus",
-  "Splugawienie",
-  "Szarża",
-  "Trucizna",
-  "Trup",
-  "Ukrycie",
-  "Wyciszenie",
-  "Wyłów kartę",
-  "Wymiana",
-  "Wyrzutek",
-  "Zadanie",
-  "Zadanie poboczne",
-  "Zamrożenie",
-  "Zryw",
+  { name: "Dowolne słowo kluczowe", value: "Dowolne słowo kluczowe" },
+  { name: "Adaptuj", value: "adapt" },
+  { name: "Agonia", value: "deathrattle" },
+  { name: "Boska tarcza", value: "divine-shield" },
+  { name: "Części zamienne", value: "spare-part" },
+  { name: "Dwuczar", value: "twinspell" },
+  { name: "Echo", value: "echo" },
+  { name: "Erupcja magii", value: "spellburst" },
+  { name: "Furia wichru", value: "windfury" },
+  { name: "Honorowe zabójstwo", value: "honorablekill" },
+  { name: "Inspiracja", value: "inspire" },
+  { name: "Inwokuj", value: "empower" },
+  { name: "Kolos +X", value: "colossal" },
+  { name: "Kombinacja", value: "combo" },
+  { name: "Kontra", value: "counter" },
+  { name: "Kradzież życia", value: "lifesteal" },
+  { name: "Magnetyzm", value: "modular" },
+  { name: "Manomania (X)", value: "manathirst" },
+  { name: "Megafuria wichru", value: "mega-windfury" },
+  { name: "Nasyć", value: "infuse" },
+  { name: "Niewrażliwość", value: "immune" },
+  { name: "Obłęd", value: "frenzy" },
+  { name: "Obrażenia zaklęć", value: "spellpower" },
+  { name: "Obrażenia zaklęć Natury", value: "spellpowernature" },
+  { name: "Odkryj", value: "discover" },
+  { name: "Odrodzenie", value: "reborn" },
+  { name: "Okrzyk bojowy", value: "battlecry" },
+  { name: "Początek gry", value: "startofgamekeyword" },
+  { name: "Prowokacja", value: "taunt" },
+  { name: "Przeciążenie", value: "overload" },
+  { name: "Rekrutuj", value: "recruit" },
+  { name: "Rzeź", value: "overkill" },
+  { name: "Sekret", value: "secret" },
+  { name: "Seria zadań", value: "questline" },
+  { name: "Sługus", value: "evilzug" },
+  { name: "Splugawienie", value: "corrupt" },
+  { name: "Szarża", value: "charge" },
+  { name: "Trucizna", value: "poisonous" },
+  { name: "Trup", value: "corpse" },
+  { name: "Ukrycie", value: "stealth" },
+  { name: "Wyciszenie", value: "silence" },
+  { name: "Wyłów kartę", value: "dredge" },
+  { name: "Wymiana", value: "trade" },
+  { name: "Wyrzutek", value: "outcast" },
+  { name: "Zadanie", value: "quest" },
+  { name: "Zadanie poboczne", value: "sidequest" },
+  { name: "Zamrożenie", value: "freeze" },
+  { name: "Zryw", value: "rush" },
 ];
 
 const DetailsFilterKeywords = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const dispatch: AppDispatch = useDispatch();
   const [selectedKeyword, setSelectedKeyword] = useState(
     "Dowolne słowo kluczowe"
   );
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectedKeyword(event.target.value);
+    let value = event.target.value;
+    const targetName = keywords.filter((x) => x.value === value);
+    setSelectedKeyword(value);
+    if (value === "Dowolne słowo kluczowe") {
+      value = "";
+    }
+    dispatch(changeKeyword({ name: targetName[0].name, value }));
   };
+
+  useEffect(() => {
+    if (filters.keyword.value === "") {
+      setSelectedKeyword("Dowolne słowo kluczowe");
+    }
+  }, [filters.keyword]);
 
   return (
     <Styles.Container>
@@ -80,8 +97,8 @@ const DetailsFilterKeywords = () => {
         }}
       >
         {keywords.map((item) => (
-          <Styles.SelectMenuItem key={item} value={item}>
-            <Styles.SelectName>{item}</Styles.SelectName>
+          <Styles.SelectMenuItem key={item.name} value={item.value}>
+            <Styles.SelectName>{item.name}</Styles.SelectName>
           </Styles.SelectMenuItem>
         ))}
       </Styles.SelectClass>

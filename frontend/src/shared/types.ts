@@ -86,10 +86,26 @@ export interface IFilterState {
       name: string;
       value: string;
     };
-    rarity: string;
-    type: string;
-    minionType: string;
-    keyword: string;
+    rarity: {
+      name: string;
+      value: string;
+    };
+    type: {
+      name: string;
+      value: string;
+    };
+    minionType: {
+      name: string;
+      value: string;
+    };
+    keyword: {
+      name: string;
+      value: string;
+    };
+    spellSchool: {
+      name: string;
+      value: string;
+    };
     textFilter: string;
     gameMode: {
       name: string;
@@ -117,10 +133,26 @@ export interface IFilters {
     name: string;
     value: string;
   };
-  rarity: string;
-  type: string;
-  minionType: string;
-  keyword: string;
+  rarity: {
+    name: string;
+    value: string;
+  };
+  spellSchool: {
+    name: string;
+    value: string;
+  };
+  type: {
+    name: string;
+    value: string;
+  };
+  minionType: {
+    name: string;
+    value: string;
+  };
+  keyword: {
+    name: string;
+    value: string;
+  };
   textFilter: string;
   gameMode: {
     name: string;

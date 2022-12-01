@@ -1,28 +1,48 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Styles from "./DetailsFilterMinionType.style";
+import { changeMinionType } from "../../../features/filter/filterSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 
 const minionType = [
-  "Dowolny typ stronnika",
-  "Bestia",
-  "Demon",
-  "Kolcozwierz",
-  "Mech",
-  "Murlok",
-  "Naga",
-  "Nieumarły",
-  "Pirat",
-  "Smok",
+  { name: "Dowolny typ stronnika", value: "Dowolny typ stronnika" },
+  { name: "Bestia", value: "beast" },
+  { name: "Demon", value: "demon" },
+  { name: "Kolcozwierz", value: "quilboar" },
+  { name: "Mech", value: "mech" },
+  { name: "Murlok", value: "murloc" },
+  { name: "Naga", value: "naga" },
+  { name: "Nieumarły", value: "undead" },
+  { name: "Pirat", value: "pirate" },
+  { name: "Smok", value: "dragon" },
+  { name: "Totem", value: "totem" },
+  { name: "Wszystkie", value: "all" },
+  { name: "Żwywiołak", value: "elemental" },
 ];
 
 const DetailsFilterMinionType = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const dispatch: AppDispatch = useDispatch();
   const [selectedMinionType, setSelectedMinionType] = useState(
     "Dowolny typ stronnika"
   );
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectedMinionType(event.target.value);
+    let value = event.target.value;
+    const targetName = minionType.filter((x) => x.value === value);
+    setSelectedMinionType(value);
+    if (value === "Dowolny typ stronnika") {
+      value = "";
+    }
+    dispatch(changeMinionType({ name: targetName[0].name, value }));
   };
+
+  useEffect(() => {
+    if (filters.minionType.value === "") {
+      setSelectedMinionType("Dowolny typ stronnika");
+    }
+  }, [filters.minionType]);
 
   return (
     <Styles.Container>
@@ -41,8 +61,8 @@ const DetailsFilterMinionType = () => {
         }}
       >
         {minionType.map((item) => (
-          <Styles.SelectMenuItem key={item} value={item}>
-            <Styles.SelectName>{item}</Styles.SelectName>
+          <Styles.SelectMenuItem key={item.name} value={item.value}>
+            <Styles.SelectName>{item.name}</Styles.SelectName>
           </Styles.SelectMenuItem>
         ))}
       </Styles.SelectClass>

@@ -8,6 +8,11 @@ import {
   changeTextFilter,
   changeAttack,
   changeHealth,
+  changeTypeCard,
+  changeMinionType,
+  changeSpellSchool,
+  changeRarity,
+  changeKeyword,
 } from "../../features/filter/filterSlice";
 import FilterTagsButton from "./FIlterTagsButton";
 
@@ -80,6 +85,51 @@ const FilterTags = () => {
           filters={filters.health.name}
           dispatchAction={changeHealth}
           initialValue={{ value: "", name: "Dowolne zdrowie" }}
+        />
+      ) : null}
+      {/* TextFilter TYPE CARD */}
+      {filters.type.name && filters.type.name !== "Dowolny rodzaj karty" ? (
+        <FilterTagsButton
+          filters={filters.type.name}
+          dispatchAction={changeTypeCard}
+          initialValue={{ value: "", name: "Dowolny rodzaj karty" }}
+        />
+      ) : null}
+      {/* TextFilter MINION TYPE */}
+
+      {filters.minionType.name &&
+      filters.minionType.name !== "Dowolny typ stronnika" ? (
+        <FilterTagsButton
+          filters={filters.minionType.name}
+          dispatchAction={changeMinionType}
+          initialValue={{ value: "", name: "Dowolny typ stronnika" }}
+        />
+      ) : null}
+      {/* TextFilter SPELL SCHOOL */}
+      {filters.spellSchool.name &&
+      filters.spellSchool.name !== "Dowolna szkoła zaklęć" ? (
+        <FilterTagsButton
+          filters={filters.spellSchool.name}
+          dispatchAction={changeSpellSchool}
+          initialValue={{ value: "", name: "Dowolna szkoła zaklęć" }}
+        />
+      ) : null}
+      {/* TextFilter RARITY */}
+
+      {filters.rarity.name && filters.rarity.name !== "Dowolna rzadkość" ? (
+        <FilterTagsButton
+          filters={filters.rarity.name}
+          dispatchAction={changeRarity}
+          initialValue={{ value: "", name: "Dowolna rzadkość" }}
+        />
+      ) : null}
+      {/* TextFilter KEYWORD */}
+      {filters.keyword.name &&
+      filters.keyword.name !== "Dowolne słowo kluczowe" ? (
+        <FilterTagsButton
+          filters={filters.keyword.name}
+          dispatchAction={changeKeyword}
+          initialValue={{ value: "", name: "Dowolne słowo kluczowe" }}
         />
       ) : null}
     </Styles.FilterTagsContainer>

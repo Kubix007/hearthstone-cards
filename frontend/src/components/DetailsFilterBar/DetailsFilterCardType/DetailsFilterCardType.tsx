@@ -1,24 +1,41 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import * as Styles from "./DetailsFilterCardType.style";
+import { changeTypeCard } from "../../../features/filter/filterSlice";
 
 const typeCard = [
-  "Dowolny rodzaj karty",
-  "Bohater",
-  "Stronnik",
-  "Zaklęcie",
-  "Broń",
-  "Lokalizacja",
+  { name: "Dowolny rodzaj karty", value: "Dowolny rodzaj karty" },
+  { name: "Bohater", value: "hero" },
+  { name: "Stronnik", value: "minion" },
+  { name: "Zaklęcie", value: "spell" },
+  { name: "Broń", value: "weapon" },
+  { name: "Lokalizacja", value: "location" },
 ];
 
 const DetailsFilterCardType = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const dispatch: AppDispatch = useDispatch();
   const [selectedTypeCard, setSelectedTypeCard] = useState(
     "Dowolny rodzaj karty"
   );
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectedTypeCard(event.target.value);
+    let value = event.target.value;
+    const targetName = typeCard.filter((x) => x.value === value);
+    setSelectedTypeCard(value);
+    if (value === "Dowolny rodzaj karty") {
+      value = "";
+    }
+    dispatch(changeTypeCard({ name: targetName[0].name, value }));
   };
+
+  useEffect(() => {
+    if (filters.type.value === "") {
+      setSelectedTypeCard("Dowolny rodzaj karty");
+    }
+  }, [filters.type]);
 
   return (
     <Styles.Container>
@@ -37,8 +54,8 @@ const DetailsFilterCardType = () => {
         }}
       >
         {typeCard.map((item) => (
-          <Styles.SelectMenuItem key={item} value={item}>
-            <Styles.SelectName>{item}</Styles.SelectName>
+          <Styles.SelectMenuItem key={item.name} value={item.value}>
+            <Styles.SelectName>{item.name}</Styles.SelectName>
           </Styles.SelectMenuItem>
         ))}
       </Styles.SelectClass>

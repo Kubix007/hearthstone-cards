@@ -24,10 +24,26 @@ const initialState: IFilterState = {
       name: "Dowolne zdrowie",
       value: "",
     },
-    rarity: "",
-    type: "",
-    minionType: "",
-    keyword: "",
+    rarity: {
+      name: "Dowolna rzadkość",
+      value: "",
+    },
+    spellSchool: {
+      name: "Dowolna szkoła zaklęć",
+      value: "",
+    },
+    type: {
+      name: "Dowolny rodzaj karty",
+      value: "",
+    },
+    minionType: {
+      name: "Dowolny typ stronnika",
+      value: "",
+    },
+    keyword: {
+      name: "Dowolne słowo kluczowe",
+      value: "",
+    },
     textFilter: "",
     gameMode: {
       name: "",
@@ -77,6 +93,21 @@ export const filterSlice = createSlice({
     changeHealth(state, action) {
       state.filters.health = action.payload;
     },
+    changeTypeCard(state, action) {
+      state.filters.type = action.payload;
+    },
+    changeMinionType(state, action) {
+      state.filters.minionType = action.payload;
+    },
+    changeSpellSchool(state, action) {
+      state.filters.spellSchool = action.payload;
+    },
+    changeRarity(state, action) {
+      state.filters.rarity = action.payload;
+    },
+    changeKeyword(state, action) {
+      state.filters.keyword = action.payload;
+    },
   },
 });
 
@@ -93,5 +124,10 @@ export const {
   changeTextFilter,
   changeAttack,
   changeHealth,
+  changeTypeCard,
+  changeMinionType,
+  changeSpellSchool,
+  changeRarity,
+  changeKeyword,
 } = filterSlice.actions;
 export default filterSlice.reducer;

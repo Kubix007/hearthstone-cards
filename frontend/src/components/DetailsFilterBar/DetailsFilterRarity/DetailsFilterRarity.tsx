@@ -1,22 +1,39 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
+import { changeRarity } from "../../../features/filter/filterSlice";
 import * as Styles from "./DetailsFilterRarity.style";
 
 const rarity = [
-  "Dowolna rzadkość",
-  "Zwykła",
-  "Za darmo",
-  "Rzadko",
-  "Epicka",
-  "Legendarna",
+  { name: "Dowolna rzadkość", value: "Dowolna rzadkość" },
+  { name: "Zwykła", value: "common" },
+  { name: "Za darmo", value: "free" },
+  { name: "Rzadko", value: "rare" },
+  { name: "Epicka", value: "epic" },
+  { name: "Legendarna", value: "legendary" },
 ];
 
 const DetailsFilterRarity = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const dispatch: AppDispatch = useDispatch();
   const [selectedRarity, setSelectedRarity] = useState("Dowolna rzadkość");
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectedRarity(event.target.value);
+    let value = event.target.value;
+    const targetName = rarity.filter((x) => x.value === value);
+    setSelectedRarity(value);
+    if (value === "Dowolna rzadkość") {
+      value = "";
+    }
+    dispatch(changeRarity({ name: targetName[0].name, value }));
   };
+
+  useEffect(() => {
+    if (filters.rarity.value === "") {
+      setSelectedRarity("Dowolna rzadkość");
+    }
+  }, [filters.rarity]);
 
   return (
     <Styles.Container>
@@ -35,8 +52,8 @@ const DetailsFilterRarity = () => {
         }}
       >
         {rarity.map((item) => (
-          <Styles.SelectMenuItem key={item} value={item}>
-            <Styles.SelectName>{item}</Styles.SelectName>
+          <Styles.SelectMenuItem key={item.name} value={item.value}>
+            <Styles.SelectName>{item.name}</Styles.SelectName>
           </Styles.SelectMenuItem>
         ))}
       </Styles.SelectClass>

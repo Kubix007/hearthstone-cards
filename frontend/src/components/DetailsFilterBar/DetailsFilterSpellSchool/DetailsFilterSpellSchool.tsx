@@ -1,26 +1,43 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
+import { changeSpellSchool } from "../../../features/filter/filterSlice";
 import * as Styles from "./DetailsFilterSpellSchool.style";
 
 const spellSchools = [
-  "Dowolna szkoła zaklęć",
-  "Moc tajemna",
-  "Ogień",
-  "Lód",
-  "Natura",
-  "Świętość",
-  "Cień",
-  "Spaczenie",
+  { name: "Dowolna szkoła zaklęć", value: "Dowolna szkoła zaklęć" },
+  { name: "Moc tajemna", value: "arcane" },
+  { name: "Ogień", value: "fire" },
+  { name: "Lód", value: "frost" },
+  { name: "Natura", value: "nature" },
+  { name: "Świętość", value: "holy" },
+  { name: "Cień", value: "shadow" },
+  { name: "Spaczenie", value: "fel" },
 ];
 
 const DetailsFilterSpellSchool = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const dispatch: AppDispatch = useDispatch();
   const [selectedSpellSchool, setSelectedSpellSchool] = useState(
     "Dowolna szkoła zaklęć"
   );
 
   const handleChange = (event: SelectChangeEvent) => {
-    setSelectedSpellSchool(event.target.value);
+    let value = event.target.value;
+    const targetName = spellSchools.filter((x) => x.value === value);
+    setSelectedSpellSchool(value);
+    if (value === "Dowolna szkoła zaklęć") {
+      value = "";
+    }
+    dispatch(changeSpellSchool({ name: targetName[0].name, value }));
   };
+
+  useEffect(() => {
+    if (filters.spellSchool.value === "") {
+      setSelectedSpellSchool("Dowolna szkoła zaklęć");
+    }
+  }, [filters.spellSchool]);
 
   return (
     <Styles.Container>
@@ -39,8 +56,8 @@ const DetailsFilterSpellSchool = () => {
         }}
       >
         {spellSchools.map((item) => (
-          <Styles.SelectMenuItem key={item} value={item}>
-            <Styles.SelectName>{item}</Styles.SelectName>
+          <Styles.SelectMenuItem key={item.name} value={item.value}>
+            <Styles.SelectName>{item.name}</Styles.SelectName>
           </Styles.SelectMenuItem>
         ))}
       </Styles.SelectClass>
