@@ -9,9 +9,9 @@ export interface IAuthState {
 export interface ICardsState {
   cards: {
     cards: ICardData[];
-    cardCount: number;
-    pageCount: number;
-    page: number;
+    cardCount: number | null;
+    pageCount: number | null;
+    page: number | null;
   };
   isError: boolean;
   isSuccess: boolean;

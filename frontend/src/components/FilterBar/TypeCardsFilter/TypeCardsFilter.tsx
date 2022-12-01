@@ -1,9 +1,9 @@
 import { SelectChangeEvent } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Styles from "./TypeCardsFilter.style";
 import TypeCardImage from "./TypeCardImage";
-import { AppDispatch } from "../../../app/store";
-import { useDispatch } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
 import {
   changeSet,
   changeGameMode,
@@ -113,6 +113,7 @@ const typeCards = [
 ];
 
 const TypeCardsFilter = () => {
+  const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
   const [typeCardName, setTypeCardName] = useState({
     name: "Karty standardowe",
@@ -140,6 +141,10 @@ const TypeCardsFilter = () => {
       value: event.target.value,
     });
   };
+
+  useEffect(() => {
+    setTypeCardName({ name: filters.set.name, value: filters.set.value });
+  }, [filters.set]);
 
   return (
     <Styles.TypeCardsFilterContainer>

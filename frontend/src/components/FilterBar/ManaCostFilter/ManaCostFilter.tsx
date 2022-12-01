@@ -8,7 +8,7 @@ import {
 } from "../../../features/filter/filterSlice";
 
 const ManaCostFilter = () => {
-  const manaCrystals = [1, 2, 3, 4, 5, 6, 7, 8, 9, "10+"];
+  const manaCrystals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "10+"];
   const dispatch: AppDispatch = useDispatch();
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {

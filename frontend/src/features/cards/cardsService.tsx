@@ -2,7 +2,7 @@ import axios from "axios";
 import { IFilters } from "../../shared/types";
 
 const API_URL = "https://us.api.blizzard.com/hearthstone/";
-const ACCESS_TOKEN = "EURzfdOVYjj6N1VyXbld96E2id7PAVE86f";
+const ACCESS_TOKEN = "EUea3sXZKaRFGbyWCEX7rJRjWfZE58S6Kz";
 const LOCALE = "pl_pl";
 
 // Get all cards

@@ -14,7 +14,7 @@ export const ManaCostFilterContainer = styled.div`
 export const ManaCostFilterContainerCenter = styled.div`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/search_middle_stretch-ea2c7bde67b73e83e192c5a6a952519dfcad9041f4eada47653141ee06d51a316268240dd2d5cd1b8ba704ce64b213cf824f82c31ac05cc7dcedd5d584d793b9.png)
     center center;
-  width: 355px;
+  width: 390px;
   height: 58px;
 `;
 

@@ -5,9 +5,9 @@ import cardService from "./cardsService";
 const initialState: ICardsState = {
   cards: {
     cards: [],
-    cardCount: 0,
-    pageCount: 0,
-    page: 0,
+    cardCount: null,
+    pageCount: null,
+    page: null,
   },
   isError: false,
   isSuccess: false,

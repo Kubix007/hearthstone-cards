@@ -10,6 +10,7 @@ import * as SharedStyles from "../../shared/styles";
 import CardsLayout from "../../components/CardsLayout";
 import FilterBar from "../../components/FilterBar";
 import FilterTags from "../../components/FilterTags";
+import NoResultInfo from "../../components/FilterBar/NoResultInfo";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -55,13 +56,17 @@ const BrowseCards = () => {
       <SharedStyles.Container>
         <FilterBar />
         <FilterTags />
-        <Styles.CardsContainer>
-          <Styles.Cards>
-            {cards.cards.map((card) => (
-              <CardsLayout key={card.id} cards={card} />
-            ))}
-          </Styles.Cards>
-        </Styles.CardsContainer>
+        {cards.cardCount === 0 ? (
+          <NoResultInfo />
+        ) : (
+          <Styles.CardsContainer>
+            <Styles.Cards>
+              {cards.cards.map((card) => (
+                <CardsLayout key={card.id} cards={card} />
+              ))}
+            </Styles.Cards>
+          </Styles.CardsContainer>
+        )}
       </SharedStyles.Container>
     );
   }
