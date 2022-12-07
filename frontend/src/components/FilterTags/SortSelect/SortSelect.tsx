@@ -8,8 +8,8 @@ import * as Styles from "./SortSelect.style";
 const sortType = [
   { name: "Mana: rosnąco", value: "manaCost:asc" },
   { name: "Mana: malejąco", value: "manaCost:desc" },
-  { name: "Nazwa karta: od A do Z", value: "name:asc" },
-  { name: "Nazwa karta: od Z do A", value: "name:desc" },
+  { name: "Nazwa karty: od A do Z", value: "name:asc" },
+  { name: "Nazwa karty: od Z do A", value: "name:desc" },
   { name: "Atak: rosnąco", value: "attack:asc" },
   { name: "Atak: malejąco", value: "attack:desc" },
   { name: "Zdrowie: rosnąco", value: "health:asc" },

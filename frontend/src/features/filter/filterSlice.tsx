@@ -50,7 +50,7 @@ const initialState: IFilterState = {
       value: "",
     },
     sort: {
-      name: "Nazwa karta: od A do Z",
+      name: "Nazwa karty: od A do Z",
       value: "name:asc",
     },
   },
