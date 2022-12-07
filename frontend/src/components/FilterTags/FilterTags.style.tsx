@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 import styled from "styled-components";
 
 export const FilterTagsContainer = styled(Grid)`
@@ -11,4 +11,9 @@ export const MainTag = styled(Grid)`
   font-family: "BelweLightBT";
   font-weight: bold;
   font-size: 18px;
+`;
+
+export const TagsContainer = styled(Box)`
+  display: flex;
+  align-items: center;
 `;

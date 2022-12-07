@@ -49,7 +49,10 @@ const initialState: IFilterState = {
       name: "",
       value: "",
     },
-    sort: "",
+    sort: {
+      name: "Nazwa karta: od A do Z",
+      value: "name:asc",
+    },
   },
 };
 
@@ -108,6 +111,9 @@ export const filterSlice = createSlice({
     changeKeyword(state, action) {
       state.filters.keyword = action.payload;
     },
+    changeSortType(state, action) {
+      state.filters.sort = action.payload;
+    },
   },
 });
 
@@ -129,5 +135,6 @@ export const {
   changeSpellSchool,
   changeRarity,
   changeKeyword,
+  changeSortType,
 } = filterSlice.actions;
 export default filterSlice.reducer;

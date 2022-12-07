@@ -9,7 +9,6 @@ export const FilterTags = styled(Button)`
     border-radius: 15px;
     padding: 3px 10px;
     margin-left: 5px;
-    margin-bottom: 10px;
     font-family: BelweMediumBT;
     font-size: 14px;
     text-transform: none;

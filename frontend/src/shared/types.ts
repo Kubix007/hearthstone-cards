@@ -111,7 +111,10 @@ export interface IFilterState {
       name: string;
       value: string;
     };
-    sort: string;
+    sort: {
+      name: string;
+      value: string;
+    };
   };
 }
 
@@ -158,5 +161,8 @@ export interface IFilters {
     name: string;
     value: string;
   };
-  sort: string;
+  sort: {
+    name: string;
+    value: string;
+  };
 }

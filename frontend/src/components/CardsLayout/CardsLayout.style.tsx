@@ -5,6 +5,8 @@ export const Container = styled.div`
   transition: transform 0.4s;
   &:hover {
     transform: scale(1.2);
+    filter: drop-shadow(rgb(255, 255, 255) 0px 0px 20px);
+}
   }
 `;
 

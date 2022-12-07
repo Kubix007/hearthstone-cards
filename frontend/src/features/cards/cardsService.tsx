@@ -2,7 +2,7 @@ import axios from "axios";
 import { IFilters } from "../../shared/types";
 
 const API_URL = "https://us.api.blizzard.com/hearthstone/";
-const ACCESS_TOKEN = "EUea3sXZKaRFGbyWCEX7rJRjWfZE58S6Kz";
+const ACCESS_TOKEN = "EUPoE73oh87l5r9cs2DvGGsu2CS5VqjeX5";
 const LOCALE = "pl_pl";
 
 // Get all cards
@@ -23,6 +23,7 @@ const getAllCards = async (filters: IFilters) => {
       spellSchool: filters.spellSchool.value,
       rarity: filters.rarity.value,
       keyword: filters.keyword.value,
+      sort: filters.sort.value,
     },
   };
 
