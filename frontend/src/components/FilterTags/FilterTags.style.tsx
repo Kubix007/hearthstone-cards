@@ -1,9 +1,7 @@
 import { Box, Grid } from "@mui/material";
 import styled from "styled-components";
 
-export const FilterTagsContainer = styled(Grid)`
-  margin-left: 50px;
-`;
+export const FilterTagsContainer = styled(Grid)``;
 
 export const MainTag = styled(Grid)`
   margin-left: 10px;

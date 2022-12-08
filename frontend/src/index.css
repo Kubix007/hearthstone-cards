@@ -25,3 +25,8 @@ body {
   src: local("BelweCondensedBT"),
     url(./fonts/BelweCondensedBT.ttf) format("opentype");
 }
+
+* {
+  margin: 0;
+  padding: 0;
+}
