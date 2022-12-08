@@ -1,39 +1,16 @@
-import { Popover, Typography } from "@mui/material";
-import React from "react";
+import * as Styles from "./CardsInfoModal.styles";
 import * as Types from "./CardsInfoModal.types";
 
-const CardsInfoModal = ({
-  anchorEl,
-  setAnchorEl,
-  handlePopoverClose,
-  handlePopoverOpen,
-  text,
-}: Types.Props) => {
-  const open = Boolean(anchorEl);
-
+const CardsInfoModal = ({ description, title }: Types.Props) => {
   return (
-    <div>
-      <Popover
-        id="mouse-over-popover"
-        sx={{
-          pointerEvents: "none",
-        }}
-        open={open}
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: "center",
-          horizontal: "right",
-        }}
-        transformOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
-        onClose={handlePopoverClose}
-        disableRestoreFocus
-      >
-        <Typography sx={{ p: 1 }}>{text}</Typography>
-      </Popover>
-    </div>
+    <Styles.ModalContainer>
+      <Styles.TopBorder />
+      <Styles.TextWrapper>
+        <Styles.Title>{title}</Styles.Title>
+        <Styles.Description>{description}</Styles.Description>
+      </Styles.TextWrapper>
+      <Styles.BottomBorder />
+    </Styles.ModalContainer>
   );
 };
 

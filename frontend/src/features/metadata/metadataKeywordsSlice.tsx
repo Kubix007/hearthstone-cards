@@ -3,14 +3,9 @@ import { IMetadataKeywordsState } from "../../shared/types";
 import metadataService from "./metadataKeywordsService";
 
 const initialState: IMetadataKeywordsState = {
-  keywords: {
-    id: 0,
-    slug: "",
-    name: "",
-    refText: "",
-    text: "",
-    gameModes: [],
-  },
+  keywords: [
+    { id: 0, slug: "", name: "", refText: "", text: "", gameModes: [] },
+  ],
   isLoading: false,
   isSuccess: false,
   isError: false,

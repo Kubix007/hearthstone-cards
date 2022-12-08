@@ -2,7 +2,7 @@ import * as Styles from "./CardsLayout.style";
 import { useState } from "react";
 import { Grow } from "@mui/material";
 import * as Types from "./CardsLayout.types";
-import CardsInfoModal from "./CardsInfoModal";
+import CardsInfoPopover from "./CardsInfoPopover";
 import React from "react";
 
 const CardsLayout = ({ cards }: Types.Props) => {
@@ -29,13 +29,15 @@ const CardsLayout = ({ cards }: Types.Props) => {
           />
         </Styles.Card>
       </Grow>
-      <CardsInfoModal
-        text={cards.text}
-        anchorEl={anchorEl}
-        setAnchorEl={setAnchorEl}
-        handlePopoverClose={handlePopoverClose}
-        handlePopoverOpen={handlePopoverOpen}
-      />
+      {cards.keywordIds ? (
+        <CardsInfoPopover
+          keywordsIds={cards.keywordIds}
+          anchorEl={anchorEl}
+          setAnchorEl={setAnchorEl}
+          handlePopoverClose={handlePopoverClose}
+          handlePopoverOpen={handlePopoverOpen}
+        />
+      ) : null}
     </Styles.Container>
   );
 };

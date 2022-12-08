@@ -30,6 +30,7 @@ const SortSelect = () => {
 
   return (
     <Styles.Container>
+      <Styles.InfoLabel>Sortowanie:</Styles.InfoLabel>
       <Styles.LeftListLayout />
       <Styles.SelectClass
         value={selectedSortType}

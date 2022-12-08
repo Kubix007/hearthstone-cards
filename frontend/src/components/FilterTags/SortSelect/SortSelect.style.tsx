@@ -54,3 +54,10 @@ export const SelectName = styled(Typography)`
 export const SelectMenuItem = styled(MenuItem)`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/bg_dropdownmenu_middle_middle.a5d2539fa7fc8c29fcc0a304710f97e9.png);
 `;
+
+export const InfoLabel = styled(Typography)`
+  &.MuiTypography-root {
+    font-family: BelweMediumBT;
+    color: rgb(97, 67, 38);
+  }
+`;

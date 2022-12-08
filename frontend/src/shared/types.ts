@@ -168,16 +168,27 @@ export interface IFilters {
 }
 
 export interface IMetadataKeywordsState {
-  keywords: {
-    id: number;
-    slug: string;
-    name: string;
-    refText: string;
-    text: string;
-    gameModes: number[];
-  };
+  keywords: [
+    {
+      id: number;
+      slug: string;
+      name: string;
+      refText: string;
+      text: string;
+      gameModes: number[];
+    }
+  ];
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
   message: string;
+}
+
+export interface IMetadataKeyword {
+  id: number;
+  slug: string;
+  name: string;
+  refText: string;
+  text: string;
+  gamemodes: number[];
 }
