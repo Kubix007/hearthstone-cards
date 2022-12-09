@@ -5,7 +5,7 @@ import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
 import { reset } from "../../features/auth/authSlice";
 import { getAllCards } from "../../features/cards/cardsSlice";
-import { getMetadata } from "../../features/metadata/metadataKeywordsSlice";
+import { getMetadata } from "../../features/metadata/metadataSlice";
 import * as Styles from "./BrowseCards.style";
 import * as SharedStyles from "../../shared/styles";
 import CardsLayout from "../../components/CardsLayout";

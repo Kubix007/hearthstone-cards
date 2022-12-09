@@ -1,5 +1,3 @@
-import { Popover, Typography } from "@mui/material";
-import React, { useState } from "react";
 import * as Types from "./CardsInfoPopover.types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
@@ -14,12 +12,14 @@ const CardsInfoPopover = ({
   keywordsIds,
 }: Types.Props) => {
   const open = Boolean(anchorEl);
-  const { keywords } = useSelector((state: RootState) => state.keywords);
+  const { metadata } = useSelector((state: RootState) => state.metadata);
   let results = null;
 
   (() => {
     if (keywordsIds) {
-      results = keywords.filter((keyword) => keywordsIds.includes(keyword.id));
+      results = metadata.keywords.filter((keyword) =>
+        keywordsIds.includes(keyword.id)
+      );
     }
   })();
   return (
@@ -32,18 +32,22 @@ const CardsInfoPopover = ({
         open={open}
         anchorEl={anchorEl}
         anchorOrigin={{
-          vertical: "center",
+          vertical: "top",
           horizontal: "right",
         }}
         transformOrigin={{
-          vertical: "bottom",
+          vertical: "top",
           horizontal: "left",
         }}
         onClose={handlePopoverClose}
       >
         {results
           ? results.map((result) => (
-              <CardsInfoModal description={result.text} title={result.name} />
+              <CardsInfoModal
+                key={result.id}
+                description={result.text}
+                title={result.name}
+              />
             ))
           : null}
       </Styles.PopoverContainer>

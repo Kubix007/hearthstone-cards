@@ -4,8 +4,8 @@ import styled from "styled-components";
 export const Title = styled(Typography)`
   &.MuiTypography-root {
     font-family: BelweBoldBT;
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-left: 15px;
+    margin-right: 15px;
     color: rgb(255, 255, 255);
     font-size: 16px;
     color: white;
@@ -21,9 +21,8 @@ export const Title = styled(Typography)`
 
 export const Description = styled(Typography)`
   &.MuiTypography-root {
-    margin-left: 10px;
-    margin-right: 10px;
-
+    margin-left: 15px;
+    margin-right: 15px;
     font-family: BelweMediumBT;
     color: rgb(255, 255, 255);
     font-size: 14px;

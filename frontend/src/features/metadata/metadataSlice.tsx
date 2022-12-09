@@ -1,11 +1,64 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IMetadataKeywordsState } from "../../shared/types";
-import metadataService from "./metadataKeywordsService";
+import { IMetadataState } from "../../shared/types";
+import metadataService from "./metadataService";
 
-const initialState: IMetadataKeywordsState = {
-  keywords: [
-    { id: 0, slug: "", name: "", refText: "", text: "", gameModes: [] },
-  ],
+const initialState: IMetadataState = {
+  metadata: {
+    keywords: [
+      { id: 0, slug: "", name: "", refText: "", text: "", gameModes: [] },
+    ],
+    sets: [
+      {
+        id: 0,
+        name: "",
+        slug: "",
+        type: "",
+        collectibleCount: 0,
+        collectibleRevealedCount: 0,
+        nonCollectibleCount: 0,
+        nonCollectibleRevealedCount: 0,
+      },
+    ],
+    types: [
+      {
+        slug: "",
+        id: 0,
+        name: "",
+        gameModes: [],
+      },
+    ],
+    rarities: [
+      {
+        slug: "",
+        id: 0,
+        craftingCost: [],
+        dustValue: [],
+        name: "",
+      },
+    ],
+    classes: [
+      {
+        slug: "",
+        id: 0,
+        name: "",
+        cardId: 0,
+        heroPowerCardId: 0,
+        alternateHeroCardIds: [],
+      },
+    ],
+    minionTypes: [{ slug: "", id: 0, name: "", gameModes: [] }],
+    setGroups: [
+      {
+        slug: "",
+        year: 0,
+        svg: "",
+        cardSets: [],
+        name: "",
+        standard: false,
+        icon: "",
+      },
+    ],
+  },
   isLoading: false,
   isSuccess: false,
   isError: false,
@@ -44,7 +97,7 @@ export const metadataSlice = createSlice({
       .addCase(getMetadata.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
-        state.keywords = action.payload;
+        state.metadata = action.payload;
       })
       .addCase(getMetadata.rejected, (state, action) => {
         state.isLoading = false;

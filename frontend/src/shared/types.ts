@@ -167,17 +167,77 @@ export interface IFilters {
   };
 }
 
-export interface IMetadataKeywordsState {
-  keywords: [
-    {
-      id: number;
-      slug: string;
-      name: string;
-      refText: string;
-      text: string;
-      gameModes: number[];
-    }
-  ];
+export interface IMetadataState {
+  metadata: {
+    keywords: [
+      {
+        id: number;
+        slug: string;
+        name: string;
+        refText: string;
+        text: string;
+        gameModes: number[];
+      }
+    ];
+    sets: [
+      {
+        id: number;
+        name: string;
+        slug: string;
+        type: string;
+        collectibleCount: number;
+        collectibleRevealedCount: number;
+        nonCollectibleCount: number;
+        nonCollectibleRevealedCount: number;
+      }
+    ];
+    types: [
+      {
+        slug: string;
+        id: number;
+        name: string;
+        gameModes: number[];
+      }
+    ];
+    rarities: [
+      {
+        slug: string;
+        id: number;
+        craftingCost: number[];
+        dustValue: number[];
+        name: string;
+      }
+    ];
+    classes: [
+      {
+        slug: string;
+        id: number;
+        name: string;
+        cardId: number;
+        heroPowerCardId: number;
+        alternateHeroCardIds: number[];
+      }
+    ];
+    minionTypes: [
+      {
+        slug: string;
+        id: number;
+        name: string;
+        gameModes: number[];
+      }
+    ];
+    setGroups: [
+      {
+        slug: string;
+        year: number;
+        svg: string;
+        cardSets: string[];
+        name: string;
+        standard: boolean;
+        icon: string;
+      }
+    ];
+  };
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
@@ -191,4 +251,11 @@ export interface IMetadataKeyword {
   refText: string;
   text: string;
   gamemodes: number[];
+}
+
+export interface IAccessToken {
+  access_token: string;
+  token_type: string;
+  expires_in: number;
+  sub: string;
 }
