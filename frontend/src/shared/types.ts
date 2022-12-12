@@ -49,6 +49,7 @@ export interface ICardData {
   cardSetId: number;
   rarityId: number;
   artistName: string;
+  minionTypeId: number;
   manaCost: number;
   name: string;
   text: string;

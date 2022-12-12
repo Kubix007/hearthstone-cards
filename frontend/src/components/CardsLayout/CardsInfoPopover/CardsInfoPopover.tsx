@@ -1,14 +1,12 @@
 import * as Types from "./CardsInfoPopover.types";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
-import CardsInfoModal from "../CardsInfoModal";
+import CardsInfoModal from "./CardsInfoModal";
 import * as Styles from "./CardsInfoPopover.styles";
 
 const CardsInfoPopover = ({
   anchorEl,
-  setAnchorEl,
   handlePopoverClose,
-  handlePopoverOpen,
   keywordsIds,
 }: Types.Props) => {
   const open = Boolean(anchorEl);

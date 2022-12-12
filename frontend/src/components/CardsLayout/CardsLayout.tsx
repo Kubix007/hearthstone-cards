@@ -49,7 +49,7 @@ const CardsLayout = ({ cards }: Types.Props) => {
           handlePopoverOpen={handlePopoverOpen}
         />
       ) : null}
-      <CardsInfoDialog open={open} onClose={handleClose} />
+      <CardsInfoDialog cards={cards} open={open} onClose={handleClose} />
     </Styles.Container>
   );
 };
