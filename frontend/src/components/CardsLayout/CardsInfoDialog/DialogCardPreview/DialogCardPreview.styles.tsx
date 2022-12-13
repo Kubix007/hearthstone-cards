@@ -1,5 +1,6 @@
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import styled from "styled-components";
+import { ButtonProps } from "./DialogCardPreview.types";
 
 export const Cover = styled.img`
   height: 100%;
@@ -26,7 +27,7 @@ export const AdditionalText = styled(Typography)`
     margin-bottom: 0px;
     word-break: keep-all;
     font-family: BelweLightBT;
-    max-width: 580px;
+    width: 580px;
     font-style: italic;
   }
 `;
@@ -39,7 +40,7 @@ export const Keywords = styled(Typography)`
     margin-bottom: 0px;
     word-break: keep-all;
     font-family: BelweMediumBT;
-    max-width: 580px;
+    width: 580px;
   }
 `;
 
@@ -64,4 +65,36 @@ export const ItemValue = styled.span`
   margin-left: 5px;
   color: white;
   font-family: BelweMediumBT;
+`;
+
+export const LeftArrowButton = styled(Button)<ButtonProps>`
+  &.MuiButton-root {
+    content: "";
+    idth: 44px;
+    height: 60px;
+    cursor: pointer;
+    background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/homepage_left_arrow.20ef98c80cbb7cc3909e0add6a729e64.png)
+      0px center no-repeat;
+    ${({ active }) =>
+      !active &&
+      `
+    visibility: hidden;
+  `}
+  }
+`;
+
+export const RightArrowButton = styled(Button)<ButtonProps>`
+  &.MuiButton-root {
+    content: "";
+    idth: 44px;
+    height: 60px;
+    cursor: pointer;
+    background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/homepage_right_arrow.90e5c27f527cacdfdc031a38428c5fc5.png)
+      0px center no-repeat;
+    ${({ active }) =>
+      !active &&
+      `
+    visibility: hidden;
+  `}
+  }
 `;

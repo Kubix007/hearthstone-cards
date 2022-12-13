@@ -11,7 +11,7 @@ const CardsInfoDialog = ({ onClose, open, cards }: Types.SimpleDialogProps) => {
         ) : null}
       </Styles.Title>
       <Styles.Content>
-        <DialogCardPreview cards={cards} />
+        <DialogCardPreview card={cards} />
       </Styles.Content>
     </Styles.DialogContainer>
   );

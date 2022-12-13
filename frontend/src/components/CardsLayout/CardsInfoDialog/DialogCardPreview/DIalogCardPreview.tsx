@@ -2,39 +2,62 @@ import * as Styles from "./DialogCardPreview.styles";
 import * as Types from "./DialogCardPreview.types";
 import { Grid } from "@mui/material";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../../app/store";
+import { AppDispatch, RootState } from "../../../../app/store";
 import parse from "html-react-parser";
+import { useDispatch } from "react-redux";
+import {
+  setSelectedCard,
+  setSelectedIndex,
+} from "../../../../features/selectedCard/selectedCardSlice";
 
-const DialogCardPreview = ({ cards }: Types.Props) => {
+const DialogCardPreview = ({ card }: Types.Props) => {
   const { metadata } = useSelector((state: RootState) => state.metadata);
-
+  const { cards } = useSelector((state: RootState) => state.cards);
+  const dispatch: AppDispatch = useDispatch();
+  const { selectedCard, selectedIndex } = useSelector(
+    (state: RootState) => state.selectedCard
+  );
   const cardInfo = {
     type: metadata.types
-      .filter((type) => type.id === cards.cardTypeId)
+      .filter((type) => type.id === card.cardTypeId)
       .map((type) => type.name),
     minionType: metadata.minionTypes
-      .filter((type) => type.id === cards.minionTypeId)
+      .filter((type) => type.id === card.minionTypeId)
       .map((type) => type.name),
     rarity: metadata.rarities
-      .filter((rarity) => rarity.id === cards.rarityId)
+      .filter((rarity) => rarity.id === card.rarityId)
       .map((rarity) => rarity.name),
     set: metadata.sets
-      .filter((set) => set.id === cards.cardSetId)
+      .filter((set) => set.id === card.cardSetId)
       .map((set) => set.name),
     class: metadata.classes
-      .filter((className) => className.id === cards.classId)
+      .filter((className) => className.id === card.classId)
       .map((className) => className.name),
     craftingCost: metadata.rarities
-      .filter((rarity) => rarity.id === cards.rarityId)
+      .filter((rarity) => rarity.id === card.rarityId)
       .map(
         (rarity) =>
           `${rarity.craftingCost[0]} / ${rarity.craftingCost[1]} (Złota)`
       ),
     dustValue: metadata.rarities
-      .filter((rarity) => rarity.id === cards.rarityId)
+      .filter((rarity) => rarity.id === card.rarityId)
       .map(
         (rarity) => `${rarity.dustValue[0]} / ${rarity.dustValue[1]} (Złota)`
       ),
+  };
+
+  const handleChangeCard = (type: string) => {
+    if (type === "left") {
+      let index = selectedIndex;
+      index--;
+      dispatch(setSelectedCard(cards.cards[index]));
+      dispatch(setSelectedIndex(index));
+    } else if (type === "right") {
+      let index = selectedIndex;
+      index++;
+      dispatch(setSelectedCard(cards.cards[index]));
+      dispatch(setSelectedIndex(index));
+    }
   };
 
   return (
@@ -45,12 +68,18 @@ const DialogCardPreview = ({ cards }: Types.Props) => {
       alignItems="center"
     >
       <Grid item>
-        <Styles.Cover src={cards.image} alt={cards.name} />
+        <Styles.LeftArrowButton
+          active={selectedIndex !== 0}
+          onClick={() => handleChangeCard("left")}
+        />
       </Grid>
       <Grid item>
-        <Styles.CardName>{cards.name}</Styles.CardName>
-        <Styles.AdditionalText>{parse(cards.flavorText)}</Styles.AdditionalText>
-        <Styles.Keywords>{parse(cards.text)}</Styles.Keywords>
+        <Styles.Cover src={card.image} alt={card.name} />
+      </Grid>
+      <Grid item>
+        <Styles.CardName>{card.name}</Styles.CardName>
+        <Styles.AdditionalText>{parse(card.flavorText)}</Styles.AdditionalText>
+        <Styles.Keywords>{parse(card.text)}</Styles.Keywords>
         <Styles.Ul>
           <Styles.Li>
             <Styles.ItemName>Rodzaj:</Styles.ItemName>
@@ -84,9 +113,15 @@ const DialogCardPreview = ({ cards }: Types.Props) => {
           </Styles.Li>
           <Styles.Li>
             <Styles.ItemName>Grafik:</Styles.ItemName>
-            <Styles.ItemValue>{cards.artistName}</Styles.ItemValue>
+            <Styles.ItemValue>{card.artistName}</Styles.ItemValue>
           </Styles.Li>
         </Styles.Ul>
+      </Grid>
+      <Grid item>
+        <Styles.RightArrowButton
+          active={selectedIndex < cards.cards.length - 1}
+          onClick={() => handleChangeCard("right")}
+        />
       </Grid>
     </Grid>
   );

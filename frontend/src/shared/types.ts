@@ -9,7 +9,7 @@ export interface IAuthState {
 export interface ICardsState {
   cards: {
     cards: ICardData[];
-    cardCount: number | null;
+    cardCount: number;
     pageCount: number | null;
     page: number | null;
   };
@@ -62,6 +62,11 @@ export interface ICardData {
     relevant: boolean;
     constructed: boolean;
   };
+}
+
+export interface ISelectedCard {
+  selectedCard: ICardData;
+  selectedIndex: number;
 }
 
 export interface IFilterState {

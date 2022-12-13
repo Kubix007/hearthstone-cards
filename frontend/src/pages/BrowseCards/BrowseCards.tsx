@@ -64,7 +64,7 @@ const BrowseCards = () => {
           <Styles.CardsContainer>
             <Styles.Cards>
               {cards.cards.map((card) => (
-                <CardsLayout key={card.id} cards={card} />
+                <CardsLayout key={card.id} card={card} />
               ))}
             </Styles.Cards>
           </Styles.CardsContainer>
