@@ -1,7 +1,17 @@
 import { Box, Grid } from "@mui/material";
 import styled from "styled-components";
 
-export const FilterTagsContainer = styled(Grid)``;
+export const FilterTagsContainer = styled(Grid)`
+  &.MuiGrid-root {
+    justify-content: space-between;
+    @media screen and (max-width: 1350px) {
+      justify-content: space-around;
+    }
+    @media screen and (max-width: 1145px) {
+      flex-direction: column;
+    }
+  }
+`;
 
 export const MainTag = styled(Grid)`
   margin-left: 10px;

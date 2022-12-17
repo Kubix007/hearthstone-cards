@@ -1,31 +1,32 @@
 import axios from "axios";
-import { IAccessToken, IFilters } from "../../shared/types";
+import { IAccessToken, IFilterState } from "../../shared/types";
 import tokenService from "../token/tokenService";
 
 const CARDS_API_URL = "https://us.api.blizzard.com/hearthstone/";
 const LOCALE = "pl_pl";
 
 // Get all cards
-const getAllCards = async (filters: IFilters) => {
+const getAllCards = async (filters: IFilterState) => {
   const API_TOKEN: IAccessToken = await tokenService.getAccessToken();
 
   const config = {
     params: {
       locale: LOCALE,
       access_token: API_TOKEN.access_token,
-      manaCost: filters.manaCost.join(),
-      class: filters.class.value,
-      set: filters.set.value,
-      gameMode: filters.gameMode.value,
-      textFilter: filters.textFilter,
-      attack: filters.attack.value,
-      health: filters.health.value,
-      type: filters.type.value,
-      minionType: filters.minionType.value,
-      spellSchool: filters.spellSchool.value,
-      rarity: filters.rarity.value,
-      keyword: filters.keyword.value,
-      sort: filters.sort.value,
+      manaCost: filters.filters.manaCost.join(),
+      class: filters.filters.class.value,
+      set: filters.filters.set.value,
+      gameMode: filters.filters.gameMode.value,
+      textFilter: filters.filters.textFilter,
+      attack: filters.filters.attack.value,
+      health: filters.filters.health.value,
+      type: filters.filters.type.value,
+      minionType: filters.filters.minionType.value,
+      spellSchool: filters.filters.spellSchool.value,
+      rarity: filters.filters.rarity.value,
+      keyword: filters.filters.keyword.value,
+      sort: filters.filters.sort.value,
+      page: filters.pagination.page.value,
     },
   };
 

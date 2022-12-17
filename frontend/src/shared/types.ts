@@ -10,7 +10,7 @@ export interface ICardsState {
   cards: {
     cards: ICardData[];
     cardCount: number;
-    pageCount: number | null;
+    pageCount: number;
     page: number | null;
   };
   isError: boolean;
@@ -69,9 +69,20 @@ export interface ISelectedCard {
   selectedIndex: number;
 }
 
+export interface IPagination {
+  page: {
+    name: string;
+    value: string;
+  };
+  perPage: number;
+}
+
 export interface IFilterState {
   pagination: {
-    page: number;
+    page: {
+      name: string;
+      value: string;
+    };
     perPage: number;
   };
   filters: {

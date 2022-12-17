@@ -14,7 +14,7 @@ const DialogCardPreview = ({ card }: Types.Props) => {
   const { metadata } = useSelector((state: RootState) => state.metadata);
   const { cards } = useSelector((state: RootState) => state.cards);
   const dispatch: AppDispatch = useDispatch();
-  const { selectedCard, selectedIndex } = useSelector(
+  const { selectedIndex } = useSelector(
     (state: RootState) => state.selectedCard
   );
   const cardInfo = {

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
 export const Cards = styled(Box)`
   display: flex;
@@ -12,3 +12,5 @@ export const CardsContainer = styled(Box)`
   display: flex;
   margin-top: 20px;
 `;
+
+export const Center = styled(Grid)``;

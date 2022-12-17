@@ -7,6 +7,10 @@ export const Cover = styled.img`
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 3px 3px);
+  transition: transform 0.4s;
+  &:hover {
+    transform: scale(1.1);
+  }
 `;
 
 export const CardName = styled(Typography)`

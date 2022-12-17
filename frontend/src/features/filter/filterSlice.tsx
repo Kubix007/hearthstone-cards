@@ -3,8 +3,11 @@ import { IFilterState } from "../../shared/types";
 
 const initialState: IFilterState = {
   pagination: {
-    page: 1,
-    perPage: 30,
+    page: {
+      name: `Strona: 1`,
+      value: `1`,
+    },
+    perPage: 40,
   },
   filters: {
     set: {

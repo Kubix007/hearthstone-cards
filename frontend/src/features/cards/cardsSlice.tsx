@@ -1,12 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ICardsState, IFilters } from "../../shared/types";
+import { ICardsState, IFilterState } from "../../shared/types";
 import cardService from "./cardsService";
 
 const initialState: ICardsState = {
   cards: {
     cards: [],
     cardCount: 0,
-    pageCount: null,
+    pageCount: 0,
     page: null,
   },
   isError: false,
@@ -18,7 +18,7 @@ const initialState: ICardsState = {
 //Get all cards
 export const getAllCards = createAsyncThunk(
   "cards/getAll",
-  async (filters: IFilters, thunkAPI) => {
+  async (filters: IFilterState, thunkAPI) => {
     try {
       return await cardService.getAllCards(filters);
     } catch (error: any) {

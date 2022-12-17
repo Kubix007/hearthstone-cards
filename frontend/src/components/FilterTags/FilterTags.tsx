@@ -37,12 +37,7 @@ const FilterTags = () => {
   };
 
   return (
-    <Styles.FilterTagsContainer
-      container
-      direction="row"
-      justifyContent="space-around"
-      alignItems="center"
-    >
+    <Styles.FilterTagsContainer container direction="row" alignItems="center">
       <Styles.TagsContainer>
         <Styles.MainTag item>Znalezione karty dla parametru:</Styles.MainTag>
         <Styles.MainTag item>

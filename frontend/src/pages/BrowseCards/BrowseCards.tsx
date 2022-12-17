@@ -12,11 +12,12 @@ import CardsLayout from "../../components/CardsLayout";
 import FilterBar from "../../components/FilterBar";
 import FilterTags from "../../components/FilterTags";
 import NoResultInfo from "../../components/FilterBar/NoResultInfo";
+import Pagination from "../../components/Pagination";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
-  const { filters } = useSelector((state: RootState) => state.filter);
+  const filters = useSelector((state: RootState) => state.filter);
   const { cards, isLoading: isLoadingCards } = useSelector(
     (state: RootState) => state.cards
   );
@@ -57,18 +58,21 @@ const BrowseCards = () => {
     return (
       <SharedStyles.Container>
         <FilterBar />
-        <FilterTags />
-        {cards.cardCount === 0 ? (
-          <NoResultInfo />
-        ) : (
-          <Styles.CardsContainer>
-            <Styles.Cards>
-              {cards.cards.map((card) => (
-                <CardsLayout key={card.id} card={card} />
-              ))}
-            </Styles.Cards>
-          </Styles.CardsContainer>
-        )}
+        <Styles.Center>
+          <FilterTags />
+          <Pagination />
+          {cards.cardCount === 0 ? (
+            <NoResultInfo />
+          ) : (
+            <Styles.CardsContainer>
+              <Styles.Cards>
+                {cards.cards.map((card) => (
+                  <CardsLayout key={card.id} card={card} />
+                ))}
+              </Styles.Cards>
+            </Styles.CardsContainer>
+          )}
+        </Styles.Center>
       </SharedStyles.Container>
     );
   }

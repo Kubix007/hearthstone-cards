@@ -10,7 +10,6 @@ import { AppDispatch, RootState } from "../../app/store";
 import {
   setSelectedCard,
   setSelectedIndex,
-  reset,
 } from "../../features/selectedCard/selectedCardSlice";
 
 const CardsLayout = ({ card }: Types.Props) => {
