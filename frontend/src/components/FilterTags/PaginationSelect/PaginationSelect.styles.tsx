@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import styled from "styled-components";
 import { Box, InputBase, Select, Typography, MenuItem } from "@mui/material";
-import { SelectProps } from "./Pagination.types";
+import { SelectProps } from "./PaginationSelect.types";
 
 export const Container = styled(Grid)``;
 

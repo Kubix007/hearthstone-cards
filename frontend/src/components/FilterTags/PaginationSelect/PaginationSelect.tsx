@@ -1,10 +1,10 @@
 import { SelectChangeEvent } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch, RootState } from "../../app/store";
-import { changePage } from "../../features/filter/filterSlice";
-import * as Styles from "./Pagination.styles";
+import { AppDispatch, RootState } from "../../../app/store";
+import { changePage } from "../../../features/filter/filterSlice";
+import * as Styles from "./PaginationSelect.styles";
 
-const Pagination = () => {
+const PaginationSelect = () => {
   const { cards } = useSelector((state: RootState) => state.cards);
   const { pagination } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
@@ -57,4 +57,4 @@ const Pagination = () => {
   }
 };
 
-export default Pagination;
+export default PaginationSelect;

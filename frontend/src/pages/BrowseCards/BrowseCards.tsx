@@ -12,7 +12,8 @@ import CardsLayout from "../../components/CardsLayout";
 import FilterBar from "../../components/FilterBar";
 import FilterTags from "../../components/FilterTags";
 import NoResultInfo from "../../components/FilterBar/NoResultInfo";
-import Pagination from "../../components/Pagination";
+import PaginationSelect from "../../components/FilterTags/PaginationSelect";
+import BottomPagination from "../../components/BottomPagination";
 
 const BrowseCards = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -60,7 +61,7 @@ const BrowseCards = () => {
         <FilterBar />
         <Styles.Center>
           <FilterTags />
-          <Pagination />
+          <PaginationSelect />
           {cards.cardCount === 0 ? (
             <NoResultInfo />
           ) : (
@@ -73,6 +74,7 @@ const BrowseCards = () => {
             </Styles.CardsContainer>
           )}
         </Styles.Center>
+        <BottomPagination />
       </SharedStyles.Container>
     );
   }
