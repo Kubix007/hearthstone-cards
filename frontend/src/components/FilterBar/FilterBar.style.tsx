@@ -21,7 +21,8 @@ export const FiltersContainer = styled(Box)`
   justify-content: center;
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/bg_filter_middle_tile-907853600f2b8dc11ae3acca94ff309f58b4959f380a6995e1b69b2d94f4bae5811b3ec588d56290599d59ddf6d00f0ce3fa9087c08ee8f7eabe843ed3646f9d.jpg);
   width: 100%;
-  height: 90px;
+  height: fit-content;
+  flex-wrap: wrap;
 `;
 
 export const Container = styled(Box)`

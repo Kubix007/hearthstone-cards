@@ -9,6 +9,9 @@ export const ManaCostFilterContainer = styled.div`
         center,
       url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/icon_mana-25ac7617a8c7f5f992660316dd307cf16b36001d1fa9693a5aca46eb01db420041018a1bbed19055f963b2421b7f615b887e84e1508be42c7b74138ee4794829.png);
   }
+  @media screen and (max-width: 1375px) {
+    display: none;
+  }
 `;
 
 export const ManaCostFilterContainerCenter = styled.div`

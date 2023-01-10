@@ -18,7 +18,11 @@ const initialState: IFilterState = {
       name: "Wszystkie klasy",
       value: "",
     },
-    manaCost: [],
+    manaCost: {
+      name: "Mana: Dowolny",
+      value: "Mana: Dowolny",
+      manaValue: [],
+    },
     attack: {
       name: "Dowolny atak",
       value: "",
@@ -71,12 +75,15 @@ export const filterSlice = createSlice({
       state.pagination.perPage = action.payload;
     },
     addManaCost(state, action) {
-      state.filters.manaCost.push(action.payload);
+      state.filters.manaCost.manaValue.push(action.payload);
     },
     reduceManaCost(state, action) {
-      state.filters.manaCost = state.filters.manaCost.filter(
-        (x) => x !== action.payload
-      );
+      state.filters.manaCost.manaValue =
+        state.filters.manaCost.manaValue.filter((x) => x !== action.payload);
+    },
+    setManaCost(state, action) {
+      state.filters.manaCost.name = action.payload.name;
+      state.filters.manaCost.value = action.payload.value;
     },
     clearManaCost(state, action) {
       state.filters.manaCost = action.payload;
@@ -139,5 +146,6 @@ export const {
   changeRarity,
   changeKeyword,
   changeSortType,
+  setManaCost,
 } = filterSlice.actions;
 export default filterSlice.reducer;

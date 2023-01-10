@@ -13,7 +13,7 @@ const getAllCards = async (filters: IFilterState) => {
     params: {
       locale: LOCALE,
       access_token: API_TOKEN.access_token,
-      manaCost: filters.filters.manaCost.join(),
+      manaCost: filters.filters.manaCost.manaValue.join(),
       class: filters.filters.class.value,
       set: filters.filters.set.value,
       gameMode: filters.filters.gameMode.value,

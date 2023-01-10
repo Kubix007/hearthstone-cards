@@ -94,7 +94,11 @@ export interface IFilterState {
       name: string;
       value: string;
     };
-    manaCost: string[];
+    manaCost: {
+      name: string;
+      value: string;
+      manaValue: string[];
+    };
     attack: {
       name: string;
       value: string;

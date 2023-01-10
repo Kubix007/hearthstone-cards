@@ -1,6 +1,5 @@
-import { Pagination, Typography, Stack, PaginationItem } from "@mui/material";
+import { Pagination, Typography, Stack } from "@mui/material";
 import styled from "styled-components";
-import { Props } from "./BottomPagination.types";
 
 export const Container = styled(Stack)`
   display: flex;
@@ -16,7 +15,7 @@ export const PageInfo = styled(Typography)`
   &.MuiTypography-root {
     font-family: BelweBoldBT;
     color: rgb(255, 255, 255);
-    font-size: 14px;
+    font-size: 20px;
     color: white;
     text-shadow: rgb(0 0 0) 2px 0px 0px, rgb(0 0 0) 1.75517px 0.95885px 0px,
       rgb(0 0 0) 1.0806px 1.68294px 0px, rgb(0 0 0) 0.14147px 1.99499px 0px,
@@ -32,7 +31,7 @@ export const PaginationComponent = styled(Pagination)`
   & .MuiButtonBase-root {
     font-family: BelweBoldBT;
     color: rgb(255, 255, 255);
-    font-size: 14px;
+    font-size: 20px;
     color: white;
     text-shadow: rgb(0 0 0) 2px 0px 0px, rgb(0 0 0) 1.75517px 0.95885px 0px,
       rgb(0 0 0) 1.0806px 1.68294px 0px, rgb(0 0 0) 0.14147px 1.99499px 0px,

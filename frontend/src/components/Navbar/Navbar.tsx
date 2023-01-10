@@ -63,13 +63,12 @@ const Navbar = () => {
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img
-            src="https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt62186dab5d281404/5f57a8b338c0eb4e910ab301/logo_new_webp.webp"
-            alt="abc"
-            height="60px"
-          />
-
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none", sm: "none" },
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -104,27 +103,23 @@ const Navbar = () => {
                 </MenuItem>
               ))}
             </Menu>
+            <img
+              src="https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt62186dab5d281404/5f57a8b338c0eb4e910ab301/logo_new_webp.webp"
+              alt="abc"
+              height="60px"
+            />
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              display: { xs: "none", md: "flex", sm: "flex" },
             }}
           >
-            Hearthstone Cards
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+            <img
+              src="https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt62186dab5d281404/5f57a8b338c0eb4e910ab301/logo_new_webp.webp"
+              alt="abc"
+              height="60px"
+            />
             {pages.map((page) => (
               <NavbarLink to={page.link} key={page.name}>
                 <Button

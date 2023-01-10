@@ -61,7 +61,6 @@ const BrowseCards = () => {
         <FilterBar />
         <Styles.Center>
           <FilterTags />
-          <PaginationSelect />
           {cards.cardCount === 0 ? (
             <NoResultInfo />
           ) : (

@@ -25,7 +25,7 @@ const PaginationSelect = () => {
 
   if (pageNumber.length > 0) {
     return (
-      <Styles.Container container justifyContent="flex-end">
+      <Styles.PaginationContainer container justifyContent="flex-end">
         <Styles.InfoLabel>Strona:</Styles.InfoLabel>
         <Styles.LeftListLayout />
         <Styles.SelectClass
@@ -50,7 +50,7 @@ const PaginationSelect = () => {
           ))}
         </Styles.SelectClass>
         <Styles.RightListLayout />
-      </Styles.Container>
+      </Styles.PaginationContainer>
     );
   } else {
     return null;

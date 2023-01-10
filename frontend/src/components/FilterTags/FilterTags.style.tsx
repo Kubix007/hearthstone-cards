@@ -25,3 +25,13 @@ export const TagsContainer = styled(Box)`
   display: flex;
   align-items: center;
 `;
+
+export const GridTagsContainer = styled(Grid)`
+  align-self: flex-start;
+  &.MuiGrid-root {
+    margin-top: 10px;
+    @media screen and (max-width: 1145px) {
+      align-self: center;
+    }
+  }
+`;

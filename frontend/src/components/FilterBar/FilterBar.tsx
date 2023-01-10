@@ -5,6 +5,7 @@ import TypeCardsFilter from "./TypeCardsFilter";
 import SearchFilter from "./SearchFilter";
 import DetailsFilterButton from "../DetailsFilterBar/DetailsFilterButton";
 import DetailsFilterContainer from "../DetailsFilterBar/DetailsFilterContainer";
+import ManaCostFilterMobile from "./ManaCostFilterMobile";
 import { useState } from "react";
 
 const FilterBar = () => {
@@ -16,6 +17,7 @@ const FilterBar = () => {
         <TypeCardsFilter />
         <ClassFilter />
         <ManaCostFilter />
+        <ManaCostFilterMobile />
         <SearchFilter />
         <DetailsFilterButton setVisible={setVisible} isVisible={isVisible} />
       </Styles.FiltersContainer>
