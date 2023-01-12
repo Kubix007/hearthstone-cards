@@ -12,7 +12,6 @@ import CardsLayout from "../../components/CardsLayout";
 import FilterBar from "../../components/FilterBar";
 import FilterTags from "../../components/FilterTags";
 import NoResultInfo from "../../components/FilterBar/NoResultInfo";
-import PaginationSelect from "../../components/FilterTags/PaginationSelect";
 import BottomPagination from "../../components/BottomPagination";
 
 const BrowseCards = () => {

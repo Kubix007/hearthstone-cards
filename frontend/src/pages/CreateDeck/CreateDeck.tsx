@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
 import { reset } from "../../features/auth/authSlice";
+import * as Styles from "./CreateDeck.styles";
+import FormatSelector from "../../components/CreateDeck/FormatSelector";
 
 const CreateDeck = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -30,7 +32,11 @@ const CreateDeck = () => {
   if (isLoading) {
     return <Spinner />;
   }
-  return <div>Stwórz deck</div>;
+  return (
+    <Styles.ContentLayout>
+      <FormatSelector />
+    </Styles.ContentLayout>
+  );
 };
 
 export default CreateDeck;
