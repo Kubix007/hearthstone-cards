@@ -6,6 +6,9 @@ import Spinner from "../../components/Spinner";
 import { reset } from "../../features/auth/authSlice";
 import * as Styles from "./CreateDeck.styles";
 import FormatSelector from "../../components/CreateDeck/FormatSelector";
+import ClassSelectorList from "../../components/CreateDeck/ClassSelectorList";
+import PageHeader from "../../components/CreateDeck/PageHeader";
+import { Grid } from "@mui/material";
 
 const CreateDeck = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -33,9 +36,22 @@ const CreateDeck = () => {
     return <Spinner />;
   }
   return (
-    <Styles.ContentLayout>
-      <FormatSelector />
-    </Styles.ContentLayout>
+    <Styles.PageLayout>
+      <PageHeader />
+      <Styles.ContentLayout
+        container
+        justifyContent="center"
+        alignContent="center"
+        direction="column"
+      >
+        <Grid item>
+          <FormatSelector />
+        </Grid>
+        <Grid style={{ width: "70%" }} item>
+          <ClassSelectorList />
+        </Grid>
+      </Styles.ContentLayout>
+    </Styles.PageLayout>
   );
 };
 

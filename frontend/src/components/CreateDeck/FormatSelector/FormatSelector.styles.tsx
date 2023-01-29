@@ -20,9 +20,15 @@ export const StandardFormatSVG = styled(StandardFormatImage)`
 
 export const StandardFormatButton = styled(Button)`
   &.MuiButton-root {
-    width: 75px;
+    width: 78px;
     height: 85px;
+    transition: all 0.15s ease-out 0s;
     background-image: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
+    &:hover {
+      background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+          center,
+        url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
+    }
   }
 `;
 
@@ -32,6 +38,11 @@ export const ClassicFormatButton = styled(Button)`
     height: 85px;
     transition: all 0.15s ease-out 0s;
     background-image: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltcaa946e4f9e0b273/6036baec0b1d853be8ad56ea/deckbuilder_tab_classic.webp);
+    &:hover {
+      background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+          center,
+        url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltcaa946e4f9e0b273/6036baec0b1d853be8ad56ea/deckbuilder_tab_classic.webp);
+    }
   }
 `;
 
@@ -41,5 +52,10 @@ export const WildFormatButton = styled(Button)`
     height: 85px;
     transition: all 0.15s ease-out 0s;
     background-image: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blta03fd5ddc70cc2d9/6036baec02ccfb4d0f67236d/deckbuilder_tab_wild.webp);
+    &:hover {
+      background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+          center,
+        url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blta03fd5ddc70cc2d9/6036baec02ccfb4d0f67236d/deckbuilder_tab_wild.webp);
+    }
   }
 `;
