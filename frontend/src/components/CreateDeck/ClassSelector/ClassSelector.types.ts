@@ -1,6 +1,7 @@
 export interface IProps {
   classInfo: {
     name: string;
+    displayName: string;
     image: string;
   };
 }

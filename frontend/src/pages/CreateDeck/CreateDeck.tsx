@@ -37,7 +37,6 @@ const CreateDeck = () => {
   }
   return (
     <Styles.PageLayout>
-      <PageHeader />
       <Styles.ContentLayout
         container
         justifyContent="center"

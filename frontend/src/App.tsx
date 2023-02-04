@@ -10,6 +10,7 @@ import CreateDeck from "./pages/CreateDeck";
 import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
+import PageHeader from "./components/CreateDeck/PageHeader";
 
 function App() {
   const { user } = useSelector((state: RootState) => state.auth);
@@ -17,7 +18,12 @@ function App() {
     <>
       <Router>
         <AppContainer>
-          {user && <Navbar />}
+          {user && (
+            <>
+              <Navbar />
+              <PageHeader />
+            </>
+          )}
           <Routes>
             <Route path="/" element={<Dashboard />}></Route>
             <Route path="/login" element={<Login />}></Route>
