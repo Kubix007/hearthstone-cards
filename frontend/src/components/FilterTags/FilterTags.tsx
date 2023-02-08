@@ -32,7 +32,7 @@ const FilterTags = () => {
       manaCrystalElements[i].setAttribute(
         "class",
         `${manaCrystalElements[i].getAttribute("class")!}`
-          .replace("selected", "")
+          .replace("selected-mana", "")
           .trimEnd()
       );
     }
@@ -63,7 +63,11 @@ const FilterTags = () => {
             <FilterTagsButton
               filters={`Mana: ${filters.manaCost.manaValue.join()}`}
               dispatchAction={clearManaCost}
-              initialValue={[]}
+              initialValue={{
+                name: "Mana: Dowolny",
+                value: "Mana: Dowolny",
+                manaValue: [],
+              }}
               helpFunction={clearManaContainer}
               setAmountOfTags={setAmountOfTags}
             />

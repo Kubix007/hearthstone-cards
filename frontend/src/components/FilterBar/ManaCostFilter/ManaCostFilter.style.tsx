@@ -4,7 +4,7 @@ export const ManaCostFilterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  & .selected {
+  & .selected-mana {
     background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/icon_mana_hoverselected-4b4e72e3465b332fb2535f178dac9db4f5a279dc6432c57bb309c2bd63229e4ef7fea8be1a8b1463410983c2316ae33f95a91a75d2407a6952551bb3c17b1478.png)
         center,
       url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/icon_mana-25ac7617a8c7f5f992660316dd307cf16b36001d1fa9693a5aca46eb01db420041018a1bbed19055f963b2421b7f615b887e84e1508be42c7b74138ee4794829.png);

@@ -10,7 +10,7 @@ import CreateDeck from "./pages/CreateDeck";
 import Navbar from "./components/Navbar";
 import { useSelector } from "react-redux";
 import { RootState } from "./app/store";
-import PageHeader from "./components/CreateDeck/PageHeader";
+import PageHeader from "./components/PageHeader";
 
 function App() {
   const { user } = useSelector((state: RootState) => state.auth);

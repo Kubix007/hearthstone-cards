@@ -25,7 +25,7 @@ const PageHeader = () => {
 
   return (
     <Styles.PageHeaderContainer
-      backgroundImg={backgroundImg}
+      backgroundimg={backgroundImg}
       xs={false}
       sm={4}
       md={7}

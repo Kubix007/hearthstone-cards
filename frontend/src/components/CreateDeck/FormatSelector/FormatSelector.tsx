@@ -1,4 +1,3 @@
-import { Grid } from "@mui/material";
 import * as Styles from "./FormatSelector.styles";
 
 const FormatSelector = () => {
@@ -7,18 +6,22 @@ const FormatSelector = () => {
       container
       justifyContent="center"
       spacing={8}
+      direction="row"
     >
-      <Grid item>
+      <Styles.GridItem item>
         <Styles.StandardFormatButton>
           <Styles.StandardFormatSVG />
         </Styles.StandardFormatButton>
-      </Grid>
-      <Grid item>
+        <Styles.FormatName>Standard</Styles.FormatName>
+      </Styles.GridItem>
+      <Styles.GridItem item>
         <Styles.ClassicFormatButton />
-      </Grid>
-      <Grid item>
+        <Styles.FormatName>Klasyczne</Styles.FormatName>
+      </Styles.GridItem>
+      <Styles.GridItem item>
         <Styles.WildFormatButton />
-      </Grid>
+        <Styles.FormatName>Dzicz</Styles.FormatName>
+      </Styles.GridItem>
     </Styles.FormatSelectorContainer>
   );
 };

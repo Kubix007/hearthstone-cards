@@ -16,16 +16,18 @@ const ManaCostFilter = () => {
     let button = document.getElementById(
       (event.target as HTMLButtonElement).id
     );
-    if (button?.getAttribute("class")?.includes("selected")) {
+    if (button?.getAttribute("class")?.includes("selected-mana")) {
       button?.setAttribute(
         "class",
-        `${button?.getAttribute("class")!}`.replace("selected", "").trimEnd()
+        `${button?.getAttribute("class")!}`
+          .replace("selected-mana", "")
+          .trimEnd()
       );
       dispatch(reduceManaCost(manaCost));
     } else {
       button?.setAttribute(
         "class",
-        `${button?.getAttribute("class")!} selected`
+        `${button?.getAttribute("class")!} selected-mana`
       );
       dispatch(addManaCost(manaCost));
     }

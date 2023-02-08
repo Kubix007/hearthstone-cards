@@ -7,7 +7,6 @@ import { reset } from "../../features/auth/authSlice";
 import * as Styles from "./CreateDeck.styles";
 import FormatSelector from "../../components/CreateDeck/FormatSelector";
 import ClassSelectorList from "../../components/CreateDeck/ClassSelectorList";
-import PageHeader from "../../components/CreateDeck/PageHeader";
 import { Grid } from "@mui/material";
 
 const CreateDeck = () => {

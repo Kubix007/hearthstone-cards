@@ -1,6 +1,5 @@
 import { Grow } from "@mui/material";
 import { useState } from "react";
-import { Typography } from "@mui/material";
 import * as Styles from "./ClassSelector.styles";
 import * as Types from "./ClassSelector.types";
 

@@ -1,3 +1,3 @@
 export interface IPageHeaderProps {
-  backgroundImg: string;
+  backgroundimg: string;
 }
