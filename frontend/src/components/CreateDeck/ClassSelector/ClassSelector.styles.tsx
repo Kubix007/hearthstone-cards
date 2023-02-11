@@ -2,7 +2,14 @@ import { Box, Paper, Typography } from "@mui/material";
 import styled from "styled-components";
 import * as Types from "./ClassSelector.types";
 
-export const Container = styled.div``;
+export const Container = styled.div<Types.IContainerProps>`
+  ${({ isclassic }) =>
+    isclassic &&
+    `
+    opacity: 0.5;
+    pointer-events: none;
+  `}
+`;
 
 export const Card = styled(Paper)`
   display: flex;

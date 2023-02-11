@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
 import { reset } from "../../features/auth/authSlice";
 import * as Styles from "./CreateDeck.styles";
+import * as SharedTypes from "../../shared/types";
 import FormatSelector from "../../components/CreateDeck/FormatSelector";
 import ClassSelectorList from "../../components/CreateDeck/ClassSelectorList";
 import { Grid } from "@mui/material";
@@ -12,6 +13,12 @@ import { Grid } from "@mui/material";
 const CreateDeck = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
+  const [selectedFormat, setSelectedFormat] =
+    useState<SharedTypes.ISelectedFormat>({
+      standard: true,
+      classic: false,
+      wild: false,
+    });
 
   const { user, isLoading, isError, message } = useSelector(
     (state: RootState) => state.auth
@@ -43,10 +50,10 @@ const CreateDeck = () => {
         direction="column"
       >
         <Grid item>
-          <FormatSelector />
+          <FormatSelector setSelectedFormat={setSelectedFormat} />
         </Grid>
         <Grid style={{ width: "70%" }} item>
-          <ClassSelectorList />
+          <ClassSelectorList selectedFormat={selectedFormat} />
         </Grid>
       </Styles.ContentLayout>
     </Styles.PageLayout>

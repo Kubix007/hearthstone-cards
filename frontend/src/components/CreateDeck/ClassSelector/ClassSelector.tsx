@@ -3,11 +3,13 @@ import { useState } from "react";
 import * as Styles from "./ClassSelector.styles";
 import * as Types from "./ClassSelector.types";
 
-const ClassSelector = ({ classInfo }: Types.IProps) => {
+const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
   const [, setIsLoaded] = useState(false);
 
   return (
-    <Styles.Container>
+    <Styles.Container
+      isclassic={classInfo.isNotClassic && selectedFormat.classic}
+    >
       <Grow timeout={500} in={true}>
         <Styles.Card>
           <Styles.Cover

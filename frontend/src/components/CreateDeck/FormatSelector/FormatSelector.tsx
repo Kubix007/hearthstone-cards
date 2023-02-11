@@ -1,30 +1,56 @@
 import * as Styles from "./FormatSelector.styles";
+import * as Types from "./FormatSelector.types";
 
-const FormatSelector = () => {
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    //let manaCost = (event.target as HTMLButtonElement).value;
-    let button = document.getElementById(
-      (event.target as HTMLButtonElement).id
-    );
-    console.log(button);
-    if (button?.getAttribute("id") === "standard-format-svg") {
-      button = document.getElementById("standard-format");
+const FormatSelector = ({ setSelectedFormat }: Types.Props) => {
+  const handleClick = (event: any) => {
+    switch (event.target.name) {
+      case "standard":
+        setSelectedFormat({ standard: true, classic: false, wild: false });
+        break;
+      case "classic":
+        setSelectedFormat({
+          standard: false,
+          classic: true,
+          wild: false,
+        });
+        break;
+      case "wild":
+        setSelectedFormat({
+          standard: false,
+          classic: false,
+          wild: true,
+        });
+        break;
+      default:
+        setSelectedFormat({
+          standard: true,
+          classic: false,
+          wild: false,
+        });
+        break;
     }
-    if (button?.getAttribute("class")?.includes("selected-format")) {
-      button?.setAttribute(
+    //Get all format selectors
+    const formatSelectors = [
+      Array.from(document.getElementsByClassName("formatSelector")),
+    ];
+    //Remove class 'selected-format' in all format selectors
+    formatSelectors[0].forEach((item) =>
+      item.setAttribute(
         "class",
-        `${button?.getAttribute("class")!}`
+        `${item?.getAttribute("class")!}`
           .replace("selected-format", "")
           .trimEnd()
-      );
-      //dispatch(reduceManaCost(manaCost));
-    } else {
-      button?.setAttribute(
-        "class",
-        `${button?.getAttribute("class")!} selected-format`
-      );
-      //dispatch(addManaCost(manaCost));
-    }
+      )
+    );
+    //Get selected format
+    const selectedFormat = formatSelectors[0].filter(
+      (item) => item.getAttribute("name") === event.target.name
+    );
+    //Update class for selected format
+    selectedFormat[0].setAttribute(
+      "class",
+      `${selectedFormat[0].getAttribute("class")!} selected-format`
+    );
   };
 
   return (
@@ -37,16 +63,28 @@ const FormatSelector = () => {
       <Styles.GridItem item>
         <Styles.StandardFormatButton
           onClick={handleClick}
+          className="formatSelector"
+          name="standard"
           id="standard-format"
         />
         <Styles.FormatName>Standard</Styles.FormatName>
       </Styles.GridItem>
       <Styles.GridItem item>
-        <Styles.ClassicFormatButton onClick={handleClick} id="classic-format" />
+        <Styles.ClassicFormatButton
+          onClick={handleClick}
+          className="formatSelector"
+          name="classic"
+          id="classic-format"
+        />
         <Styles.FormatName>Klasyczne</Styles.FormatName>
       </Styles.GridItem>
       <Styles.GridItem item>
-        <Styles.WildFormatButton onClick={handleClick} id="wild-format" />
+        <Styles.WildFormatButton
+          onClick={handleClick}
+          className="formatSelector"
+          name="wild"
+          id="wild-format"
+        />
         <Styles.FormatName>Dzicz</Styles.FormatName>
       </Styles.GridItem>
     </Styles.FormatSelectorContainer>

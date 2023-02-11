@@ -39,23 +39,23 @@ export const StandardFormatSVG = styled(StandardFormatImage)<Types.SVGProps>`
 export const StandardFormatButton = styled(Button)`
   &.MuiButton-root {
     z-index: 0;
-    width: 73px;
+    width: 75px;
     height: 85px;
     background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
-        no-repeat center/70%,
+        no-repeat center/65%,
       url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
     &:hover {
       background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
           center,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
-          no-repeat center/70%,
+          no-repeat center/65%,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
     }
     &.selected-format {
       background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
           center,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
-          no-repeat center/70%,
+          no-repeat center/65%,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
     }
   }

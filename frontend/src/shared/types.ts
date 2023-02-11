@@ -280,3 +280,9 @@ export interface IAccessToken {
   expires_in: number;
   sub: string;
 }
+
+export interface ISelectedFormat {
+  standard: boolean;
+  classic: boolean;
+  wild: boolean;
+}
