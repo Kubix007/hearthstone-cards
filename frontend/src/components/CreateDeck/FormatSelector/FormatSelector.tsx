@@ -63,7 +63,7 @@ const FormatSelector = ({ setSelectedFormat }: Types.Props) => {
       <Styles.GridItem item>
         <Styles.StandardFormatButton
           onClick={handleClick}
-          className="formatSelector"
+          className="formatSelector selected-format"
           name="standard"
           id="standard-format"
         />
