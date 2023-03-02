@@ -286,3 +286,10 @@ export interface ISelectedFormat {
   classic: boolean;
   wild: boolean;
 }
+
+export interface ICreateDeckState {
+  isSelected: boolean;
+  selectedClass: {
+    name: string;
+  };
+}

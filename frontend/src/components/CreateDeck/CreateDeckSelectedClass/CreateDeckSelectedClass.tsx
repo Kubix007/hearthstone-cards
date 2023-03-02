@@ -1,20 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AppDispatch, RootState } from "../../app/store";
-import Spinner from "../../components/Spinner";
-import { reset } from "../../features/auth/authSlice";
-import { getAllCards } from "../../features/cards/cardsSlice";
-import { getMetadata } from "../../features/metadata/metadataSlice";
-import * as Styles from "./BrowseCards.style";
-import * as SharedStyles from "../../shared/styles";
-import CardsLayout from "../../components/CardsLayout";
-import FilterBar from "../../components/FilterBar";
-import FilterTags from "../../components/FilterTags";
-import NoResultInfo from "../../components/FilterBar/NoResultInfo";
-import BottomPagination from "../../components/BottomPagination";
+import { AppDispatch, RootState } from "../../../app/store";
+import { reset } from "../../../features/auth/authSlice";
+import { getAllCards } from "../../../features/cards/cardsSlice";
+import { getMetadata } from "../../../features/metadata/metadataSlice";
+import * as SharedStyles from "../../../shared/styles";
+import * as Styles from "./CreateDeckSelectedClass.styles";
 
-const BrowseCards = () => {
+import Spinner from "../../Spinner";
+import BottomPagination from "../../BottomPagination";
+import FilterTags from "../../FilterTags";
+import NoResultInfo from "../../FilterBar/NoResultInfo";
+import CardsLayout from "../../CardsLayout";
+import FilterBar from "../../FilterBar";
+
+const CreateDeckSelectedClass = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const filters = useSelector((state: RootState) => state.filter);
@@ -50,14 +51,14 @@ const BrowseCards = () => {
   if (isLoadingCards) {
     return (
       <SharedStyles.Container>
-        <FilterBar showClassFilter={true} />
+        <FilterBar showClassFilter={false} />
         <Spinner />
       </SharedStyles.Container>
     );
   } else {
     return (
       <SharedStyles.Container>
-        <FilterBar showClassFilter={true} />
+        <FilterBar showClassFilter={false} />
         <Styles.Center>
           <FilterTags />
           {cards.cardCount === 0 ? (
@@ -78,4 +79,4 @@ const BrowseCards = () => {
   }
 };
 
-export default BrowseCards;
+export default CreateDeckSelectedClass;

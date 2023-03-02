@@ -1,4 +1,5 @@
 import * as Styles from "./FilterBar.style";
+import * as Types from "./FilterBar.types";
 import ManaCostFilter from "./ManaCostFilter";
 import ClassFilter from "./ClassFilter";
 import TypeCardsFilter from "./TypeCardsFilter";
@@ -8,14 +9,14 @@ import DetailsFilterContainer from "../DetailsFilterBar/DetailsFilterContainer";
 import ManaCostFilterMobile from "./ManaCostFilterMobile";
 import { useState } from "react";
 
-const FilterBar = () => {
+const FilterBar = ({ showClassFilter }: Types.IFilterBarProps) => {
   const [isVisible, setVisible] = useState(false);
   return (
     <Styles.Container>
       <Styles.TopBarContainer />
       <Styles.FiltersContainer>
         <TypeCardsFilter />
-        <ClassFilter />
+        {showClassFilter && <ClassFilter />}
         <ManaCostFilter />
         <ManaCostFilterMobile />
         <SearchFilter />

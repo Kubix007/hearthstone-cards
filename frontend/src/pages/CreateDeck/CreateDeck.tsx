@@ -25,6 +25,10 @@ const CreateDeck = () => {
     (state: RootState) => state.auth
   );
 
+  const { isSelected, selectedClass } = useSelector(
+    (state: RootState) => state.createDeck
+  );
+
   useEffect(() => {
     if (isError) {
       console.log(message);

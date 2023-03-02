@@ -4,6 +4,7 @@ import cardsReducer from "../features/cards/cardsSlice";
 import filterReducer from "../features/filter/filterSlice";
 import metadataKeywordsReducer from "../features/metadata/metadataSlice";
 import selectedCardReducer from "../features/selectedCard/selectedCardSlice";
+import createDeckReducer from "../features/createDeck/createDeckSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     filter: filterReducer,
     metadata: metadataKeywordsReducer,
     selectedCard: selectedCardReducer,
+    createDeck: createDeckReducer,
   },
 });
 
