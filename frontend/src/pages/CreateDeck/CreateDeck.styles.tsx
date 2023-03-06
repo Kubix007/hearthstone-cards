@@ -21,3 +21,10 @@ export const PageLayout = styled(Grid)`
     height: 100%;
   }
 `;
+
+export const Container = styled.div`
+  display: contents;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;

@@ -5,6 +5,7 @@ const initialState: ICreateDeckState = {
   isSelected: false,
   selectedClass: {
     name: "",
+    gameMode: "",
   },
 };
 
@@ -13,8 +14,12 @@ export const createDeckSlice = createSlice({
   initialState,
   reducers: {
     reset: (state) => initialState,
+    setClass: (state, action) => {
+      state.isSelected = true;
+      state.selectedClass = action.payload;
+    },
   },
 });
 
-export const { reset } = createDeckSlice.actions;
+export const { reset, setClass } = createDeckSlice.actions;
 export default createDeckSlice.reducer;

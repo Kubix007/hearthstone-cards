@@ -10,6 +10,7 @@ import { Grid } from "@mui/material";
 import ImportDeckLayout from "../../components/CreateDeck/ImportDeckLayout";
 import * as Styles from "./CreateDeck.styles";
 import * as SharedTypes from "../../shared/types";
+import CreateDeckSelectedClass from "../../components/CreateDeck/CreateDeckSelectedClass";
 
 const CreateDeck = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -25,9 +26,7 @@ const CreateDeck = () => {
     (state: RootState) => state.auth
   );
 
-  const { isSelected, selectedClass } = useSelector(
-    (state: RootState) => state.createDeck
-  );
+  const { isSelected } = useSelector((state: RootState) => state.createDeck);
 
   useEffect(() => {
     if (isError) {
@@ -45,6 +44,14 @@ const CreateDeck = () => {
 
   if (isLoading) {
     return <Spinner />;
+  }
+
+  if (isSelected) {
+    return (
+      <Styles.Container>
+        <CreateDeckSelectedClass />
+      </Styles.Container>
+    );
   }
   return (
     <Styles.PageLayout>

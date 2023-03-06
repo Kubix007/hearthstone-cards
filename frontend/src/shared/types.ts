@@ -291,5 +291,6 @@ export interface ICreateDeckState {
   isSelected: boolean;
   selectedClass: {
     name: string;
+    gameMode: string;
   };
 }
