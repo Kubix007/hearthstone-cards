@@ -64,7 +64,7 @@ const BrowseCards = () => {
             <NoResultInfo />
           ) : (
             <Styles.CardsContainer>
-              <Styles.Cards>
+              <Styles.Cards size={1300}>
                 {cards.cards.map((card) => (
                   <CardsLayout key={card.id} card={card} />
                 ))}

@@ -7,13 +7,13 @@ import { getAllCards } from "../../../features/cards/cardsSlice";
 import { getMetadata } from "../../../features/metadata/metadataSlice";
 import * as SharedStyles from "../../../shared/styles";
 import * as Styles from "./CreateDeckSelectedClass.styles";
-
 import Spinner from "../../Spinner";
 import BottomPagination from "../../BottomPagination";
 import FilterTags from "../../FilterTags";
 import NoResultInfo from "../../FilterBar/NoResultInfo";
 import CardsLayout from "../../CardsLayout";
 import FilterBar from "../../FilterBar";
+import DeckList from "../DeckList";
 
 const CreateDeckSelectedClass = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -57,24 +57,31 @@ const CreateDeckSelectedClass = () => {
     );
   } else {
     return (
-      <SharedStyles.Container>
+      <Styles.Container>
         <FilterBar showClassFilter={false} />
-        <Styles.Center>
-          <FilterTags />
-          {cards.cardCount === 0 ? (
-            <NoResultInfo />
-          ) : (
-            <Styles.CardsContainer>
-              <Styles.Cards>
-                {cards.cards.map((card) => (
-                  <CardsLayout key={card.id} card={card} />
-                ))}
-              </Styles.Cards>
-            </Styles.CardsContainer>
-          )}
-        </Styles.Center>
+        <Styles.ContentContainer>
+          <Styles.Center>
+            <FilterTags />
+            <div>
+              {cards.cardCount === 0 ? (
+                <NoResultInfo />
+              ) : (
+                <Styles.CardsContainer>
+                  <Styles.Cards size={1100}>
+                    {cards.cards.map((card) => (
+                      <CardsLayout key={card.id} card={card} />
+                    ))}
+                  </Styles.Cards>
+                </Styles.CardsContainer>
+              )}
+            </div>
+          </Styles.Center>
+          <Styles.DeckContainer>
+            <DeckList />
+          </Styles.DeckContainer>
+        </Styles.ContentContainer>
         <BottomPagination />
-      </SharedStyles.Container>
+      </Styles.Container>
     );
   }
 };
