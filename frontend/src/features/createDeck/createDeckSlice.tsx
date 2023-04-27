@@ -7,6 +7,7 @@ const initialState: ICreateDeckState = {
     name: "",
     gameMode: "",
   },
+  cards: [],
 };
 
 export const createDeckSlice = createSlice({

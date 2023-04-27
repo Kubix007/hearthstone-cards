@@ -289,6 +289,7 @@ export interface ISelectedFormat {
 
 export interface ICreateDeckState {
   isSelected: boolean;
+  cards: [];
   selectedClass: {
     name: string;
     gameMode: string;

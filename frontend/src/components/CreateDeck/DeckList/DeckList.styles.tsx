@@ -4,10 +4,11 @@ import styled from "styled-components";
 export const DeckListLayout = styled(Stack)`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deck_bg-7456c142239cf279362e76d67865d342b52e330912931365349cf61fceacd4bcb9e63cb91adeab45ff020238fda831ceb898d556500088f2bbe31957917ae860.png)
     center top / cover no-repeat;
-  height: 713px;
+  height: 670px;
   width: 407px;
   position: sticky;
   top: 8%;
+  margin-left: 20px;
 `;
 
 export const DeckListTopBorder = styled(Box)`
@@ -15,9 +16,32 @@ export const DeckListTopBorder = styled(Box)`
     center top / cover no-repeat;
   display: block;
   position: relative;
-  height: 0px;
   padding-bottom: 34.975%;
 `;
+
+export const DeckTitleContainer = styled(Box)``;
+
+export const DeckTitleArrow = styled(Box)``;
+
+export const DeckTitleBorder = styled(Box)`
+  position: absolute;
+  top: 12px;
+  left: 21.9px;
+  width: 365px;
+  height: 80%;
+  z-index: 1;
+  background-repeat: no-repeat;
+  background-image: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deckbuilder_frame_top_standard_desktop-ce90aa5e2ce5fab42c9fed8cc4869c1fcd4406df47f75f7509e69a92d74b15c546232dd551699e802900f6c2cb0824a08cbf0d20f6ccd783c2d0d83ded9d0114.png);
+  &:hover {
+    background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deckbuilder_standard_frame_hover-f07a0f3d5dfed8f955695277a5b4252da741b427f11635f155d87263e2034aa472108ef146cede8808c4b851337c2eca83001dfe28aecdb141012c02e07d0c3d.png)
+        center center no-repeat,
+      url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deckbuilder_frame_top_standard_desktop-ce90aa5e2ce5fab42c9fed8cc4869c1fcd4406df47f75f7509e69a92d74b15c546232dd551699e802900f6c2cb0824a08cbf0d20f6ccd783c2d0d83ded9d0114.png)
+        no-repeat;
+    cursor: pointer;
+  }
+`;
+
+export const DeckTitleBackground = styled(Box)``;
 
 export const DeckListCenterBorder = styled(Box)`
   width: 100%;
