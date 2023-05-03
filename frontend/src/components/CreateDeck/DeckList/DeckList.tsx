@@ -2,6 +2,9 @@ import { useState } from "react";
 import * as Styles from "./DeckList.styles";
 import DeckListClassBackground from "./DeckListClassBackground";
 import DeckListArrowIcon from "./DeckListClassBackground/DeckListArrowIcon";
+import CopyDeckButton from "./DeckListButtons/CopyDeckButton";
+import NewDeckButton from "./DeckListButtons/NewDeckButton";
+import ButtonsDivider from "./DeckListButtons/ButtonsDivider";
 
 const DeckList = () => {
   const [isClicked, setIsClicked] = useState(false);
@@ -20,7 +23,10 @@ const DeckList = () => {
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
       <Styles.DeckListCenterBorder></Styles.DeckListCenterBorder>
-      <Styles.DeckListBottomBorder></Styles.DeckListBottomBorder>
+      <Styles.DeckListBottomBorder>
+        <ButtonsDivider />
+        <NewDeckButton />
+      </Styles.DeckListBottomBorder>
     </Styles.DeckListLayout>
   );
 };
