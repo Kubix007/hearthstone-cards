@@ -17,6 +17,9 @@ export const CreateNewDeckButton = styled(Button)`
     position: absolute;
     bottom: 6px;
     right: 3px;
+    :hover {
+      background-image: linear-gradient(rgb(239, 161, 88), rgb(157, 71, 49));
+    }
   }
 `;
 

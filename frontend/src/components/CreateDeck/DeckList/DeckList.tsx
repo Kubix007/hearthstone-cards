@@ -24,6 +24,7 @@ const DeckList = () => {
       </Styles.DeckListTopBorder>
       <Styles.DeckListCenterBorder></Styles.DeckListCenterBorder>
       <Styles.DeckListBottomBorder>
+        <CopyDeckButton />
         <ButtonsDivider />
         <NewDeckButton />
       </Styles.DeckListBottomBorder>
