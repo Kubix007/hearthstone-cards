@@ -1,4 +1,4 @@
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 import styled from "styled-components";
 import { ReactComponent as NewDeckIcon } from "../../../../../img/CreateDeck/NewDeckIcon.svg";
 
@@ -38,4 +38,12 @@ export const ButtonContainer = styled(Box)`
   position: absolute;
   bottom: 28px;
   right: 35px;
+`;
+
+export const NewDeckTooltip = styled(Typography)`
+  &.MuiTypography-root {
+    font-family: BelweBoldBT;
+    font-weight: 400;
+    color: white;
+  }
 `;
