@@ -51,6 +51,7 @@ export const DeckListCenterBorder = styled(Box)`
     center center / 100% repeat-y;
   height: 100%;
   overflow: hidden;
+  justify-content: center;
 `;
 
 export const DeckListBottomBorder = styled(Box)`

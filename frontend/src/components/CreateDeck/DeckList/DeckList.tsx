@@ -5,9 +5,13 @@ import DeckListArrowIcon from "./DeckListClassBackground/DeckListArrowIcon";
 import CopyDeckButton from "./DeckListButtons/CopyDeckButton";
 import NewDeckButton from "./DeckListButtons/NewDeckButton";
 import ButtonsDivider from "./DeckListButtons/ButtonsDivider";
+import DeckListEmpty from "./DeckListEmpty";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../app/store";
 
 const DeckList = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const { cards } = useSelector((state: RootState) => state.createDeck);
   const handleClick = () => {
     setIsClicked((prevState) => !prevState);
   };
@@ -22,7 +26,9 @@ const DeckList = () => {
           </Styles.DeckTitleBorder>
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
-      <Styles.DeckListCenterBorder></Styles.DeckListCenterBorder>
+      <Styles.DeckListCenterBorder>
+        {cards.length < 1 ? <DeckListEmpty /> : null}
+      </Styles.DeckListCenterBorder>
       <Styles.DeckListBottomBorder>
         <CopyDeckButton />
         <ButtonsDivider />
