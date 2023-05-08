@@ -1,11 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { AppDispatch, RootState } from "../../app/store";
+import { RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
-import { reset } from "../../features/auth/authSlice";
-import { getAllCards } from "../../features/cards/cardsSlice";
-import { getMetadata } from "../../features/metadata/metadataSlice";
 import * as Styles from "./BrowseCards.style";
 import * as SharedStyles from "../../shared/styles";
 import CardsLayout from "../../components/CardsLayout";
@@ -15,9 +12,7 @@ import NoResultInfo from "../../components/FilterBar/NoResultInfo";
 import BottomPagination from "../../components/BottomPagination";
 
 const BrowseCards = () => {
-  const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
-  const filters = useSelector((state: RootState) => state.filter);
   const { cards, isLoading: isLoadingCards } = useSelector(
     (state: RootState) => state.cards
   );
@@ -34,14 +29,7 @@ const BrowseCards = () => {
     if (!user) {
       navigate("/login");
     }
-
-    dispatch(getAllCards(filters));
-    dispatch(getMetadata());
-
-    return () => {
-      dispatch(reset());
-    };
-  }, [user, navigate, isError, message, dispatch, filters]);
+  }, [user, navigate, isError, message]);
 
   if (isLoading) {
     return <Spinner />;
