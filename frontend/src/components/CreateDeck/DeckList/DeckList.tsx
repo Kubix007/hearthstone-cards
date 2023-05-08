@@ -11,7 +11,7 @@ import { RootState } from "../../../app/store";
 
 const DeckList = () => {
   const [isClicked, setIsClicked] = useState(false);
-  const { cards } = useSelector((state: RootState) => state.createDeck);
+  const { deck } = useSelector((state: RootState) => state.createDeck);
   const handleClick = () => {
     setIsClicked((prevState) => !prevState);
   };
@@ -27,7 +27,7 @@ const DeckList = () => {
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
       <Styles.DeckListCenterBorder>
-        {cards.length < 1 ? <DeckListEmpty /> : null}
+        {deck.cardCount < 1 ? <DeckListEmpty /> : null}
       </Styles.DeckListCenterBorder>
       <Styles.DeckListBottomBorder>
         <CopyDeckButton />

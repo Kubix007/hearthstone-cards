@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const EmptyContainer = styled(Box)`
   width: 407px;
-  height: 100px;
+  height: 50%;
 `;
 
 export const EmptyLogo = styled(Box)`
@@ -28,6 +28,7 @@ export const EmptyInfo = styled(Typography)`
 export const EmptyDeckInput = styled(Input)`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/inputfield_middle-fcd373e6c5098b17e9ff32919340f12cf269c31752dde49a8cf40c41b8bbb4b561ba3061debf9fbcbf5efaa5d074dff68bcafec96265ada45ec644b8526d9453.png);
   height: 52px;
+  z-index: 1;
 `;
 
 export const LeftSearchLayout = styled(Box)`

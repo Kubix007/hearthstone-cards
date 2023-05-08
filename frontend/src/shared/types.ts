@@ -64,6 +64,49 @@ export interface ICardData {
   };
 }
 
+export interface IHeroPower {
+  id: number;
+  collectible: number;
+  slug: string;
+  classId: number;
+  multiClassIds: number[];
+  cardTypeId: number;
+  cardSetId: number;
+  rarityId: number;
+  artistName: string;
+  manaCost: number;
+  name: string;
+  text: string;
+  image: string;
+  imageGold: string;
+  flavorText: string;
+  cropImage: string;
+  parentId: number;
+  childIds: number[];
+}
+
+export interface IHero {
+  id: number;
+  collectible: number;
+  slug: string;
+  classId: number;
+  multiClassIds: number[];
+  cardTypeId: number;
+  cardSetId: number;
+  rarityId: number;
+  artistName: string;
+  health: number;
+  manaCost: number;
+  name: string;
+  text: string;
+  image: string;
+  imageGold: string;
+  flavorText: string;
+  cropImage: string;
+  parentId: number;
+  childIds: number[];
+}
+
 export interface ISelectedCard {
   selectedCard: ICardData;
   selectedIndex: number;
@@ -289,9 +332,18 @@ export interface ISelectedFormat {
 
 export interface ICreateDeckState {
   isSelected: boolean;
-  cards: [];
-  selectedClass: {
-    name: string;
-    gameMode: string;
+  deck: {
+    deckCode: string;
+    format: string;
+    hero: IHero | null;
+    heroPower: IHeroPower | null;
+    class: {
+      slug: string;
+      id: number;
+      name: string;
+    } | null;
+    cards: ICardData[];
+    cardCount: number;
   };
+  addedCard: ICardData;
 }

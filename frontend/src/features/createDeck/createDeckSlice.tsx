@@ -3,11 +3,40 @@ import { ICreateDeckState } from "../../shared/types";
 
 const initialState: ICreateDeckState = {
   isSelected: false,
-  selectedClass: {
-    name: "",
-    gameMode: "",
+  deck: {
+    deckCode: "",
+    format: "",
+    hero: null,
+    heroPower: null,
+    class: null,
+    cards: [],
+    cardCount: 0,
   },
-  cards: [],
+  addedCard: {
+    id: 0,
+    collectible: 0,
+    slug: "",
+    classId: 0,
+    multiClassIds: [],
+    spellSchoolId: 0,
+    cardTypeId: 0,
+    cardSetId: 0,
+    rarityId: 0,
+    artistName: "",
+    minionTypeId: 0,
+    manaCost: 0,
+    name: "",
+    text: "",
+    image: "",
+    imageGold: "",
+    flavorText: "",
+    cropImage: "",
+    keywordIds: [],
+    duels: {
+      relevant: false,
+      constructed: false,
+    },
+  },
 };
 
 export const createDeckSlice = createSlice({
@@ -17,7 +46,8 @@ export const createDeckSlice = createSlice({
     reset: (state) => initialState,
     setClass: (state, action) => {
       state.isSelected = true;
-      state.selectedClass = action.payload;
+      state.deck.format = action.payload.gameMode;
+      state.deck.hero = action.payload.hero;
     },
   },
 });

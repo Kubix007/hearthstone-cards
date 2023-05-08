@@ -1,17 +1,26 @@
 import { Grow } from "@mui/material";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch } from "../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../app/store";
 import { setClass } from "../../../features/createDeck/createDeckSlice";
 import * as Styles from "./ClassSelector.styles";
 import * as Types from "./ClassSelector.types";
 
 const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
   const [, setIsLoaded] = useState(false);
+  const { metadata } = useSelector((state: RootState) => state.metadata);
 
   const dispatch: AppDispatch = useDispatch();
 
+  const getHeroInfo = (slugName: string) => {
+    const heroDetails = metadata.classes.filter(
+      (item) => item.slug === slugName
+    );
+    return heroDetails;
+  };
+
   const handleClick = (className: string) => {
+    const heroDetails = getHeroInfo(className);
     let format = "";
     if (selectedFormat.classic) {
       format = "Klasyczne";
@@ -20,7 +29,7 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
     } else {
       format = "Dzicz";
     }
-    dispatch(setClass({ name: className, gameMode: format }));
+    dispatch(setClass({ hero: heroDetails[0], gameMode: format }));
   };
   return (
     <Styles.Container
@@ -32,7 +41,7 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
             src={classInfo.image}
             alt={classInfo.name}
             onLoad={() => setIsLoaded(true)}
-            onClick={() => handleClick(classInfo.displayName)}
+            onClick={() => handleClick(classInfo.name)}
           >
             <Styles.ClassName>{classInfo.displayName}</Styles.ClassName>
           </Styles.Cover>

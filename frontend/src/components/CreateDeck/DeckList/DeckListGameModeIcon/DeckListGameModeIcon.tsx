@@ -4,12 +4,12 @@ import * as Styles from "./DeckListGameModeIcon.styles";
 
 const DeckListGameModeIcon = () => {
   let icon = "";
-  const { isSelected, selectedClass } = useSelector(
+  const { isSelected, deck } = useSelector(
     (state: RootState) => state.createDeck
   );
 
   if (isSelected) {
-    switch (selectedClass.gameMode) {
+    switch (deck.format) {
       case "":
         break;
 
