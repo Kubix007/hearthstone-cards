@@ -6,6 +6,7 @@ import CopyDeckButton from "./DeckListButtons/CopyDeckButton";
 import NewDeckButton from "./DeckListButtons/NewDeckButton";
 import ButtonsDivider from "./DeckListButtons/ButtonsDivider";
 import DeckListEmpty from "./DeckListEmpty";
+import CardRowList from "../CardRowList";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
@@ -27,7 +28,7 @@ const DeckList = () => {
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
       <Styles.DeckListCenterBorder>
-        {deck.cardCount < 1 ? <DeckListEmpty /> : null}
+        {deck.cardCount < 1 ? <DeckListEmpty /> : <CardRowList />}
       </Styles.DeckListCenterBorder>
       <Styles.DeckListBottomBorder>
         <CopyDeckButton />

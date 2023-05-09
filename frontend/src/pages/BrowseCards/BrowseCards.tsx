@@ -13,6 +13,7 @@ import BottomPagination from "../../components/BottomPagination";
 
 const BrowseCards = () => {
   const navigate = useNavigate();
+  const filters = useSelector((state: RootState) => state.filter);
   const { cards, isLoading: isLoadingCards } = useSelector(
     (state: RootState) => state.cards
   );
@@ -29,7 +30,7 @@ const BrowseCards = () => {
     if (!user) {
       navigate("/login");
     }
-  }, [user, navigate, isError, message]);
+  }, [user, navigate, isError, message, filters]);
 
   if (isLoading) {
     return <Spinner />;
@@ -54,7 +55,7 @@ const BrowseCards = () => {
             <Styles.CardsContainer>
               <Styles.Cards size={1300}>
                 {cards.cards.map((card) => (
-                  <CardsLayout key={card.id} card={card} />
+                  <CardsLayout type="BROWSE" key={card.id} card={card} />
                 ))}
               </Styles.Cards>
             </Styles.CardsContainer>

@@ -49,8 +49,14 @@ export const createDeckSlice = createSlice({
       state.deck.format = action.payload.gameMode;
       state.deck.hero = action.payload.hero;
     },
+    addCardToDeck: (state, action) => {
+      const stateCopy = state.deck.cards;
+      state.deck.cards = [...stateCopy, action.payload];
+      state.addedCard = action.payload;
+      state.deck.cardCount = state.deck.cardCount + 1;
+    },
   },
 });
 
-export const { reset, setClass } = createDeckSlice.actions;
+export const { reset, setClass, addCardToDeck } = createDeckSlice.actions;
 export default createDeckSlice.reducer;

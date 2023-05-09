@@ -11,8 +11,9 @@ import {
   setSelectedCard,
   setSelectedIndex,
 } from "../../features/selectedCard/selectedCardSlice";
+import { addCardToDeck } from "../../features/createDeck/createDeckSlice";
 
-const CardsLayout = ({ card }: Types.Props) => {
+const CardsLayout = ({ card, type }: Types.Props) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
@@ -22,6 +23,8 @@ const CardsLayout = ({ card }: Types.Props) => {
     (state: RootState) => state.selectedCard
   );
 
+  const isBrowseType = type === "BROWSE" ? true : false;
+
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };
@@ -30,10 +33,14 @@ const CardsLayout = ({ card }: Types.Props) => {
     setAnchorEl(null);
   };
 
-  const handleClickOpen = () => {
+  const handleClickOpenForBrowseCards = () => {
     setOpen(true);
     dispatch(setSelectedCard(card));
     dispatch(setSelectedIndex(cards.cards.indexOf(card)));
+  };
+
+  const handleClickOpenForCreateDeck = () => {
+    dispatch(addCardToDeck(card));
   };
 
   const handleClose = () => {
@@ -50,7 +57,11 @@ const CardsLayout = ({ card }: Types.Props) => {
             onMouseEnter={handlePopoverOpen}
             onMouseLeave={handlePopoverClose}
             onLoad={() => setIsLoaded(true)}
-            onClick={handleClickOpen}
+            onClick={
+              isBrowseType
+                ? handleClickOpenForBrowseCards
+                : handleClickOpenForCreateDeck
+            }
           />
         </Styles.Card>
       </Grow>

@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../app/store";
 import { reset } from "../../../features/auth/authSlice";
-import { getAllCards } from "../../../features/cards/cardsSlice";
-import { getMetadata } from "../../../features/metadata/metadataSlice";
 import * as SharedStyles from "../../../shared/styles";
 import * as Styles from "./CreateDeckSelectedClass.styles";
 import Spinner from "../../Spinner";
@@ -36,9 +34,6 @@ const CreateDeckSelectedClass = () => {
       navigate("/login");
     }
 
-    dispatch(getAllCards(filters));
-    dispatch(getMetadata());
-
     return () => {
       dispatch(reset());
     };
@@ -69,7 +64,7 @@ const CreateDeckSelectedClass = () => {
                 <Styles.CardsContainer>
                   <Styles.Cards size={1100}>
                     {cards.cards.map((card) => (
-                      <CardsLayout key={card.id} card={card} />
+                      <CardsLayout type="CREATE" key={card.id} card={card} />
                     ))}
                   </Styles.Cards>
                 </Styles.CardsContainer>
