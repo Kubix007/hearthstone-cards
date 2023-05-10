@@ -16,7 +16,7 @@ export const ArrowIcon = styled(Box)<Types.Props>`
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   ${(props) =>
-    props.isClicked
+    props.$isclicked
       ? "transform: translateY(-50%) rotate(180deg)"
       : "transform: translateY(-50%)"}
 `;

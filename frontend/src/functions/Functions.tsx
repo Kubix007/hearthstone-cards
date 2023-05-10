@@ -12,3 +12,14 @@ export const countOccurrences = (
   }
   return count;
 };
+
+export const maxCardReached = (
+  countElement: React.MutableRefObject<HTMLDivElement | undefined>,
+  currentClass: string
+) => {
+  countElement.current?.firstElementChild?.setAttribute("style", "color:red");
+  countElement.current?.setAttribute("class", `${currentClass} shake`);
+  setTimeout(() => {
+    countElement.current?.setAttribute("class", `${currentClass}`);
+  }, 1000);
+};

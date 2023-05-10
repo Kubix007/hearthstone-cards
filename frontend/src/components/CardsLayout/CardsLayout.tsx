@@ -1,5 +1,5 @@
 import * as Styles from "./CardsLayout.style";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Grow } from "@mui/material";
 import * as Types from "./CardsLayout.types";
 import CardsInfoPopover from "./CardsInfoPopover";
@@ -12,18 +12,24 @@ import {
   setSelectedIndex,
 } from "../../features/selectedCard/selectedCardSlice";
 import { addCardToDeck } from "../../features/createDeck/createDeckSlice";
+import { countOccurrences } from "../../functions/Functions";
+import { maxCardReached } from "../../functions/Functions";
 
 const CardsLayout = ({ card, type }: Types.Props) => {
+  const countElement = useRef<HTMLDivElement>();
   const [isLoaded, setIsLoaded] = useState(false);
   const [open, setOpen] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const dispatch: AppDispatch = useDispatch();
   const { cards } = useSelector((state: RootState) => state.cards);
+  const { deck } = useSelector((state: RootState) => state.createDeck);
   const { selectedCard } = useSelector(
     (state: RootState) => state.selectedCard
   );
 
   const isBrowseType = type === "BROWSE" ? true : false;
+  const cardOccurences = countOccurrences(deck.cards, card);
+  const maxNumberOfCard = card.rarityId === 5 ? 1 : 2;
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -40,7 +46,18 @@ const CardsLayout = ({ card, type }: Types.Props) => {
   };
 
   const handleClickOpenForCreateDeck = () => {
-    dispatch(addCardToDeck(card));
+    const currentClass = countElement.current?.getAttribute("class") as string;
+    if (card.rarityId === 5) {
+      if (cardOccurences < 1) {
+        dispatch(addCardToDeck(card));
+      } else {
+        maxCardReached(countElement, currentClass);
+      }
+    } else if (cardOccurences < 2) {
+      dispatch(addCardToDeck(card));
+    } else {
+      maxCardReached(countElement, currentClass);
+    }
   };
 
   const handleClose = () => {
@@ -50,7 +67,7 @@ const CardsLayout = ({ card, type }: Types.Props) => {
   return (
     <Styles.Container>
       <Grow timeout={500} in={isLoaded}>
-        <Styles.Card>
+        <Styles.Card value={cardOccurences} max={maxNumberOfCard}>
           <Styles.Cover
             src={card.image}
             alt={card.name}
@@ -65,6 +82,17 @@ const CardsLayout = ({ card, type }: Types.Props) => {
           />
         </Styles.Card>
       </Grow>
+      {cardOccurences === 0 ? null : isBrowseType ? null : (
+        <Styles.CardCount
+          ref={countElement}
+          value={cardOccurences}
+          max={maxNumberOfCard}
+        >
+          <Styles.CardCountText value={cardOccurences} max={maxNumberOfCard}>
+            {cardOccurences}/{maxNumberOfCard}
+          </Styles.CardCountText>
+        </Styles.CardCount>
+      )}
       {card.keywordIds ? (
         <CardsInfoPopover
           keywordsIds={card.keywordIds}

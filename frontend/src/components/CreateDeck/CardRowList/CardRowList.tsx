@@ -9,11 +9,13 @@ const CardRowList = () => {
 
   return (
     <Styles.Container container justifyContent="top" direction="column">
-      {Array.from(new Set(deck.cards)).map((item) => (
-        <Grid item key={item.id}>
-          <CardRow card={item} />
-        </Grid>
-      ))}
+      {Array.from(new Set(deck.cards))
+        .sort((a, b) => a.manaCost - b.manaCost)
+        .map((item) => (
+          <Grid item key={item.id}>
+            <CardRow card={item} />
+          </Grid>
+        ))}
     </Styles.Container>
   );
 };

@@ -10,7 +10,7 @@ const CopyDeckButton = () => {
   return (
     <Styles.ButtonContainer onClick={handleClick}>
       <Styles.CopyDeckButton>Skopiuj talie</Styles.CopyDeckButton>
-      <Styles.CopyDeckArrow isClicked={isClicked} />
+      <Styles.CopyDeckArrow $isclicked={isClicked} />
     </Styles.ButtonContainer>
   );
 };

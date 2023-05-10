@@ -90,7 +90,7 @@ const DeckListClassBackground = () => {
   }
 
   return (
-    <Styles.DeckListBackground backgroundImg={backgroundImg}>
+    <Styles.DeckListBackground backgroundimg={backgroundImg}>
       <DeckListGameModeIcon />
       <Styles.DetailsContainer>
         <Styles.DeckListTitle>{pageHeaderTitleText}</Styles.DeckListTitle>

@@ -1,3 +1,3 @@
 export interface Props {
-  isClicked: boolean;
+  $isclicked: boolean;
 }

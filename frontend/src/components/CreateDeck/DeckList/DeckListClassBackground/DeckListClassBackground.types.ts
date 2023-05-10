@@ -1,3 +1,3 @@
 export interface Props {
-  backgroundImg: string;
+  backgroundimg: string;
 }

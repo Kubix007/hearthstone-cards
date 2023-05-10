@@ -40,7 +40,7 @@ export const CopyDeckArrow = styled(ArrowIcon)<Types.Props>`
   right: -100px;
   top: 20px;
   ${(props) =>
-    props.isClicked
+    props.$isclicked
       ? "transform: translateY(-50%) rotate(270deg)"
       : "transform: translateY(-50%) rotate(90deg)"}
 `;

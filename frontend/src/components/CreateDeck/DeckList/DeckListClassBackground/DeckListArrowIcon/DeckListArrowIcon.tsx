@@ -1,8 +1,8 @@
 import * as Styles from "./DeckListArrowIcon.styles";
 import * as Types from "./DeckListArrowIcon.types";
 
-const DeckListArrowIcon = ({ isClicked }: Types.Props) => {
-  return <Styles.ArrowIcon isClicked={isClicked} />;
+const DeckListArrowIcon = ({ $isclicked }: Types.Props) => {
+  return <Styles.ArrowIcon $isclicked={$isclicked} />;
 };
 
 export default DeckListArrowIcon;

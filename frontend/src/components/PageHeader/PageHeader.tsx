@@ -132,12 +132,7 @@ const PageHeader = () => {
   }
 
   return (
-    <Styles.PageHeaderContainer
-      backgroundimg={backgroundImg}
-      xs={false}
-      sm={4}
-      md={7}
-    >
+    <Styles.PageHeaderContainer backgroundimg={backgroundImg}>
       <Styles.TextContainer>
         <Styles.PageHeaderTitleText>
           {pageHeaderTitleText}

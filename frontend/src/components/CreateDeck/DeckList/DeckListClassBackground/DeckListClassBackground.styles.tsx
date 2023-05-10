@@ -3,7 +3,7 @@ import * as Types from "./DeckListClassBackground.types";
 import styled from "styled-components";
 
 export const DeckListBackground = styled(Box)<Types.Props>`
-  background-image: url(${(props) => props.backgroundImg});
+  background-image: url(${(props) => props.backgroundimg});
   position: absolute;
   top: 21%;
   left: 4.5%;

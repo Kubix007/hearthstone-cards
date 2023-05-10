@@ -23,7 +23,7 @@ const DeckList = () => {
         <Styles.DeckTitleContainer>
           <Styles.DeckTitleBorder>
             <DeckListClassBackground />
-            <DeckListArrowIcon isClicked={isClicked} />
+            <DeckListArrowIcon $isclicked={isClicked} />
           </Styles.DeckTitleBorder>
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
