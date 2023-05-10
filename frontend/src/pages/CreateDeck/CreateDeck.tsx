@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
-import { reset } from "../../features/auth/authSlice";
+import { reset } from "../../features/createDeck/createDeckSlice";
 import FormatSelector from "../../components/CreateDeck/FormatSelector";
 import ClassSelectorList from "../../components/CreateDeck/ClassSelectorList";
 import { Grid } from "@mui/material";

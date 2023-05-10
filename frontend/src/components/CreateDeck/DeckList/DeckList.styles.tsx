@@ -16,7 +16,7 @@ export const DeckListTopBorder = styled(Box)`
     center top / cover no-repeat;
   display: block;
   position: relative;
-  padding-bottom: 34.975%;
+  height: 175px;
 `;
 
 export const DeckTitleContainer = styled(Box)``;
@@ -28,7 +28,7 @@ export const DeckTitleBorder = styled(Box)`
   top: 12px;
   left: 21.9px;
   width: 365px;
-  height: 80%;
+  height: 110px;
   z-index: 1;
   background-repeat: no-repeat;
   background-image: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deckbuilder_frame_top_standard_desktop-ce90aa5e2ce5fab42c9fed8cc4869c1fcd4406df47f75f7509e69a92d74b15c546232dd551699e802900f6c2cb0824a08cbf0d20f6ccd783c2d0d83ded9d0114.png);
@@ -49,14 +49,13 @@ export const DeckListCenterBorder = styled(Box)`
   flex-direction: column;
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deckListMiddleNoShadow-4cb94d99b774cd234e118726b87e0bde71890f51fbf2b808a358a68854f7be2762362d11edef1e84e5ef93390ebc5bb4c54864e31cb89b6cdf8f0e2f59fb7084.png)
     center center / 100% repeat-y;
-  height: 100%;
-  overflow: hidden;
+  height: 650px;
   justify-content: center;
 `;
 
 export const DeckListBottomBorder = styled(Box)`
   width: 407px;
-  height: 100%;
+  height: 100px;
   display: flex;
   flex-direction: row;
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/deckListBottomNoShadowFinal-766a1f9dfc4971650620f73e67d08307a60f36be5794bcdf872f391a7dbff3ad286fa0b24dbb9e8f5c7490807dcd7b8d9d857b54accfc5fc8f0450b56e3e55ce.png)
