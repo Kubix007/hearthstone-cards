@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../app/store";
 import Spinner from "../../components/Spinner";
 import { reset } from "../../features/createDeck/createDeckSlice";
+import { reset as resetFilters } from "../../features/filter/filterSlice";
 import FormatSelector from "../../components/CreateDeck/FormatSelector";
 import ClassSelectorList from "../../components/CreateDeck/ClassSelectorList";
 import { Grid } from "@mui/material";
@@ -39,6 +40,7 @@ const CreateDeck = () => {
 
     return () => {
       dispatch(reset());
+      dispatch(resetFilters());
     };
   }, [user, navigate, isError, message, dispatch]);
 

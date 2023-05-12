@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../../../app/store";
 import { setClass } from "../../../features/createDeck/createDeckSlice";
 import * as Styles from "./ClassSelector.styles";
 import * as Types from "./ClassSelector.types";
+import { changeClass, changeSet } from "../../../features/filter/filterSlice";
 
 const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
   const [, setIsLoaded] = useState(false);
@@ -21,15 +22,27 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
 
   const handleClick = (className: string) => {
     const heroDetails = getHeroInfo(className);
-    let format = "";
+    let gameMode,
+      formatValue,
+      formatName = "";
     if (selectedFormat.classic) {
-      format = "Klasyczne";
+      formatName = "Karty klasyczne";
+      gameMode = "Klasyczne";
+      formatValue = "classic";
     } else if (selectedFormat.standard) {
-      format = "Standard";
+      formatName = "Karty standardowe";
+      gameMode = "Standard";
+      formatValue = "standard";
     } else {
-      format = "Dzicz";
+      formatName = "Dzikie karty";
+      gameMode = "Dzicz";
+      formatValue = "wild";
     }
-    dispatch(setClass({ hero: heroDetails[0], gameMode: format }));
+    dispatch(setClass({ hero: heroDetails[0], gameMode: gameMode }));
+    dispatch(
+      changeClass({ name: heroDetails[0].name, value: heroDetails[0].slug })
+    );
+    dispatch(changeSet({ name: formatName, value: formatValue }));
   };
   return (
     <Styles.Container

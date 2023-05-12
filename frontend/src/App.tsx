@@ -23,7 +23,8 @@ function App() {
   useEffect(() => {
     dispatch(getAllCards(filters));
     dispatch(getMetadata());
-  }, [user, dispatch, filters]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filters]);
   return (
     <>
       <Router>

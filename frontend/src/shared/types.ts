@@ -346,4 +346,8 @@ export interface ICreateDeckState {
     cardCount: number;
   };
   addedCard: ICardData;
+  isError: boolean;
+  isSuccess: boolean;
+  isLoading: boolean;
+  message: string;
 }

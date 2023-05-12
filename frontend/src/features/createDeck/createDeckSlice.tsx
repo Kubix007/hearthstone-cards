@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ICreateDeckState } from "../../shared/types";
+import createDeckService from "./createDeckService";
 
 const initialState: ICreateDeckState = {
   isSelected: false,
@@ -37,7 +38,29 @@ const initialState: ICreateDeckState = {
       constructed: false,
     },
   },
+  isError: false,
+  isSuccess: false,
+  isLoading: false,
+  message: "",
 };
+
+//Get heroPowerCard
+export const getHeroPowerCard = createAsyncThunk(
+  "cards/getHeroPowerCard",
+  async (heroPowerCardId: number, thunkAPI) => {
+    try {
+      return await createDeckService.getHeroPower(heroPowerCardId);
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
 
 export const createDeckSlice = createSlice({
   name: "createDeck",
@@ -55,6 +78,22 @@ export const createDeckSlice = createSlice({
       state.addedCard = action.payload;
       state.deck.cardCount = state.deck.cardCount + 1;
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(getHeroPowerCard.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getHeroPowerCard.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.deck.heroPower = action.payload.cards[0];
+      })
+      .addCase(getHeroPowerCard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+      });
   },
 });
 
