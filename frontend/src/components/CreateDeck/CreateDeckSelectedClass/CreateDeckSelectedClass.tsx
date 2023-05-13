@@ -56,7 +56,7 @@ const CreateDeckSelectedClass = () => {
         <FilterBar showClassFilter={false} />
         <Styles.ContentContainer>
           <Styles.Center>
-            <FilterTags />
+            <FilterTags type="CREATE" />
             <div>
               {cards.cardCount === 0 ? (
                 <NoResultInfo />

@@ -78,6 +78,17 @@ export const createDeckSlice = createSlice({
       state.addedCard = action.payload;
       state.deck.cardCount = state.deck.cardCount + 1;
     },
+    removeCardFromDeck: (state, action) => {
+      const indexToRemove = state.deck.cards.findIndex(
+        (obj) => obj.id === action.payload.id
+      );
+      if (indexToRemove !== -1) {
+        const stateCopy = [...state.deck.cards];
+        stateCopy.splice(indexToRemove, 1);
+        state.deck.cards = [...stateCopy];
+        state.deck.cardCount = state.deck.cardCount - 1;
+      }
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -97,5 +108,6 @@ export const createDeckSlice = createSlice({
   },
 });
 
-export const { reset, setClass, addCardToDeck } = createDeckSlice.actions;
+export const { reset, setClass, addCardToDeck, removeCardFromDeck } =
+  createDeckSlice.actions;
 export default createDeckSlice.reducer;

@@ -4,4 +4,5 @@ export interface SimpleDialogProps {
   open: boolean;
   onClose: any;
   cards: ICardData;
+  isBrowseType: boolean;
 }

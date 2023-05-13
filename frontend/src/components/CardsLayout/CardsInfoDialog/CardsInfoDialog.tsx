@@ -2,7 +2,12 @@ import * as Types from "./CardsInfoDialog.types";
 import * as Styles from "./CardsInfoDialog.styles";
 import DialogCardPreview from "./DialogCardPreview";
 
-const CardsInfoDialog = ({ onClose, open, cards }: Types.SimpleDialogProps) => {
+const CardsInfoDialog = ({
+  onClose,
+  open,
+  cards,
+  isBrowseType,
+}: Types.SimpleDialogProps) => {
   return (
     <Styles.DialogContainer fullScreen open={open}>
       <Styles.Title>
@@ -11,7 +16,7 @@ const CardsInfoDialog = ({ onClose, open, cards }: Types.SimpleDialogProps) => {
         ) : null}
       </Styles.Title>
       <Styles.Content>
-        <DialogCardPreview card={cards} />
+        <DialogCardPreview isBrowseType={isBrowseType} card={cards} />
       </Styles.Content>
     </Styles.DialogContainer>
   );

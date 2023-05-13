@@ -20,8 +20,9 @@ import { useState } from "react";
 import SortSelect from "./SortSelect";
 import PaginationSelect from "./PaginationSelect";
 import { Grid } from "@mui/material";
+import * as Types from "./FilterTags.types";
 
-const FilterTags = () => {
+const FilterTags = ({ type }: Types.Props) => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const { cards }: ICardsState = useSelector((state: RootState) => state.cards);
   const [amountOfTags, setAmountOfTags] = useState(0);
@@ -50,7 +51,9 @@ const FilterTags = () => {
             }": ${cards.cardCount}`}
           </Styles.MainTag>
           {/* Class TAG */}
-          {filters.class.name && filters.class.name !== "Wszystkie klasy" ? (
+          {type === "BROWSE" &&
+          filters.class.name &&
+          filters.class.name !== "Wszystkie klasy" ? (
             <FilterTagsButton
               filters={filters.class.name}
               dispatchAction={changeClass}

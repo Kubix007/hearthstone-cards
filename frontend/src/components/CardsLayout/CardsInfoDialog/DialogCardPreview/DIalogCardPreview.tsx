@@ -10,7 +10,7 @@ import {
   setSelectedIndex,
 } from "../../../../features/selectedCard/selectedCardSlice";
 
-const DialogCardPreview = ({ card }: Types.Props) => {
+const DialogCardPreview = ({ card, isBrowseType }: Types.Props) => {
   const { metadata } = useSelector((state: RootState) => state.metadata);
   const { cards } = useSelector((state: RootState) => state.cards);
   const dispatch: AppDispatch = useDispatch();
@@ -67,12 +67,14 @@ const DialogCardPreview = ({ card }: Types.Props) => {
       justifyContent="center"
       alignItems="center"
     >
-      <Grid item>
-        <Styles.LeftArrowButton
-          active={selectedIndex !== 0}
-          onClick={() => handleChangeCard("left")}
-        />
-      </Grid>
+      {isBrowseType ? (
+        <Grid item>
+          <Styles.LeftArrowButton
+            active={selectedIndex !== 0}
+            onClick={() => handleChangeCard("left")}
+          />
+        </Grid>
+      ) : null}
       <Grid item>
         <Styles.Cover src={card.image} alt={card.name} />
       </Grid>
@@ -117,12 +119,14 @@ const DialogCardPreview = ({ card }: Types.Props) => {
           </Styles.Li>
         </Styles.Ul>
       </Grid>
-      <Grid item>
-        <Styles.RightArrowButton
-          active={selectedIndex < cards.cards.length - 1}
-          onClick={() => handleChangeCard("right")}
-        />
-      </Grid>
+      {isBrowseType ? (
+        <Grid item>
+          <Styles.RightArrowButton
+            active={selectedIndex < cards.cards.length - 1}
+            onClick={() => handleChangeCard("right")}
+          />
+        </Grid>
+      ) : null}
     </Grid>
   );
 };

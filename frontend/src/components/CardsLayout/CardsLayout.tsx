@@ -18,7 +18,7 @@ import { maxCardReached } from "../../functions/Functions";
 const CardsLayout = ({ card, type }: Types.Props) => {
   const countElement = useRef<HTMLDivElement>();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const dispatch: AppDispatch = useDispatch();
   const { cards } = useSelector((state: RootState) => state.cards);
@@ -102,7 +102,14 @@ const CardsLayout = ({ card, type }: Types.Props) => {
           handlePopoverOpen={handlePopoverOpen}
         />
       ) : null}
-      <CardsInfoDialog cards={selectedCard} open={open} onClose={handleClose} />
+      {isBrowseType ? (
+        <CardsInfoDialog
+          isBrowseType={isBrowseType}
+          cards={selectedCard}
+          open={open}
+          onClose={handleClose}
+        />
+      ) : null}
     </Styles.Container>
   );
 };

@@ -48,7 +48,7 @@ const BrowseCards = () => {
       <SharedStyles.Container>
         <FilterBar showClassFilter={true} />
         <Styles.Center>
-          <FilterTags />
+          <FilterTags type="BROWSE" />
           {cards.cardCount === 0 ? (
             <NoResultInfo />
           ) : (

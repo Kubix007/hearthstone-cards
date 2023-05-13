@@ -1,6 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import * as Types from "./CardRow.types";
 import styled from "styled-components";
+import { ReactComponent as ControlInfoImage } from "../../../img/CreateDeck/CardRowControlInfo.svg";
+import { ReactComponent as ControlAddImage } from "../../../img/CreateDeck/CardRowControlAdd.svg";
+import { ReactComponent as ControlRemoveImage } from "../../../img/CreateDeck/CardRowControllRemove.svg";
 
 export const CardRowContainer = styled(Box)`
   display: flex;
@@ -116,4 +119,99 @@ export const CardCount = styled(Typography)`
       rgb(0 0 0) 0.56732px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px,
       rgb(0 0 0) 1.92034px -0.55883px 0px;
   }
+`;
+
+export const CardRowControls = styled(Box)`
+  width: 38.5%;
+  height: 29.4px;
+  position: relative;
+  left: 121px;
+  top: 7.4px;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  border-left: 2px solid rgb(98, 98, 98);
+  z-index: 3;
+  opacity: 0;
+  transform: translate3d(-150%, 0px, 0px);
+  transition: all 0.085s ease-out 0s;
+`;
+
+export const CardRowControlInfoButton = styled.button`
+  height: 34px;
+  width: 33.33%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+`;
+
+export const CardRowControlAddButton = styled.button<Types.ButtonProps>`
+  height: 34px;
+  width: 33.33%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  border-left: 1px solid rgb(98, 98, 98);
+  ${(props) =>
+    props.$count
+      ? "cursor: unset;svg {fill: rgb(93, 93, 93);}:hover {svg {fill: rgb(93, 93, 93);}}"
+      : "cursor: pointer;svg {fill: rgb(252, 209, 68);}:hover {svg {fill: white;}}"}
+`;
+
+export const CardRowControlRemoveButton = styled.button`
+  height: 34px;
+  width: 33.33%;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-left: 1px solid rgb(98, 98, 98);
+  :hover {
+    svg {
+      fill: white;
+    }
+  }
+`;
+
+export const ControlInfoIcon = styled(ControlInfoImage)`
+  fill: rgb(252, 209, 68);
+  width: 20px;
+  :hover {
+    fill: white;
+  }
+`;
+
+export const ControlAddIcon = styled(ControlAddImage)`
+  fill: rgb(252, 209, 68);
+  width: 20px;
+`;
+
+export const ControlRemoveIcon = styled(ControlRemoveImage)`
+  fill: rgb(252, 209, 68);
+  width: 20px;
+`;
+
+export const CardPreview = styled(Box)<Types.CardPreviewProps>`
+  position: absolute;
+  right: 400px;
+  width: 240px;
+  top: ${(props) => props.yHeight - 490}px;
+  height: 340px;
+`;
+
+export const CardImage = styled.img`
+  width: 240px;
+  height: 340px;
 `;
