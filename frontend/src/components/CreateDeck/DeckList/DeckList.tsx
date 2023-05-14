@@ -2,6 +2,7 @@ import { useState } from "react";
 import * as Styles from "./DeckList.styles";
 import DeckListClassBackground from "./DeckListClassBackground";
 import DeckListArrowIcon from "./DeckListClassBackground/DeckListArrowIcon";
+import DeckListDropdownDetails from "./DeckListDropdownDetails";
 import CopyDeckButton from "./DeckListButtons/CopyDeckButton";
 import NewDeckButton from "./DeckListButtons/NewDeckButton";
 import ButtonsDivider from "./DeckListButtons/ButtonsDivider";
@@ -25,6 +26,7 @@ const DeckList = () => {
             <DeckListClassBackground />
             <DeckListArrowIcon $isclicked={isClicked} />
           </Styles.DeckTitleBorder>
+          {isClicked ? <DeckListDropdownDetails /> : null}
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
       <Styles.DeckListCenterBorder>

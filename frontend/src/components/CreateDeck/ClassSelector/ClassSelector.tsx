@@ -6,6 +6,7 @@ import { setClass } from "../../../features/createDeck/createDeckSlice";
 import * as Styles from "./ClassSelector.styles";
 import * as Types from "./ClassSelector.types";
 import { changeClass, changeSet } from "../../../features/filter/filterSlice";
+import { getHeroPowerCard } from "../../../features/createDeck/createDeckSlice";
 
 const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
   const [, setIsLoaded] = useState(false);
@@ -43,6 +44,7 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
       changeClass({ name: heroDetails[0].name, value: heroDetails[0].slug })
     );
     dispatch(changeSet({ name: formatName, value: formatValue }));
+    dispatch(getHeroPowerCard(heroDetails[0].heroPowerCardId));
   };
   return (
     <Styles.Container

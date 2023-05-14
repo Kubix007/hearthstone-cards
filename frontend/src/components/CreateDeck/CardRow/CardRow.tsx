@@ -41,7 +41,8 @@ const CardRow = ({ card }: Types.Props) => {
       "opacity: 1;transform: translate3d(0px, 0px, 0px);"
     );
     setShowCardPreview(true);
-    setCardPreviewPositionY(e.currentTarget.getBoundingClientRect().top);
+    const element = e.currentTarget as HTMLElement;
+    setCardPreviewPositionY(element.offsetTop);
   };
 
   const onMouseLeave = () => {

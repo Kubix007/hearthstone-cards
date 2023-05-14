@@ -207,7 +207,7 @@ export const CardPreview = styled(Box)<Types.CardPreviewProps>`
   position: absolute;
   right: 400px;
   width: 240px;
-  top: ${(props) => props.yHeight - 490}px;
+  top: ${(props) => props.yHeight - 130}px;
   height: 340px;
 `;
 
