@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const DeckListDropdownDetails = styled(Box)`
   position: absolute;
-  width: 100%;
+  width: 370px;
   left: 12px;
   top: 120px;
   z-index: 10;

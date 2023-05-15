@@ -38,6 +38,7 @@ const initialState: ICreateDeckState = {
       constructed: false,
     },
   },
+  manaCosts: { manaCosts: [], highestManaCost: 1 },
   isError: false,
   isSuccess: false,
   isLoading: false,
@@ -89,6 +90,9 @@ export const createDeckSlice = createSlice({
         state.deck.cardCount = state.deck.cardCount - 1;
       }
     },
+    updateManaCosts: (state, action) => {
+      state.manaCosts = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -108,6 +112,11 @@ export const createDeckSlice = createSlice({
   },
 });
 
-export const { reset, setClass, addCardToDeck, removeCardFromDeck } =
-  createDeckSlice.actions;
+export const {
+  reset,
+  setClass,
+  addCardToDeck,
+  removeCardFromDeck,
+  updateManaCosts,
+} = createDeckSlice.actions;
 export default createDeckSlice.reducer;

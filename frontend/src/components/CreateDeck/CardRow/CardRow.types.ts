@@ -14,5 +14,5 @@ export interface ButtonProps {
 }
 
 export interface CardPreviewProps {
-  yHeight: number;
+  $yHeight: number;
 }

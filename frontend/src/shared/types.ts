@@ -346,6 +346,13 @@ export interface ICreateDeckState {
     cardCount: number;
   };
   addedCard: ICardData;
+  manaCosts: {
+    manaCosts: {
+      value: number;
+      count: number;
+    }[];
+    highestManaCost: number;
+  };
   isError: boolean;
   isSuccess: boolean;
   isLoading: boolean;

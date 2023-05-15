@@ -11,9 +11,15 @@ import {
   setSelectedCard,
   setSelectedIndex,
 } from "../../features/selectedCard/selectedCardSlice";
-import { addCardToDeck } from "../../features/createDeck/createDeckSlice";
-import { countOccurrences } from "../../functions/Functions";
-import { maxCardReached } from "../../functions/Functions";
+import {
+  addCardToDeck,
+  updateManaCosts,
+} from "../../features/createDeck/createDeckSlice";
+import {
+  countOccurrences,
+  maxCardReached,
+  getManaCosts,
+} from "../../functions/Functions";
 
 const CardsLayout = ({ card, type }: Types.Props) => {
   const countElement = useRef<HTMLDivElement>();
@@ -50,11 +56,13 @@ const CardsLayout = ({ card, type }: Types.Props) => {
     if (card.rarityId === 5) {
       if (cardOccurences < 1) {
         dispatch(addCardToDeck(card));
+        dispatch(updateManaCosts(getManaCosts([...deck.cards, card])));
       } else {
         maxCardReached(countElement, currentClass);
       }
     } else if (cardOccurences < 2) {
       dispatch(addCardToDeck(card));
+      dispatch(updateManaCosts(getManaCosts([...deck.cards, card])));
     } else {
       maxCardReached(countElement, currentClass);
     }

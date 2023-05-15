@@ -8,6 +8,7 @@ export const Container = styled(Box)`
   position: absolute;
   top: 27px;
   left: 38px;
+  cursor: pointer;
 `;
 
 export const LeftListLayout = styled(Box)`

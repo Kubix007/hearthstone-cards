@@ -3,11 +3,12 @@ import * as Styles from "./CardRow.styles";
 import * as SharedTypes from "../../../shared/types";
 import { AppDispatch, RootState } from "../../../app/store";
 import { useDispatch, useSelector } from "react-redux";
-import { countOccurrences } from "../../../functions/Functions";
+import { countOccurrences, getManaCosts } from "../../../functions/Functions";
 import { useRef, useState } from "react";
 import {
   addCardToDeck,
   removeCardFromDeck,
+  updateManaCosts,
 } from "../../../features/createDeck/createDeckSlice";
 import CardsInfoDialog from "../../CardsLayout/CardsInfoDialog";
 import {
@@ -64,9 +65,10 @@ const CardRow = ({ card }: Types.Props) => {
     card: SharedTypes.ICardData
   ) => {
     if (isMaximumReached) {
-      setButtonAddState((prevState) => !prevState);
+      setButtonAddState(true);
     } else {
       dispatch(addCardToDeck(card));
+      dispatch(updateManaCosts(getManaCosts([...deck.cards, card])));
     }
   };
 
@@ -74,8 +76,10 @@ const CardRow = ({ card }: Types.Props) => {
     event: React.MouseEvent<HTMLButtonElement>,
     card: SharedTypes.ICardData
   ) => {
-    setButtonAddState((prevState) => !prevState);
+    const newState = deck.cards.filter((item) => item !== card);
+    setButtonAddState(false);
     dispatch(removeCardFromDeck(card));
+    dispatch(updateManaCosts(getManaCosts(newState)));
   };
 
   const handleClose = () => {
@@ -89,7 +93,7 @@ const CardRow = ({ card }: Types.Props) => {
         onMouseLeave={onMouseLeave}
       >
         {showCardPreview ? (
-          <Styles.CardPreview yHeight={cardPreviewPositionY}>
+          <Styles.CardPreview $yHeight={cardPreviewPositionY}>
             <Styles.CardImage src={card.image} />
           </Styles.CardPreview>
         ) : null}
