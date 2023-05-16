@@ -179,6 +179,7 @@ export interface IFilterState {
       name: string;
       value: string;
     };
+    neutralCards: string;
   };
 }
 

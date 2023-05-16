@@ -5,7 +5,11 @@ import { AppDispatch, RootState } from "../../../app/store";
 import { setClass } from "../../../features/createDeck/createDeckSlice";
 import * as Styles from "./ClassSelector.styles";
 import * as Types from "./ClassSelector.types";
-import { changeClass, changeSet } from "../../../features/filter/filterSlice";
+import {
+  changeClass,
+  changeNeutralCards,
+  changeSet,
+} from "../../../features/filter/filterSlice";
 import { getHeroPowerCard } from "../../../features/createDeck/createDeckSlice";
 
 const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
@@ -45,6 +49,7 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
     );
     dispatch(changeSet({ name: formatName, value: formatValue }));
     dispatch(getHeroPowerCard(heroDetails[0].heroPowerCardId));
+    dispatch(changeNeutralCards(true));
   };
   return (
     <Styles.Container

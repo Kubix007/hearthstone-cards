@@ -60,6 +60,7 @@ const initialState: IFilterState = {
       name: "Nazwa karty: od A do Z",
       value: "name:asc",
     },
+    neutralCards: "",
   },
 };
 
@@ -124,6 +125,13 @@ export const filterSlice = createSlice({
     changeSortType(state, action) {
       state.filters.sort = action.payload;
     },
+    changeNeutralCards(state, action) {
+      if (action.payload === true) {
+        state.filters.neutralCards = "neutral";
+      } else {
+        state.filters.neutralCards = "";
+      }
+    },
   },
 });
 
@@ -147,5 +155,6 @@ export const {
   changeKeyword,
   changeSortType,
   setManaCost,
+  changeNeutralCards,
 } = filterSlice.actions;
 export default filterSlice.reducer;

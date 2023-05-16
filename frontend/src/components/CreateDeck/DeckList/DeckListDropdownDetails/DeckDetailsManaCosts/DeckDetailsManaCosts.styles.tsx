@@ -11,7 +11,7 @@ export const ManaContainer = styled(Box)`
 `;
 
 export const ManaColumn0 = styled(Box)<Types.IManaValues>`
-  left: 4px;
+  left: -7.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -24,7 +24,7 @@ export const ManaColumn0 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn1 = styled(Box)<Types.IManaValues>`
-  left: 40px;
+  left: 28.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -37,7 +37,7 @@ export const ManaColumn1 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn2 = styled(Box)<Types.IManaValues>`
-  left: 76px;
+  left: 64.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -50,7 +50,7 @@ export const ManaColumn2 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn3 = styled(Box)<Types.IManaValues>`
-  left: 112px;
+  left: 100.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -63,7 +63,7 @@ export const ManaColumn3 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn4 = styled(Box)<Types.IManaValues>`
-  left: 148px;
+  left: 136.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -76,7 +76,7 @@ export const ManaColumn4 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn5 = styled(Box)<Types.IManaValues>`
-  left: 184px;
+  left: 172.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -89,7 +89,7 @@ export const ManaColumn5 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn6 = styled(Box)<Types.IManaValues>`
-  left: 220px;
+  left: 208.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;
@@ -102,7 +102,7 @@ export const ManaColumn6 = styled(Box)<Types.IManaValues>`
 `;
 
 export const ManaColumn7 = styled(Box)<Types.IManaValues>`
-  left: 256px;
+  left: 244.5px;
   width: 5%;
   height: ${(props) => (props.$manaValue / props.$highestManaValue) * 100}%;
   max-height: 100%;

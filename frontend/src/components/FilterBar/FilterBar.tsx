@@ -7,6 +7,7 @@ import SearchFilter from "./SearchFilter";
 import DetailsFilterButton from "../DetailsFilterBar/DetailsFilterButton";
 import DetailsFilterContainer from "../DetailsFilterBar/DetailsFilterContainer";
 import ManaCostFilterMobile from "./ManaCostFilterMobile";
+import CreateDeckFilters from "./CreateDeckFilters";
 import { useState } from "react";
 
 const FilterBar = ({ showClassFilter }: Types.IFilterBarProps) => {
@@ -15,6 +16,7 @@ const FilterBar = ({ showClassFilter }: Types.IFilterBarProps) => {
     <Styles.Container>
       <Styles.TopBarContainer />
       <Styles.FiltersContainer>
+        {!showClassFilter && <CreateDeckFilters />}
         <TypeCardsFilter />
         {showClassFilter && <ClassFilter />}
         <ManaCostFilter />

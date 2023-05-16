@@ -6,7 +6,7 @@ export const Container = styled(Box)`
   top: 100px;
   left: 180px;
   text-align: left;
-  margin-right: 5px;
+  margin-right: 10px;
 `;
 
 export const Title = styled(Typography)`
