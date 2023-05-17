@@ -1,4 +1,4 @@
 export interface IProps {
-  $backgroundImg: string;
+  $isNeutralSelected: boolean;
   $isClassSelected: boolean;
 }

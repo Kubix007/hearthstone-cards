@@ -1,11 +1,21 @@
-import { useSelector } from "react-redux";
-import { RootState } from "../../../../app/store";
+import { useDispatch, useSelector } from "react-redux";
+import { AppDispatch, RootState } from "../../../../app/store";
+import { Tooltip } from "@mui/material";
+import {
+  changeClassForCreateDeck,
+  changeNeutralCards,
+} from "../../../../features/filter/filterSlice";
 import * as Styles from "./ClassCardFilter.styles";
 
 const ClassCardFilter = () => {
   const { isSelected, deck } = useSelector(
     (state: RootState) => state.createDeck
   );
+  const { filters } = useSelector((state: RootState) => state.filter);
+  const isClassSelected = filters.class.value.length > 0 ? true : false;
+  const isNeutralSelected = filters.neutralCards.length > 0 ? true : false;
+  const dispatch: AppDispatch = useDispatch();
+
   let $backgroundImg = "";
 
   if (isSelected) {
@@ -74,10 +84,48 @@ const ClassCardFilter = () => {
     }
   }
 
+  const handleClick = () => {
+    if (isClassSelected) {
+      if (isNeutralSelected) {
+        dispatch(changeClassForCreateDeck(""));
+      } else {
+        dispatch(changeClassForCreateDeck(""));
+        dispatch(changeNeutralCards(!isNeutralSelected));
+      }
+    } else {
+      dispatch(changeClassForCreateDeck(deck.hero?.slug));
+    }
+  };
+
   return (
-    <Styles.ClassCardContainer>
+    <Styles.ClassCardContainer onClick={handleClick}>
       <Styles.ClassCardButton>
-        <Styles.ClassCardImage $backgroundImg={$backgroundImg} />
+        <Tooltip
+          arrow
+          title={
+            <Styles.ClassCardTooltip>
+              {filters.class.name}
+            </Styles.ClassCardTooltip>
+          }
+          placement="bottom"
+          PopperProps={{
+            sx: {
+              "& .MuiTooltip-tooltip": {
+                border: "2px solid black",
+                background: "rgb(242, 235, 227)",
+                borderRadius: "7px",
+              },
+              "& .MuiTooltip-arrow": {
+                color: "rgb(242, 235, 227)",
+              },
+            },
+          }}
+        >
+          <Styles.ClassCardImage
+            $isClassSelected={isClassSelected}
+            $backgroundImg={$backgroundImg}
+          />
+        </Tooltip>
       </Styles.ClassCardButton>
     </Styles.ClassCardContainer>
   );

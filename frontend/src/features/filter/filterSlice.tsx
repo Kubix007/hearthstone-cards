@@ -132,6 +132,9 @@ export const filterSlice = createSlice({
         state.filters.neutralCards = "";
       }
     },
+    changeClassForCreateDeck(state, action) {
+      state.filters.class.value = action.payload;
+    },
   },
 });
 
@@ -156,5 +159,6 @@ export const {
   changeSortType,
   setManaCost,
   changeNeutralCards,
+  changeClassForCreateDeck,
 } = filterSlice.actions;
 export default filterSlice.reducer;
