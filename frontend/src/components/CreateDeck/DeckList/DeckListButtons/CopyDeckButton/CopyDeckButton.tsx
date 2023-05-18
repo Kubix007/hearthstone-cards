@@ -1,16 +1,11 @@
-import { useState } from "react";
 import * as Styles from "./CopyDeckButton.styles";
+import * as Types from "./CopyDeckButton.types";
 
-const CopyDeckButton = () => {
-  const [isClicked, setIsClicked] = useState(false);
-  const handleClick = () => {
-    setIsClicked((prevState) => !prevState);
-  };
-
+const CopyDeckButton = ({ $isclicked, handleClick }: Types.IProps) => {
   return (
     <Styles.ButtonContainer onClick={handleClick}>
       <Styles.CopyDeckButton>Skopiuj talie</Styles.CopyDeckButton>
-      <Styles.CopyDeckArrow $isclicked={isClicked} />
+      <Styles.CopyDeckArrow $isclicked={$isclicked} />
     </Styles.ButtonContainer>
   );
 };

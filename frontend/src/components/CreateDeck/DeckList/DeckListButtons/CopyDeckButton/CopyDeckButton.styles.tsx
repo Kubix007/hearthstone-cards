@@ -33,7 +33,7 @@ export const CopyDeckButton = styled(Button)`
   }
 `;
 
-export const CopyDeckArrow = styled(ArrowIcon)<Types.Props>`
+export const CopyDeckArrow = styled(ArrowIcon)<Types.IPropsArrowIcon>`
   fill: white;
   height: 15px;
   position: absolute;

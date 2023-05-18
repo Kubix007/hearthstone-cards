@@ -8,32 +8,43 @@ import NewDeckButton from "./DeckListButtons/NewDeckButton";
 import ButtonsDivider from "./DeckListButtons/ButtonsDivider";
 import DeckListEmpty from "./DeckListEmpty";
 import CardRowList from "../CardRowList";
+import DeckListCopyDeckMenu from "./DeckListCopyDeckMenu";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../app/store";
 
 const DeckList = () => {
-  const [isClicked, setIsClicked] = useState(false);
+  const [isClickedDropdownMenu, setIsClickedDropdownMenu] = useState(false);
+  const [isClickedCopyDeckMenu, setIsClickedCopyDeckMenu] = useState(false);
   const { deck } = useSelector((state: RootState) => state.createDeck);
-  const handleClick = () => {
-    setIsClicked((prevState) => !prevState);
+
+  const handleClickDropdownMenu = () => {
+    setIsClickedDropdownMenu((prevState) => !prevState);
+  };
+
+  const handleClickCopyDeckMenu = () => {
+    setIsClickedCopyDeckMenu((prevState) => !prevState);
   };
 
   return (
     <Styles.DeckListLayout>
-      <Styles.DeckListTopBorder onClick={handleClick}>
+      <Styles.DeckListTopBorder onClick={handleClickDropdownMenu}>
         <Styles.DeckTitleContainer>
           <Styles.DeckTitleBorder>
             <DeckListClassBackground />
-            <DeckListArrowIcon $isclicked={isClicked} />
+            <DeckListArrowIcon $isclicked={isClickedDropdownMenu} />
           </Styles.DeckTitleBorder>
-          {isClicked ? <DeckListDropdownDetails /> : null}
+          {isClickedDropdownMenu ? <DeckListDropdownDetails /> : null}
         </Styles.DeckTitleContainer>
       </Styles.DeckListTopBorder>
       <Styles.DeckListCenterBorder>
         {deck.cardCount < 1 ? <DeckListEmpty /> : <CardRowList />}
       </Styles.DeckListCenterBorder>
       <Styles.DeckListBottomBorder>
-        <CopyDeckButton />
+        {isClickedCopyDeckMenu ? <DeckListCopyDeckMenu /> : null}
+        <CopyDeckButton
+          $isclicked={isClickedCopyDeckMenu}
+          handleClick={handleClickCopyDeckMenu}
+        />
         <ButtonsDivider />
         <NewDeckButton />
       </Styles.DeckListBottomBorder>
