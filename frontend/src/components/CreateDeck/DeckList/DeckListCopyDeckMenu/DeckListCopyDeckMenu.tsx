@@ -1,4 +1,6 @@
 import * as Styles from "./DeckListCopyDeckMenu.styles";
+import CopyLinkButton from "./CopyLinkButton";
+import CopyDeckCodeButton from "./CopyDeckCodeButton";
 
 const DeckListCopyDeckMenu = () => {
   return (
@@ -11,6 +13,8 @@ const DeckListCopyDeckMenu = () => {
       <Styles.CopyDeckMenuBottomBorder />
       <Styles.CopyDeckMenuRightBorder />
       <Styles.CopyDeckMenuRightBottomBorder />
+      <CopyLinkButton />
+      <CopyDeckCodeButton />
     </Styles.CopyDeckMenuContainer>
   );
 };
