@@ -331,12 +331,39 @@ export interface ISelectedFormat {
   wild: boolean;
 }
 
+export interface ICreatedDeck {
+  hero: number;
+  ids: string;
+}
+
+export interface IDeckInfo {
+  deckCode: string;
+  version: number;
+  format: string;
+  hero: IHero;
+  childIds: number[];
+  heroPower: IHeroPower;
+  class: {
+    slug: string;
+    id: number;
+    name: string;
+  };
+  cards: ICardData[];
+}
+
 export interface ICreateDeckState {
   isSelected: boolean;
   deck: {
     deckCode: string;
     format: string;
-    hero: IHero | null;
+    hero: {
+      slug: string;
+      id: number;
+      name: string;
+      cardId: number;
+      heroPowerCardId: number;
+      alternateHeroCardsIds: number[];
+    } | null;
     heroPower: IHeroPower | null;
     class: {
       slug: string;

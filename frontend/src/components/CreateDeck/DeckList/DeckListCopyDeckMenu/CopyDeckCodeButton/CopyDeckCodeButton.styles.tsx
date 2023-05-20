@@ -83,3 +83,11 @@ export const DeckCardsCount = styled(Typography)<Types.IProps>`
         : "color: rgb(162, 241, 48);"}
   }
 `;
+
+export const CopyDeckTooltipTitle = styled(Typography)`
+  &.MuiTypography-root {
+    font-family: BelweBoldBT;
+    font-size: 14px;
+    color: rgb(97, 67, 38);
+  }
+`;

@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ICreateDeckState } from "../../shared/types";
 import createDeckService from "./createDeckService";
+import * as SharedTypes from "./../../shared/types";
 
 const initialState: ICreateDeckState = {
   isSelected: false,
@@ -47,10 +48,28 @@ const initialState: ICreateDeckState = {
 
 //Get heroPowerCard
 export const getHeroPowerCard = createAsyncThunk(
-  "cards/getHeroPowerCard",
+  "createdeck/getHeroPowerCard",
   async (heroPowerCardId: number, thunkAPI) => {
     try {
       return await createDeckService.getHeroPower(heroPowerCardId);
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
+//Get DeckCode
+export const getDeckCode = createAsyncThunk(
+  "createdeck/getDeckCode",
+  async (createDeckInfo: SharedTypes.ICreatedDeck, thunkAPI) => {
+    try {
+      return await createDeckService.getDeckCode(createDeckInfo);
     } catch (error: any) {
       const message =
         (error.response &&
@@ -105,6 +124,20 @@ export const createDeckSlice = createSlice({
         state.deck.heroPower = action.payload.cards[0];
       })
       .addCase(getHeroPowerCard.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.message = action.payload as string;
+      })
+      .addCase(getDeckCode.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getDeckCode.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.deck.deckCode = action.payload.deckCode;
+        navigator.clipboard.writeText(action.payload.deckCode);
+      })
+      .addCase(getDeckCode.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.message = action.payload as string;
