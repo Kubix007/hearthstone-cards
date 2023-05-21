@@ -5,6 +5,7 @@ import * as Types from "./CardsLayout.types";
 import CardsInfoPopover from "./CardsInfoPopover";
 import React from "react";
 import CardsInfoDialog from "./CardsInfoDialog";
+import CardDeckFullPopup from "../CreateDeck/CardDeckFullPopup";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import {
@@ -24,7 +25,8 @@ import {
 const CardsLayout = ({ card, type }: Types.Props) => {
   const countElement = useRef<HTMLDivElement>();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [open, setOpen] = useState(false);
+  const [cardInfoDialogOpen, setCardInfoDialogOpen] = useState(false);
+  const [isCardDeckFull, setIsCardDeckFull] = useState(false);
   const [anchorEl, setAnchorEl] = React.useState<HTMLElement | null>(null);
   const dispatch: AppDispatch = useDispatch();
   const { cards } = useSelector((state: RootState) => state.cards);
@@ -46,30 +48,38 @@ const CardsLayout = ({ card, type }: Types.Props) => {
   };
 
   const handleClickOpenForBrowseCards = () => {
-    setOpen(true);
+    setCardInfoDialogOpen(true);
     dispatch(setSelectedCard(card));
     dispatch(setSelectedIndex(cards.cards.indexOf(card)));
   };
 
   const handleClickOpenForCreateDeck = () => {
     const currentClass = countElement.current?.getAttribute("class") as string;
-    if (card.rarityId === 5) {
-      if (cardOccurences < 1) {
+    if (deck.cardCount < 30) {
+      if (card.rarityId === 5) {
+        if (cardOccurences < 1) {
+          dispatch(addCardToDeck(card));
+          dispatch(updateManaCosts(getManaCosts([...deck.cards, card])));
+        } else {
+          maxCardReached(countElement, currentClass);
+        }
+      } else if (cardOccurences < 2) {
         dispatch(addCardToDeck(card));
         dispatch(updateManaCosts(getManaCosts([...deck.cards, card])));
       } else {
         maxCardReached(countElement, currentClass);
       }
-    } else if (cardOccurences < 2) {
-      dispatch(addCardToDeck(card));
-      dispatch(updateManaCosts(getManaCosts([...deck.cards, card])));
     } else {
+      setIsCardDeckFull(true);
       maxCardReached(countElement, currentClass);
+      setTimeout(() => {
+        setIsCardDeckFull(false);
+      }, 5000);
     }
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setCardInfoDialogOpen(false);
   };
 
   return (
@@ -114,10 +124,11 @@ const CardsLayout = ({ card, type }: Types.Props) => {
         <CardsInfoDialog
           isBrowseType={isBrowseType}
           cards={selectedCard}
-          open={open}
+          open={cardInfoDialogOpen}
           onClose={handleClose}
         />
       ) : null}
+      {isCardDeckFull ? <CardDeckFullPopup /> : null}
     </Styles.Container>
   );
 };
