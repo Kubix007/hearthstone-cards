@@ -8,6 +8,7 @@ import {
 import * as Styles from "./ClassCardFilter.styles";
 
 const ClassCardFilter = () => {
+  const { metadata } = useSelector((state: RootState) => state.metadata);
   const { isSelected, deck } = useSelector(
     (state: RootState) => state.createDeck
   );
@@ -18,8 +19,22 @@ const ClassCardFilter = () => {
 
   let $backgroundImg = "";
 
+  const getHeroInfo = () => {
+    if (deck.hero!.hasOwnProperty("cardId")) {
+      const heroDetails = metadata.classes.filter(
+        (item) => item.cardId === deck.hero?.cardId
+      );
+      return heroDetails[0];
+    } else {
+      const heroDetails = metadata.classes.filter(
+        (item) => item.cardId === deck.hero?.id
+      );
+      return heroDetails[0];
+    }
+  };
+
   if (isSelected) {
-    switch (deck.hero?.name) {
+    switch (getHeroInfo().name) {
       case "":
         break;
 

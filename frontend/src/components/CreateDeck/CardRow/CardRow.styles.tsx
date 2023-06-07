@@ -125,7 +125,7 @@ export const CardRowControls = styled(Box)`
   width: 38.5%;
   height: 29.4px;
   position: relative;
-  left: 115px;
+  left: 117px;
   top: 7.4px;
   background: rgba(0, 0, 0, 0.8);
   display: flex;

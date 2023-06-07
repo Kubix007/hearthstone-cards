@@ -104,6 +104,7 @@ export interface IHero {
   flavorText: string;
   cropImage: string;
   parentId: number;
+  cardId?: number;
   childIds: number[];
 }
 
@@ -336,6 +337,21 @@ export interface ICreatedDeck {
   ids: string;
 }
 
+export interface IGetDeckByCodeResponse {
+  deckCode: string;
+  version: number;
+  format: string;
+  hero: IHero;
+  heroPower: IHeroPower;
+  class: {
+    slug: string;
+    id: number;
+    name: string;
+  };
+  cards: ICardData[];
+  cardCount: number;
+}
+
 export interface IDeckInfo {
   deckCode: string;
   version: number;
@@ -356,14 +372,7 @@ export interface ICreateDeckState {
   deck: {
     deckCode: string;
     format: string;
-    hero: {
-      slug: string;
-      id: number;
-      name: string;
-      cardId: number;
-      heroPowerCardId: number;
-      alternateHeroCardsIds: number[];
-    } | null;
+    hero: IHero | null;
     heroPower: IHeroPower | null;
     class: {
       slug: string;

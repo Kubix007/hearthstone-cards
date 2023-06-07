@@ -43,7 +43,17 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
       gameMode = "Dzicz";
       formatValue = "wild";
     }
-    dispatch(setClass({ hero: heroDetails[0], gameMode: gameMode }));
+    dispatch(
+      setClass({
+        hero: heroDetails[0],
+        gameMode: gameMode,
+        class: {
+          name: heroDetails[0].name,
+          id: heroDetails[0].cardId,
+          slug: heroDetails[0].slug,
+        },
+      })
+    );
     dispatch(
       changeClass({ name: heroDetails[0].name, value: heroDetails[0].slug })
     );

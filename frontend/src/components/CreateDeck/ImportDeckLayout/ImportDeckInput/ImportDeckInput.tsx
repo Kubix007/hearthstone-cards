@@ -1,14 +1,8 @@
+import React from "react";
 import * as Styles from "./ImportDeckInput.styles";
-import React, { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { AppDispatch, RootState } from "../../../../app/store";
-import { useSelector } from "react-redux";
+import * as Types from "./ImportDeckInput.types";
 
-const ImportDeckInput = () => {
-  const [inputValue, setInputValue] = useState("");
-  // const dispatch: AppDispatch = useDispatch();
-  const { filters } = useSelector((state: RootState) => state.filter);
-
+const ImportDeckInput = ({ inputValue, setInputValue }: Types.IProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue((event.target as HTMLInputElement).value);
   };
@@ -16,10 +10,6 @@ const ImportDeckInput = () => {
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
   };
-
-  useEffect(() => {
-    setInputValue(filters.textFilter);
-  }, [filters.textFilter]);
 
   return (
     <Styles.SearchFilterContainer>

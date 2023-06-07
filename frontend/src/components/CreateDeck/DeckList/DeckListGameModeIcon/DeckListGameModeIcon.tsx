@@ -9,7 +9,7 @@ const DeckListGameModeIcon = () => {
   );
 
   if (isSelected) {
-    switch (deck.format) {
+    switch (deck.format.charAt(0).toUpperCase() + deck.format.slice(1)) {
       case "":
         break;
 

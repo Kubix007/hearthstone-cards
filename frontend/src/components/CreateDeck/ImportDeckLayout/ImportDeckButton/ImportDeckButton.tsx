@@ -1,8 +1,14 @@
 import * as Styles from "./ImportDeckButton.styles";
+import * as Types from "./ImportDeckButton.types";
+import { getDeckByCode } from "../../../../features/createDeck/createDeckSlice";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../../app/store";
 
-const ImportDeckButton = () => {
+const ImportDeckButton = ({ inputValue }: Types.IProps) => {
+  const dispatch: AppDispatch = useDispatch();
+
   const handleClick = () => {
-    console.log("Button Import Deck clicked!");
+    dispatch(getDeckByCode(inputValue));
   };
 
   return (

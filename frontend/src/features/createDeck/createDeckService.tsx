@@ -9,7 +9,6 @@ const LOCALE = "pl_pl";
 // Get HeroPower
 const getHeroPower = async (heroPowerCardId: number) => {
   const API_TOKEN: IAccessToken = await tokenService.getAccessToken();
-
   const config = {
     params: {
       locale: LOCALE,
@@ -35,7 +34,6 @@ const getHeroPower = async (heroPowerCardId: number) => {
 
 const getDeckCode = async (createDeckInfo: SharedTypes.ICreatedDeck) => {
   const API_TOKEN: IAccessToken = await tokenService.getAccessToken();
-
   const config = {
     params: {
       locale: LOCALE,
@@ -60,9 +58,35 @@ const getDeckCode = async (createDeckInfo: SharedTypes.ICreatedDeck) => {
   }
 };
 
+const getDeckByCode = async (deckCode: string) => {
+  const API_TOKEN: IAccessToken = await tokenService.getAccessToken();
+  const config = {
+    params: {
+      locale: LOCALE,
+      access_token: API_TOKEN.access_token,
+      code: deckCode,
+    },
+  };
+
+  try {
+    const response = await axios.get(CARDS_API_URL + "deck", config);
+    return response.data;
+  } catch (error: any) {
+    if (error.message === "Request failed with status code 401") {
+      const prevRequest = error.config;
+      const newToken: IAccessToken = await tokenService.getAccessToken();
+      tokenService.updateAccessToken(newToken.access_token);
+      return (await axios(prevRequest)).data;
+    } else {
+      console.log(error);
+    }
+  }
+};
+
 const createDeckService = {
   getHeroPower,
   getDeckCode,
+  getDeckByCode,
 };
 
 export default createDeckService;

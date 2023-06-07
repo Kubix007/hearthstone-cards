@@ -7,7 +7,7 @@ export const DeckListLayout = styled(Stack)`
   height: 670px;
   width: 407px;
   position: sticky;
-  top: 8%;
+  top: 10.1%;
   margin-left: 20px;
 `;
 

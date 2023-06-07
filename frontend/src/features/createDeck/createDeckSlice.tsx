@@ -82,6 +82,24 @@ export const getDeckCode = createAsyncThunk(
   }
 );
 
+//Get Deck by code
+export const getDeckByCode = createAsyncThunk(
+  "createdeck/getDeckByCode",
+  async (deckCode: string, thunkAPI) => {
+    try {
+      return await createDeckService.getDeckByCode(deckCode);
+    } catch (error: any) {
+      const message =
+        (error.response &&
+          error.response.data &&
+          error.response.data.message) ||
+        error.message ||
+        error.toString();
+      return thunkAPI.rejectWithValue(message);
+    }
+  }
+);
+
 export const createDeckSlice = createSlice({
   name: "createDeck",
   initialState,
@@ -91,6 +109,7 @@ export const createDeckSlice = createSlice({
       state.isSelected = true;
       state.deck.format = action.payload.gameMode;
       state.deck.hero = action.payload.hero;
+      state.deck.class = action.payload.class;
     },
     addCardToDeck: (state, action) => {
       const stateCopy = state.deck.cards;
@@ -140,6 +159,29 @@ export const createDeckSlice = createSlice({
       .addCase(getDeckCode.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
+        state.message = action.payload as string;
+      })
+      .addCase(getDeckByCode.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        getDeckByCode.fulfilled,
+        (state, action: { payload: SharedTypes.IGetDeckByCodeResponse }) => {
+          state.isLoading = false;
+          state.isSuccess = true;
+          state.isSelected = true;
+          state.deck.cards = [...action.payload.cards];
+          state.deck.cardCount = action.payload.cardCount;
+          state.deck.class = action.payload.class;
+          state.deck.format = action.payload.format;
+          state.deck.hero = action.payload.hero;
+          state.deck.heroPower = action.payload.heroPower;
+        }
+      )
+      .addCase(getDeckByCode.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSelected = false;
         state.message = action.payload as string;
       });
   },
