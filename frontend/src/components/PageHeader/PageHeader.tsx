@@ -31,6 +31,13 @@ const PageHeader = () => {
       pageHeaderDescriptionText = "Przeglądaj wszystkie dostępne karty w grze";
       break;
 
+    case "decks":
+      backgroundImg =
+        "https://d2q63o9r0h0ohi.cloudfront.net/images/battlegrounds/bg_battlegrounds_header-2661cce89bbe556b62403988bdc9c98995b9c4e42b779ea7fdadef0ca5b66ac7e3da0566e43cc60edba4bf68d577caee49aea85218344fbb55d6971c235908de.jpg";
+      pageHeaderTitleText = "Bibiloteka talii kart";
+      pageHeaderDescriptionText = "Przeglądaj stworzone talie";
+      break;
+
     default:
       backgroundImg =
         "https://d2q63o9r0h0ohi.cloudfront.net/images/deckbuilder/bg_top_deckbuilder-8ba8a0a22ee3b9d9c86ff43850a48b4091c81d0cd101498391e1b5989bdd0f44015affb4578987bc9f9f788e0f01ec46d1db28667e716b721a6e3f84cbe84bf3.jpg";

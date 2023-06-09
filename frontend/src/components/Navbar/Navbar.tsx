@@ -20,8 +20,9 @@ import { NavbarLink } from "./Navbar.style";
 const pages = [
   { name: "Przegladaj karty", link: "/browsecards" },
   { name: "Stwórz swój deck", link: "/createdeck" },
+  { name: "Moje talie", link: "/decks" },
 ];
-const settings = ["Moje decki", "Ustawienia profilu", "Wyloguj się"];
+const settings = ["Ustawienia profilu", "Wyloguj się"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);

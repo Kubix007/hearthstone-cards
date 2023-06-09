@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import MyDecks from "./pages/MyDecks";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import BrowseCards from "./pages/BrowseCards";
@@ -41,6 +42,7 @@ function App() {
             <Route path="/register" element={<Register />}></Route>
             <Route path="/browsecards" element={<BrowseCards />}></Route>
             <Route path="/createdeck" element={<CreateDeck />}></Route>
+            <Route path="/decks" element={<MyDecks />}></Route>
           </Routes>
         </AppContainer>
       </Router>
