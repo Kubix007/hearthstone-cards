@@ -1,10 +1,10 @@
 import * as Styles from "./MyDecks.styles";
+import TopBar from "../../components/MyDecks/TopBar";
 
 const MyDecks = () => {
   return (
     <Styles.Container>
-      <Styles.TopBarContainer />
-      <Styles.BarContainer />
+      <TopBar />
     </Styles.Container>
   );
 };
