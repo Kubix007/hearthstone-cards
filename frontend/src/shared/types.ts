@@ -338,6 +338,7 @@ export interface ICreatedDeck {
 }
 
 export interface IGetDeckByCodeResponse {
+  _id: string;
   deckCode: string;
   version: number;
   format: string;
@@ -350,6 +351,28 @@ export interface IGetDeckByCodeResponse {
   };
   cards: ICardData[];
   cardCount: number;
+}
+
+export interface IDeckState {
+  decks: {
+    _id: string;
+    deckCode: string;
+    version: number;
+    format: string;
+    hero: IHero;
+    heroPower: IHeroPower;
+    class: {
+      slug: string;
+      id: number;
+      name: string;
+    };
+    cards: ICardData[];
+    cardCount: number;
+  }[];
+  isError: boolean;
+  isSuccess: boolean;
+  isLoading: boolean;
+  message: string;
 }
 
 export interface IDeckInfo {
