@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IDeckState, IGetDeckByCodeResponse } from "../../shared/types";
+import { IDeckState, IGetDecksResponse } from "../../shared/types";
 import deckService from "./deckService";
 import { RootState } from "../../app/store";
 
@@ -13,10 +13,10 @@ const initialState: IDeckState = {
 
 // Create new deck
 export const createDeck = createAsyncThunk<
-  IGetDeckByCodeResponse,
-  IGetDeckByCodeResponse,
+  IGetDecksResponse,
+  IGetDecksResponse,
   { state: RootState }
->("decks/create", async (deckData: IGetDeckByCodeResponse, thunkAPI) => {
+>("decks/create", async (deckData: IGetDecksResponse, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token;
     return await deckService.createDeck(deckData, token);

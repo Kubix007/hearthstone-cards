@@ -8,6 +8,10 @@ const deckSchema = new Schema<IDeck>(
       required: true,
       ref: "User",
     },
+    deckName: {
+      type: String,
+      required: true,
+    },
     deckCode: {
       type: String,
       required: true,

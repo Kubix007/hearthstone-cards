@@ -3,6 +3,7 @@ import IUser from "./userInterface";
 
 export default interface IDeck extends Document {
   user: IUser;
+  deckName: string;
   deckCode: string;
   version: number;
   format: string;

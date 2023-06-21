@@ -21,6 +21,7 @@ export const getDecks = asyncHandler(
 export const setDeck = asyncHandler(
   async (req: IUserRequest, res: Response) => {
     const {
+      deckName,
       deckCode,
       version,
       format,
@@ -30,6 +31,7 @@ export const setDeck = asyncHandler(
       cardCount,
       class: heroClass,
     } = req.body as {
+      deckName: string;
       deckCode: string;
       version: string;
       format: string;
@@ -47,6 +49,7 @@ export const setDeck = asyncHandler(
 
     const deck = await Deck.create({
       user: req.user.id,
+      deckName: deckName,
       deckCode: deckCode,
       version: version,
       format: format,

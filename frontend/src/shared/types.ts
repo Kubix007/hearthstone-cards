@@ -353,9 +353,27 @@ export interface IGetDeckByCodeResponse {
   cardCount: number;
 }
 
+export interface IGetDecksResponse {
+  _id: string;
+  deckName: string;
+  deckCode: string;
+  version: number;
+  format: string;
+  hero: IHero;
+  heroPower: IHeroPower;
+  class: {
+    slug: string;
+    id: number;
+    name: string;
+  };
+  cards: ICardData[];
+  cardCount: number;
+}
+
 export interface IDeckState {
   decks: {
     _id: string;
+    deckName: string;
     deckCode: string;
     version: number;
     format: string;
