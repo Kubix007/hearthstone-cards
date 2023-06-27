@@ -17,7 +17,6 @@ export interface IProps {
     cards: SharedTypes.ICardData[];
     cardCount: number;
   };
-  $isclicked: boolean;
 }
 
 export interface IBackgroundProps {

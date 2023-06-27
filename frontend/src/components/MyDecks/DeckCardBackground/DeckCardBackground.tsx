@@ -4,7 +4,7 @@ import * as Types from "./DeckCardBackground.types";
 import { RootState } from "../../../app/store";
 import DeckCardArrowIcon from "./DeckCardArrowIcon";
 
-const DeckCardBackground = ({ deck, $isclicked }: Types.IProps) => {
+const DeckCardBackground = ({ deck }: Types.IProps) => {
   let backgroundImg = "";
   let pageHeaderTitleText = "";
   const { metadata } = useSelector((state: RootState) => state.metadata);
@@ -128,7 +128,7 @@ const DeckCardBackground = ({ deck, $isclicked }: Types.IProps) => {
         <Styles.DeckCardDetails>{pageHeaderTitleText}</Styles.DeckCardDetails>
         <Styles.DeckCardsAmount>{deck.cardCount}/30</Styles.DeckCardsAmount>
       </Styles.DetailsContainer>
-      <DeckCardArrowIcon $isclicked={$isclicked} />
+      <DeckCardArrowIcon />
     </Styles.DeckCardBackground>
   );
 };

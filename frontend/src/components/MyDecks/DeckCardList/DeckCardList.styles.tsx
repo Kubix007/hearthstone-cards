@@ -8,5 +8,6 @@ export const GridContainer = styled(Grid)`
 
 export const GridItem = styled(Grid)`
   &.MuiGrid-root {
+    max-width: none;
   }
 `;

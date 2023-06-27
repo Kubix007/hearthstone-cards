@@ -131,6 +131,10 @@ export const createDeckSlice = createSlice({
     updateManaCosts: (state, action) => {
       state.manaCosts = action.payload;
     },
+    viewDeck: (state, action) => {
+      state.isSelected = true;
+      state.deck = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -193,5 +197,6 @@ export const {
   addCardToDeck,
   removeCardFromDeck,
   updateManaCosts,
+  viewDeck,
 } = createDeckSlice.actions;
 export default createDeckSlice.reducer;

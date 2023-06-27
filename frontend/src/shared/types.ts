@@ -411,6 +411,8 @@ export interface IDeckInfo {
 export interface ICreateDeckState {
   isSelected: boolean;
   deck: {
+    _id?: string;
+    deckName?: string;
     deckCode: string;
     format: string;
     hero: IHero | null;
