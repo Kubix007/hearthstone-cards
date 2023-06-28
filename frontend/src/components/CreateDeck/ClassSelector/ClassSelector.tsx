@@ -1,4 +1,3 @@
-import { Grow } from "@mui/material";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
@@ -65,7 +64,7 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
     <Styles.Container
       isclassic={classInfo.isNotClassic && selectedFormat.classic}
     >
-      <Grow timeout={500} in={true}>
+      <Styles.GrowCard timeout={500} in={true}>
         <Styles.Card>
           <Styles.Cover
             src={classInfo.image}
@@ -76,7 +75,7 @@ const ClassSelector = ({ classInfo, selectedFormat }: Types.IProps) => {
             <Styles.ClassName>{classInfo.displayName}</Styles.ClassName>
           </Styles.Cover>
         </Styles.Card>
-      </Grow>
+      </Styles.GrowCard>
     </Styles.Container>
   );
 };

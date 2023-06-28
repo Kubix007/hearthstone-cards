@@ -5,3 +5,7 @@ export interface SVGProps {
 export interface Props {
   setSelectedFormat: any;
 }
+
+export interface ImageProps {
+  name: string;
+}

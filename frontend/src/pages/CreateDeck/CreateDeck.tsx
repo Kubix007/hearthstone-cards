@@ -67,9 +67,9 @@ const CreateDeck = () => {
         <Grid item>
           <FormatSelector setSelectedFormat={setSelectedFormat} />
         </Grid>
-        <Grid style={{ width: "70%" }} item>
+        <Styles.ClassesContainer item>
           <ClassSelectorList selectedFormat={selectedFormat} />
-        </Grid>
+        </Styles.ClassesContainer>
       </Styles.ContentLayout>
     </Styles.PageLayout>
   );

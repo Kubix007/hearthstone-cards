@@ -1,7 +1,6 @@
 import ClassSelector from "../ClassSelector/ClassSelector";
 import * as Styles from "./ClassSelectorList.styles";
 import * as Types from "./ClassSelectorList.types";
-import { Grid } from "@mui/material";
 
 const allClasses = [
   {
@@ -92,9 +91,9 @@ const ClassSelectorList = ({ selectedFormat }: Types.Props) => {
       spacing={2}
     >
       {allClasses.map((item) => (
-        <Grid item key={item.name}>
+        <Styles.GridItem item key={item.name}>
           <ClassSelector classInfo={item} selectedFormat={selectedFormat} />
-        </Grid>
+        </Styles.GridItem>
       ))}
     </Styles.Container>
   );

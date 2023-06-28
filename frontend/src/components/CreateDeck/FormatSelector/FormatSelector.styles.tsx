@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button/Button";
 import { ReactComponent as StandardFormatImage } from "./../../../img/CreateDeck/StandardFormat.svg";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import * as Types from "./FormatSelector.types";
 
 export const FormatSelectorContainer = styled(Grid)``;
@@ -11,6 +11,9 @@ export const GridItem = styled(Grid)`
   &.MuiGrid-root {
     display: flex;
     flex-direction: column;
+    @media only screen and (max-width: 377px) {
+      padding-left: 55px !important;
+    }
   }
 `;
 
@@ -27,6 +30,9 @@ export const FormatName = styled(Typography)`
       rgb(0 0 0) -1.30729px -1.5136px 0px, rgb(0 0 0) -0.42159px -1.95506px 0px,
       rgb(0 0 0) 0.56732px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px,
       rgb(0 0 0) 1.92034px -0.55883px 0px;
+    @media only screen and (max-width: 512px) {
+      font-size: 12px;
+    }
   }
 `;
 
@@ -38,27 +44,54 @@ export const StandardFormatSVG = styled(StandardFormatImage)<Types.SVGProps>`
 
 export const StandardFormatButton = styled(Button)`
   &.MuiButton-root {
-    z-index: 0;
+    z-index: 10;
     width: 75px;
     height: 85px;
-    background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
-        no-repeat center/65%,
-      url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
+    background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
     &:hover {
       background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
           center,
-        url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
-          no-repeat center/65%,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
     }
     &.selected-format {
       background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
           center,
-        url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
-          no-repeat center/65%,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
     }
+    @media only screen and (max-width: 512px) {
+      width: 60px;
+      height: 60px;
+      background-size: 65px 60px;
+      background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png)
+          no-repeat / 20% 20%,
+        url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
+          no-repeat / 30px 20px;
+      &.selected-format {
+        background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+            center,
+          url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
+        width: 60px;
+        height: 60px;
+        background-size: 65px 60px;
+      }
+      &:hover {
+        background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+            center,
+          url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt43b47368ca583e7d/6037d7d8c6713d4e7a4d4eb5/deckbuilder_tab_standard.png);
+        width: 60px;
+        height: 60px;
+        background-size: 65px 60px;
+      }
+    }
   }
+`;
+
+export const StandardFormatIcon = styled(Box)<Types.ImageProps>`
+  background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt63ce92e33c79ee7f/622902fe04503350d255bca6/YotH_SVG-01-01.svg)
+    no-repeat center/75%;
+  width: 75px;
+  height: 85px;
+  z-index: 1;
 `;
 
 export const ClassicFormatButton = styled(Button)`
@@ -76,6 +109,27 @@ export const ClassicFormatButton = styled(Button)`
       background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
           center,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltcaa946e4f9e0b273/6036baec0b1d853be8ad56ea/deckbuilder_tab_classic.webp);
+    }
+    @media only screen and (max-width: 512px) {
+      width: 60px;
+      height: 60px;
+      background-size: 65px 60px;
+      &.selected-format {
+        background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+            center,
+          url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltcaa946e4f9e0b273/6036baec0b1d853be8ad56ea/deckbuilder_tab_classic.webp);
+        width: 60px;
+        height: 60px;
+        background-size: 65px 60px;
+      }
+      &:hover {
+        background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+            center,
+          url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/bltcaa946e4f9e0b273/6036baec0b1d853be8ad56ea/deckbuilder_tab_classic.webp);
+        width: 60px;
+        height: 60px;
+        background-size: 65px 60px;
+      }
     }
   }
 `;
@@ -95,6 +149,27 @@ export const WildFormatButton = styled(Button)`
       background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
           center,
         url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blta03fd5ddc70cc2d9/6036baec02ccfb4d0f67236d/deckbuilder_tab_wild.webp);
+    }
+    @media only screen and (max-width: 512px) {
+      width: 60px;
+      height: 60px;
+      background-size: 65px 60px;
+      &.selected-format {
+        background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+            center,
+          url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blta03fd5ddc70cc2d9/6036baec02ccfb4d0f67236d/deckbuilder_tab_wild.webp);
+        width: 60px;
+        height: 60px;
+        background-size: 65px 60px;
+      }
+      &:hover {
+        background: url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blt851e1166ca161eb3/6036baec415d5f4e803250b1/deckbuilder_tab_hover.webp)
+            center,
+          url(https://images.blz-contentstack.com/v3/assets/bltc965041283bac56c/blta03fd5ddc70cc2d9/6036baec02ccfb4d0f67236d/deckbuilder_tab_wild.webp);
+        width: 60px;
+        height: 60px;
+        background-size: 65px 60px;
+      }
     }
   }
 `;

@@ -31,4 +31,7 @@ export const SearchInput = styled(Input)`
     color: white;
   }
   color: white;
+  @media only screen and (max-width: 512px) {
+    width: 120px;
+  }
 `;

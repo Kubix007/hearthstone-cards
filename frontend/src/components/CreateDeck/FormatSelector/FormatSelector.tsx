@@ -3,7 +3,7 @@ import * as Types from "./FormatSelector.types";
 
 const FormatSelector = ({ setSelectedFormat }: Types.Props) => {
   const handleClick = (event: any) => {
-    switch (event.target.name) {
+    switch (event.target.getAttribute("name")) {
       case "standard":
         setSelectedFormat({ standard: true, classic: false, wild: false });
         break;
@@ -44,7 +44,7 @@ const FormatSelector = ({ setSelectedFormat }: Types.Props) => {
     );
     //Get selected format
     const selectedFormat = formatSelectors[0].filter(
-      (item) => item.getAttribute("name") === event.target.name
+      (item) => item.getAttribute("name") === event.target.getAttribute("name")
     );
     //Update class for selected format
     selectedFormat[0].setAttribute(
@@ -66,7 +66,9 @@ const FormatSelector = ({ setSelectedFormat }: Types.Props) => {
           className="formatSelector selected-format"
           name="standard"
           id="standard-format"
-        />
+        >
+          <Styles.StandardFormatIcon name="standard" onClick={handleClick} />
+        </Styles.StandardFormatButton>
         <Styles.FormatName>Standard</Styles.FormatName>
       </Styles.GridItem>
       <Styles.GridItem item>
