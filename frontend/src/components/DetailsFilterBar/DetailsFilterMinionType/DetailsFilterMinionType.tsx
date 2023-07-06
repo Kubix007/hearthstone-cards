@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
 
 const minionType = [
-  { name: "Dowolny typ stronnika", value: "Dowolny typ stronnika" },
+  { name: "Typ stronnika", value: "Typ stronnika" },
   { name: "Bestia", value: "beast" },
   { name: "Demon", value: "demon" },
   { name: "Kolcozwierz", value: "quilboar" },
@@ -24,15 +24,13 @@ const minionType = [
 const DetailsFilterMinionType = () => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
-  const [selectedMinionType, setSelectedMinionType] = useState(
-    "Dowolny typ stronnika"
-  );
+  const [selectedMinionType, setSelectedMinionType] = useState("Typ stronnika");
 
   const handleChange = (event: SelectChangeEvent) => {
     let value = event.target.value;
     const targetName = minionType.filter((x) => x.value === value);
     setSelectedMinionType(value);
-    if (value === "Dowolny typ stronnika") {
+    if (value === "Typ stronnika") {
       value = "";
     }
     dispatch(changeMinionType({ name: targetName[0].name, value }));
@@ -40,7 +38,7 @@ const DetailsFilterMinionType = () => {
 
   useEffect(() => {
     if (filters.minionType.value === "") {
-      setSelectedMinionType("Dowolny typ stronnika");
+      setSelectedMinionType("Typ stronnika");
     }
   }, [filters.minionType]);
 

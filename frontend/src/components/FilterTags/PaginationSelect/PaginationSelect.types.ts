@@ -1,7 +1,11 @@
-export interface SelectProps {
+export interface ISelectProps {
   onChange: any;
 }
 
-export interface Props {
+export interface IPageProps {
   pages: any;
+}
+
+export interface IProps {
+  $isShowed?: boolean;
 }

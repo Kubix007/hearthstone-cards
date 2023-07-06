@@ -6,7 +6,7 @@ import * as Styles from "./DetailsFilterCardType.style";
 import { changeTypeCard } from "../../../features/filter/filterSlice";
 
 const typeCard = [
-  { name: "Dowolny rodzaj karty", value: "Dowolny rodzaj karty" },
+  { name: "Rodzaj karty", value: "Rodzaj karty" },
   { name: "Bohater", value: "hero" },
   { name: "Stronnik", value: "minion" },
   { name: "Zaklęcie", value: "spell" },
@@ -17,15 +17,13 @@ const typeCard = [
 const DetailsFilterCardType = () => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
-  const [selectedTypeCard, setSelectedTypeCard] = useState(
-    "Dowolny rodzaj karty"
-  );
+  const [selectedTypeCard, setSelectedTypeCard] = useState("Rodzaj karty");
 
   const handleChange = (event: SelectChangeEvent) => {
     let value = event.target.value;
     const targetName = typeCard.filter((x) => x.value === value);
     setSelectedTypeCard(value);
-    if (value === "Dowolny rodzaj karty") {
+    if (value === "Rodzaj karty") {
       value = "";
     }
     dispatch(changeTypeCard({ name: targetName[0].name, value }));
@@ -33,7 +31,7 @@ const DetailsFilterCardType = () => {
 
   useEffect(() => {
     if (filters.type.value === "") {
-      setSelectedTypeCard("Dowolny rodzaj karty");
+      setSelectedTypeCard("Rodzaj karty");
     }
   }, [filters.type]);
 

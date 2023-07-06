@@ -30,12 +30,20 @@ export const SelectClass = styled(Select)<Props>`
   width: fit-content;
   height: 54px;
   border: none;
+  @media only screen and (max-width: 1150px) {
+    display: none;
+  }
 `;
 
 export const SelectInput = styled(InputBase)`
   &.MuiInputBase-input {
     border: none;
     padding: 0px;
+  }
+  h6:first-of-type {
+    @media only screen and (max-width: 1150px) {
+      display: none;
+    }
   }
 `;
 
@@ -50,7 +58,7 @@ export const TypeCardName = styled(Typography)`
     font-family: BelweBoldBT;
     color: rgb(255, 255, 255);
     margin-left: 4px;
-    font-size: 16px;
+    font-size: 14px;
     color: white;
     text-shadow: rgb(0 0 0) 2px 0px 0px, rgb(0 0 0) 1.75517px 0.95885px 0px,
       rgb(0 0 0) 1.0806px 1.68294px 0px, rgb(0 0 0) 0.14147px 1.99499px 0px,

@@ -24,31 +24,31 @@ const initialState: IFilterState = {
       manaValue: [],
     },
     attack: {
-      name: "Dowolny atak",
+      name: "Atak",
       value: "",
     },
     health: {
-      name: "Dowolne zdrowie",
+      name: "Zdrowie",
       value: "",
     },
     rarity: {
-      name: "Dowolna rzadkość",
+      name: "Rzadkość",
       value: "",
     },
     spellSchool: {
-      name: "Dowolna szkoła zaklęć",
+      name: "Szkoła zaklęć",
       value: "",
     },
     type: {
-      name: "Dowolny rodzaj karty",
+      name: "Rodzaj karty",
       value: "",
     },
     minionType: {
-      name: "Dowolny typ stronnika",
+      name: "Typ stronnika",
       value: "",
     },
     keyword: {
-      name: "Dowolne słowo kluczowe",
+      name: "Słowo kluczowe",
       value: "",
     },
     textFilter: "",

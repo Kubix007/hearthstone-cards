@@ -12,4 +12,7 @@ export const DetailsFilterContainer = styled(Box)`
   @media only screen and (max-width: 1700px) {
     height: fit-content;
   }
+  @media only screen and (max-width: 1150px) {
+    display: none;
+  }
 `;

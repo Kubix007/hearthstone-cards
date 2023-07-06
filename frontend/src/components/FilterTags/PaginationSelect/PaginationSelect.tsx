@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
 import { changePage } from "../../../features/filter/filterSlice";
 import * as Styles from "./PaginationSelect.styles";
+import * as Types from "./PaginationSelect.types";
 
-const PaginationSelect = () => {
+const PaginationSelect = ({ $isShowed }: Types.IProps) => {
   const { cards } = useSelector((state: RootState) => state.cards);
   const { pagination } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
@@ -26,7 +27,7 @@ const PaginationSelect = () => {
   if (pageNumber.length > 0) {
     return (
       <Styles.PaginationContainer container justifyContent="flex-end">
-        <Styles.InfoLabel>Strona:</Styles.InfoLabel>
+        <Styles.InfoLabel $isShowed={$isShowed}>Strona:</Styles.InfoLabel>
         <Styles.LeftListLayout />
         <Styles.SelectClass
           value={pagination.page.value}

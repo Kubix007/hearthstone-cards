@@ -5,9 +5,10 @@ import { changeHealth } from "../../../features/filter/filterSlice";
 import DetailsFilterHealthIcon from "../../../img/DetailsFilterImg/DetailsFilterHealthIcon.png";
 import { AppDispatch, RootState } from "../../../app/store";
 import { useDispatch, useSelector } from "react-redux";
+import * as Types from "./DetailsFIlterHealth.types";
 
 const health = [
-  { name: "Dowolne zdrowie", value: "Dowolne zdrowie" },
+  { name: "Zdrowie", value: "Zdrowie" },
   { name: "Zdrowie: 1", value: "1" },
   { name: "Zdrowie: 2", value: "2" },
   { name: "Zdrowie: 3", value: "3" },
@@ -19,12 +20,12 @@ const health = [
   { name: "Zdrowie: 9", value: "9" },
 ];
 
-const DetailsFilterHealth = () => {
+const DetailsFilterHealth = ({ isShowed }: Types.IProps) => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
   const [healthNumber, setHealthNumber] = useState({
-    name: "Dowolne zdrowie",
-    value: "Dowolne zdrowie",
+    name: "Zdrowie",
+    value: "Zdrowie",
   });
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -34,7 +35,7 @@ const DetailsFilterHealth = () => {
       value: health.filter((x) => x.value === value)[0].value,
       name: health.filter((x) => x.value === value)[0].name,
     });
-    if (value === "Dowolne zdrowie") {
+    if (value === "Zdrowie") {
       value = "";
     }
     dispatch(changeHealth({ name: targetName[0].name, value: value }));
@@ -43,7 +44,7 @@ const DetailsFilterHealth = () => {
   useEffect(() => {
     if (filters.health.value === "") {
       setHealthNumber({
-        value: "Dowolne zdrowie",
+        value: "Zdrowie",
         name: filters.health.name,
       });
     }
@@ -57,6 +58,7 @@ const DetailsFilterHealth = () => {
           alt="LeftListLogo"
           width="30px"
           height="30px"
+          $isShowed={isShowed}
         />
       </Styles.LeftListLayout>
       <Styles.SelectClass

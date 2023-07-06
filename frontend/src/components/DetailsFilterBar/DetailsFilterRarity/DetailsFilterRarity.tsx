@@ -6,7 +6,7 @@ import { changeRarity } from "../../../features/filter/filterSlice";
 import * as Styles from "./DetailsFilterRarity.style";
 
 const rarity = [
-  { name: "Dowolna rzadkość", value: "Dowolna rzadkość" },
+  { name: "Rzadkość", value: "Rzadkość" },
   { name: "Zwykła", value: "common" },
   { name: "Za darmo", value: "free" },
   { name: "Rzadko", value: "rare" },
@@ -17,13 +17,13 @@ const rarity = [
 const DetailsFilterRarity = () => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
-  const [selectedRarity, setSelectedRarity] = useState("Dowolna rzadkość");
+  const [selectedRarity, setSelectedRarity] = useState("Rzadkość");
 
   const handleChange = (event: SelectChangeEvent) => {
     let value = event.target.value;
     const targetName = rarity.filter((x) => x.value === value);
     setSelectedRarity(value);
-    if (value === "Dowolna rzadkość") {
+    if (value === "Rzadkość") {
       value = "";
     }
     dispatch(changeRarity({ name: targetName[0].name, value }));
@@ -31,7 +31,7 @@ const DetailsFilterRarity = () => {
 
   useEffect(() => {
     if (filters.rarity.value === "") {
-      setSelectedRarity("Dowolna rzadkość");
+      setSelectedRarity("Rzadkość");
     }
   }, [filters.rarity]);
 

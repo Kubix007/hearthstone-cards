@@ -5,8 +5,10 @@ import ClassCardFilter from "./ClassCardFilter";
 const CreateDeckFilters = () => {
   return (
     <Styles.CreateDeckFiltersContainer>
-      <ClassCardFilter />
-      <NeutralCardFilter />
+      <Styles.CreateDeckFiltersBackground>
+        <ClassCardFilter />
+        <NeutralCardFilter />
+      </Styles.CreateDeckFiltersBackground>
     </Styles.CreateDeckFiltersContainer>
   );
 };

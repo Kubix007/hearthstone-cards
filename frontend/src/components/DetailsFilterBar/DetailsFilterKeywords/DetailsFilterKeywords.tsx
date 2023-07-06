@@ -6,7 +6,7 @@ import { changeKeyword } from "../../../features/filter/filterSlice";
 import * as Styles from "./DetailsFilterKeywords.style";
 
 const keywords = [
-  { name: "Dowolne słowo kluczowe", value: "Dowolne słowo kluczowe" },
+  { name: "Słowo kluczowe", value: "Słowo kluczowe" },
   { name: "Adaptuj", value: "adapt" },
   { name: "Agonia", value: "deathrattle" },
   { name: "Boska tarcza", value: "divine-shield" },
@@ -59,15 +59,13 @@ const keywords = [
 const DetailsFilterKeywords = () => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
-  const [selectedKeyword, setSelectedKeyword] = useState(
-    "Dowolne słowo kluczowe"
-  );
+  const [selectedKeyword, setSelectedKeyword] = useState("Słowo kluczowe");
 
   const handleChange = (event: SelectChangeEvent) => {
     let value = event.target.value;
     const targetName = keywords.filter((x) => x.value === value);
     setSelectedKeyword(value);
-    if (value === "Dowolne słowo kluczowe") {
+    if (value === "Słowo kluczowe") {
       value = "";
     }
     dispatch(changeKeyword({ name: targetName[0].name, value }));
@@ -75,7 +73,7 @@ const DetailsFilterKeywords = () => {
 
   useEffect(() => {
     if (filters.keyword.value === "") {
-      setSelectedKeyword("Dowolne słowo kluczowe");
+      setSelectedKeyword("Słowo kluczowe");
     }
   }, [filters.keyword]);
 

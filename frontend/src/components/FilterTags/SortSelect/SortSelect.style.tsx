@@ -1,11 +1,12 @@
 import styled from "styled-components";
 import { Box, InputBase, Select, Typography, MenuItem } from "@mui/material";
-import { Props } from "./SortSelect.types";
+import * as Types from "./SortSelect.types";
 
-export const Container = styled(Box)`
+export const Container = styled(Box)<Types.IProps>`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: ${(props) => (props.$isShowed ? "column" : "")};
 `;
 
 export const LeftListLayout = styled(Box)`
@@ -20,7 +21,7 @@ export const RightListLayout = styled(Box)`
   height: 54px;
 `;
 
-export const SelectClass = styled(Select)<Props>`
+export const SelectClass = styled(Select)<Types.ISelectProps>`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/dropdown_middle_stretch-b4d7a6b9617ba5a39daa4055174b483c4e2963f28fc0d16857f0603bf95218a75968c9d6672f8fa01f979cb372bc3eac84f07c91b73afe0b109d7f424102b22c.png);
   width: fit-content;
   height: 54px;
@@ -55,9 +56,14 @@ export const SelectMenuItem = styled(MenuItem)`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/bg_dropdownmenu_middle_middle.a5d2539fa7fc8c29fcc0a304710f97e9.png);
 `;
 
-export const InfoLabel = styled(Typography)`
+export const InfoLabel = styled(Typography)<Types.IProps>`
   &.MuiTypography-root {
     font-family: BelweMediumBT;
     color: rgb(97, 67, 38);
+    display: ${(props) => (props.$isShowed ? "none" : "")};
   }
+`;
+
+export const SelectContainer = styled(Box)`
+  display: flex;
 `;

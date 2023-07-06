@@ -4,6 +4,7 @@ import * as Styles from "./ClassFilter.style";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../../app/store";
 import { changeClass } from "../../../features/filter/filterSlice";
+import * as Types from "./ClassFilter.types";
 
 const classes = [
   {
@@ -62,7 +63,7 @@ const classes = [
   },
 ];
 
-const ClassFilter = () => {
+const ClassFilter = ({ isShowed }: Types.IProps) => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
   const [className, setClassName] = useState({
@@ -98,6 +99,7 @@ const ClassFilter = () => {
           alt="LeftListLogo"
           width="35px"
           height="35px"
+          $isShowed={isShowed}
         />
       </Styles.LeftListLayout>
       <Styles.SelectClass

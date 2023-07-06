@@ -6,9 +6,10 @@ import { useDispatch } from "react-redux";
 import { changeAttack } from "../../../features/filter/filterSlice";
 import DetailsFilterAttackIcon from "../../../img/DetailsFilterImg/DetailsFilterAttackIcon.png";
 import * as Styles from "./DetailsFilterAttack.style";
+import * as Types from "./DetailsFilterAttack.types";
 
 const attacks = [
-  { name: "Dowolny atak", value: "Dowolny atak" },
+  { name: "Atak", value: "Atak" },
   { name: "Atak: 0", value: "0" },
   { name: "Atak: 1", value: "1" },
   { name: "Atak: 2", value: "2" },
@@ -21,12 +22,12 @@ const attacks = [
   { name: "Atak: 9", value: "9" },
 ];
 
-const DetailsFilterAttack = () => {
+const DetailsFilterAttack = ({ isShowed }: Types.IProps) => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
   const [attackNumber, setAttackNumber] = useState({
-    value: "Dowolny atak",
-    name: "Dowolny atak",
+    value: "Atak",
+    name: "Atak",
   });
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -36,7 +37,7 @@ const DetailsFilterAttack = () => {
       value: attacks.filter((x) => x.value === value)[0].value,
       name: attacks.filter((x) => x.value === value)[0].name,
     });
-    if (value === "Dowolny atak") {
+    if (value === "Atak") {
       value = "";
     }
     dispatch(changeAttack({ name: targetName[0].name, value: value }));
@@ -44,7 +45,7 @@ const DetailsFilterAttack = () => {
 
   useEffect(() => {
     if (filters.attack.value === "") {
-      setAttackNumber({ value: "Dowolny atak", name: filters.attack.name });
+      setAttackNumber({ value: "Atak", name: filters.attack.name });
     }
   }, [filters.attack]);
 
@@ -56,6 +57,7 @@ const DetailsFilterAttack = () => {
           alt="LeftListLogo"
           width="30px"
           height="30px"
+          $isShowed={isShowed}
         />
       </Styles.LeftListLayout>
       <Styles.SelectClass

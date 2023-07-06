@@ -5,6 +5,7 @@ import { AppDispatch, RootState } from "../../../app/store";
 import { setManaCost } from "../../../features/filter/filterSlice";
 import ManaIcon from "../../../img/manaIcon.png";
 import * as Styles from "./ManaCostFilterMobile.styles";
+import * as Types from "./ManaCostFilterMobile.types";
 
 const manaCrystals = [
   {
@@ -53,7 +54,7 @@ const manaCrystals = [
   },
 ];
 
-const ManaCostFilterMobile = () => {
+const ManaCostFilterMobile = ({ isShowed }: Types.IProps) => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
   const [manaValue, setManaValue] = useState({
@@ -91,6 +92,7 @@ const ManaCostFilterMobile = () => {
           alt="ManaMobileIcon"
           width="35px"
           height="35px"
+          $isShowed={isShowed}
         />
       </Styles.LeftListLayout>
       <Styles.SelectClass

@@ -6,7 +6,7 @@ import { changeSpellSchool } from "../../../features/filter/filterSlice";
 import * as Styles from "./DetailsFilterSpellSchool.style";
 
 const spellSchools = [
-  { name: "Dowolna szkoła zaklęć", value: "Dowolna szkoła zaklęć" },
+  { name: "Szkoła zaklęć", value: "Szkoła zaklęć" },
   { name: "Moc tajemna", value: "arcane" },
   { name: "Ogień", value: "fire" },
   { name: "Lód", value: "frost" },
@@ -19,15 +19,14 @@ const spellSchools = [
 const DetailsFilterSpellSchool = () => {
   const { filters } = useSelector((state: RootState) => state.filter);
   const dispatch: AppDispatch = useDispatch();
-  const [selectedSpellSchool, setSelectedSpellSchool] = useState(
-    "Dowolna szkoła zaklęć"
-  );
+  const [selectedSpellSchool, setSelectedSpellSchool] =
+    useState("Szkoła zaklęć");
 
   const handleChange = (event: SelectChangeEvent) => {
     let value = event.target.value;
     const targetName = spellSchools.filter((x) => x.value === value);
     setSelectedSpellSchool(value);
-    if (value === "Dowolna szkoła zaklęć") {
+    if (value === "Szkoła zaklęć") {
       value = "";
     }
     dispatch(changeSpellSchool({ name: targetName[0].name, value }));
@@ -35,7 +34,7 @@ const DetailsFilterSpellSchool = () => {
 
   useEffect(() => {
     if (filters.spellSchool.value === "") {
-      setSelectedSpellSchool("Dowolna szkoła zaklęć");
+      setSelectedSpellSchool("Szkoła zaklęć");
     }
   }, [filters.spellSchool]);
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Box, InputBase, Select, Typography, MenuItem } from "@mui/material";
-import { Props } from "./DetailsFilterAttack.types";
+import * as Types from "./DetailsFilterAttack.types";
 
 export const Container = styled(Box)`
   display: flex;
@@ -20,12 +20,12 @@ export const RightListLayout = styled(Box)`
   height: 54px;
 `;
 
-export const LeftListLogo = styled.img`
+export const LeftListLogo = styled.img<Types.IImageProps>`
   margin-top: 10px;
-  margin-left: 2px;
+  margin-left: ${(props) => (props.$isShowed ? "9px" : "2px")};
 `;
 
-export const SelectClass = styled(Select)<Props>`
+export const SelectClass = styled(Select)<Types.ISelectProps>`
   background: url(https://d2q63o9r0h0ohi.cloudfront.net/images/card-gallery/dropdown_middle_stretch-b4d7a6b9617ba5a39daa4055174b483c4e2963f28fc0d16857f0603bf95218a75968c9d6672f8fa01f979cb372bc3eac84f07c91b73afe0b109d7f424102b22c.png);
   width: 150px;
   height: 54px;
@@ -45,6 +45,7 @@ export const SelectName = styled(Typography)`
     color: rgb(255, 255, 255);
     margin-left: 4px;
     font-size: 14px;
+    text-align: center;
     color: white;
     text-shadow: rgb(0 0 0) 2px 0px 0px, rgb(0 0 0) 1.75517px 0.95885px 0px,
       rgb(0 0 0) 1.0806px 1.68294px 0px, rgb(0 0 0) 0.14147px 1.99499px 0px,
