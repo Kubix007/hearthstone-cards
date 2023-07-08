@@ -6,7 +6,7 @@ export const Container = styled(Box)`
   position: -webkit-sticky;
   position: sticky;
   top: 10.1%;
-  width: fit-content;
+  width: 74px;
   height: 105px;
   z-index: 100;
   cursor: pointer;

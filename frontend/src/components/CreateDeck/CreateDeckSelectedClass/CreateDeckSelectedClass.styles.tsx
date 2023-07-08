@@ -15,9 +15,12 @@ export const CardsContainer = styled(Box)`
 `;
 
 export const ContentContainer = styled(Box)<Types.ContainerProps>`
+  @media only screen and (max-width: 338px) {
+    grid-template-columns: ${(props) => (props.$isMobile ? "4fr 2fr" : "")};
+  }
   display: grid;
   grid-template-columns: ${(props) =>
-    props.$isMobile ? "6fr 0.7fr" : "3fr 1fr"};
+    props.$isMobile ? "6fr 1fr" : "3fr 1fr"};
   grid-template-rows: 100% 100%;
 `;
 

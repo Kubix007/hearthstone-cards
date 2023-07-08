@@ -19,11 +19,21 @@ export const MainTag = styled(Grid)`
   font-family: "BelweLightBT";
   font-weight: bold;
   font-size: 18px;
+  @media screen and (max-width: 333px) {
+    font-size: 16px;
+  }
 `;
 
 export const TagsContainer = styled(Box)`
   display: flex;
   align-items: center;
+`;
+
+export const FoundCardsContainer = styled(Box)`
+  display: flex;
+  @media screen and (max-width: 578px) {
+    flex-direction: column;
+  }
 `;
 
 export const GridTagsContainer = styled(Grid)`

@@ -45,15 +45,17 @@ const FilterTags = ({ type }: Types.Props) => {
       <Styles.FilterTagsContainer container direction="row" alignItems="center">
         <Styles.GridTagsContainer item>
           <Styles.TagsContainer>
-            <Styles.MainTag item>
-              Znalezione karty dla parametru:
-            </Styles.MainTag>
-            <Styles.MainTag item>
-              {/* GameMode TAG */}
-              {`"${
-                filters.set.name ? filters.set.name : filters.gameMode.name
-              }": ${cards.cardCount}`}
-            </Styles.MainTag>
+            <Styles.FoundCardsContainer>
+              <Styles.MainTag item>
+                Znalezione karty dla parametru:
+              </Styles.MainTag>
+              <Styles.MainTag item>
+                {/* GameMode TAG */}
+                {`"${
+                  filters.set.name ? filters.set.name : filters.gameMode.name
+                }": ${cards.cardCount}`}
+              </Styles.MainTag>
+            </Styles.FoundCardsContainer>
             {/* Class TAG */}
             {type === "BROWSE" &&
             filters.class.name &&

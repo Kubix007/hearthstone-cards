@@ -32,6 +32,12 @@ export const SearchInput = styled(Input)`
     color: white;
   }
   color: white;
+  @media screen and (max-width: 578px) {
+    width: 100px;
+  }
+  @media screen and (max-width: 362px) {
+    width: 30px;
+  }
 `;
 
 export const SearchIcon = styled(SearchIconSvg)`
