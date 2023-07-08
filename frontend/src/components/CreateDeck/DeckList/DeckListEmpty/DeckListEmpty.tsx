@@ -12,10 +12,12 @@ const DeckListEmpty = () => {
 
   return (
     <Styles.EmptyContainer>
-      <Styles.EmptyLogo />
-      <Styles.EmptyInfo>
-        Klikaj na karty, aby je dodać albo wklej kod talii
-      </Styles.EmptyInfo>
+      <Styles.Container>
+        <Styles.EmptyLogo />
+        <Styles.EmptyInfo>
+          Klikaj na karty, aby je dodać albo wklej kod talii
+        </Styles.EmptyInfo>
+      </Styles.Container>
       <Styles.InputContainer>
         <Styles.LeftSearchLayout />
         <form onSubmit={handleSubmit}>

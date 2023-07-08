@@ -22,7 +22,15 @@ export const EmptyInfo = styled(Typography)`
     margin-bottom: 10px;
     line-height: 1.3em;
     width: 270px;
+    text-align: center;
   }
+`;
+
+export const Container = styled(Box)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export const EmptyDeckInput = styled(Input)`

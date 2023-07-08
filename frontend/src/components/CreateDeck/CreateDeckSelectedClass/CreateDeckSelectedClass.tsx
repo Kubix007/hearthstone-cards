@@ -1,10 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { AppDispatch, RootState } from "../../../app/store";
 import { reset } from "../../../features/auth/authSlice";
-import * as SharedStyles from "../../../shared/styles";
-import * as Styles from "./CreateDeckSelectedClass.styles";
 import Spinner from "../../Spinner";
 import BottomPagination from "../../BottomPagination";
 import FilterTags from "../../FilterTags";
@@ -12,11 +10,18 @@ import NoResultInfo from "../../FilterBar/NoResultInfo";
 import CardsLayout from "../../CardsLayout";
 import FilterBar from "../../FilterBar";
 import DeckList from "../DeckList";
+import MobileDeckButton from "../MobileDeckButton";
+import * as SharedStyles from "../../../shared/styles";
+import * as Styles from "./CreateDeckSelectedClass.styles";
+import DeckListDrawer from "../DeckListDrawer";
 
 const CreateDeckSelectedClass = () => {
   const dispatch: AppDispatch = useDispatch();
   const navigate = useNavigate();
   const filters = useSelector((state: RootState) => state.filter);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isShowed, setIsShowed] = useState(false);
   const { cards, isLoading: isLoadingCards } = useSelector(
     (state: RootState) => state.cards
   );
@@ -39,6 +44,25 @@ const CreateDeckSelectedClass = () => {
     };
   }, [user, navigate, isError, message, dispatch, filters]);
 
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    if (screenWidth <= 1280) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [screenWidth]);
+
   if (isLoading) {
     return <Spinner />;
   }
@@ -54,7 +78,7 @@ const CreateDeckSelectedClass = () => {
     return (
       <Styles.Container>
         <FilterBar showClassFilter={false} />
-        <Styles.ContentContainer>
+        <Styles.ContentContainer $isMobile={isMobile}>
           <Styles.Center>
             <FilterTags type="CREATE" />
             <div>
@@ -71,11 +95,16 @@ const CreateDeckSelectedClass = () => {
               )}
             </div>
           </Styles.Center>
-          <Styles.DeckContainer>
-            <DeckList />
-          </Styles.DeckContainer>
+          {isMobile ? (
+            <MobileDeckButton setIsShowed={setIsShowed} />
+          ) : (
+            <Styles.DeckContainer>
+              <DeckList />
+            </Styles.DeckContainer>
+          )}
         </Styles.ContentContainer>
         <BottomPagination />
+        <DeckListDrawer $isShowed={isShowed} setIsShowed={setIsShowed} />
       </Styles.Container>
     );
   }
