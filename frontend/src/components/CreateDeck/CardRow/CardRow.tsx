@@ -103,6 +103,8 @@ const CardRow = ({ card }: Types.Props) => {
         <Styles.CardRowName>
           <Styles.CardName>{card.name}</Styles.CardName>
         </Styles.CardRowName>
+        <Styles.CardRowFill />
+        <Styles.CardRowMask />
         <Styles.CardRowImage image={card.cropImage} />
         <Styles.CardRowCount>
           <Styles.CardCount>

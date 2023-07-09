@@ -55,6 +55,7 @@ const CreateDeckSelectedClass = () => {
       setIsMobile(true);
     } else {
       setIsMobile(false);
+      setIsShowed(false);
     }
 
     return () => {
