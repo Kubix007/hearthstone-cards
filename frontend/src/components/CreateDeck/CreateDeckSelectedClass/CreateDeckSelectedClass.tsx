@@ -84,7 +84,10 @@ const CreateDeckSelectedClass = () => {
             <FilterTags type="CREATE" />
             <div>
               {cards.cardCount === 0 ? (
-                <NoResultInfo />
+                <NoResultInfo
+                  headerInfo="Nie znaleziono kart"
+                  detailsInfo="Usuń parametr(y) wyszukiwania, aby uzyskać lepsze rezultaty"
+                />
               ) : (
                 <Styles.CardsContainer>
                   <Styles.Cards size={1100}>

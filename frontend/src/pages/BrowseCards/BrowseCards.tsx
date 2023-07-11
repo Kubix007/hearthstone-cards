@@ -50,7 +50,10 @@ const BrowseCards = () => {
         <Styles.Center>
           <FilterTags type="BROWSE" />
           {cards.cardCount === 0 ? (
-            <NoResultInfo />
+            <NoResultInfo
+              headerInfo="Nie znaleziono kart"
+              detailsInfo="Usuń parametr(y) wyszukiwania, aby uzyskać lepsze rezultaty"
+            />
           ) : (
             <Styles.CardsContainer>
               <Styles.Cards size={1300}>

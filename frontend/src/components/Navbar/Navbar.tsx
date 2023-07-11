@@ -22,7 +22,7 @@ const pages = [
   { name: "Stwórz swój deck", link: "/createdeck" },
   { name: "Moje talie", link: "/decks" },
 ];
-const settings = ["Ustawienia profilu", "Wyloguj się"];
+const settings = ["Wyloguj się"];
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
