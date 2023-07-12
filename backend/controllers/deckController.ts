@@ -7,7 +7,7 @@ const asyncHandler = require("express-async-handler");
 // @desc    Get decks
 // @route   GET /api/decks
 // @access  Private
-export const getDecks = asyncHandler(
+export const getUserDecks = asyncHandler(
   async (req: IUserRequest, res: Response) => {
     const decks = await Deck.find({ user: req.user.id });
 

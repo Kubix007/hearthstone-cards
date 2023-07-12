@@ -3,7 +3,7 @@ import TopBar from "../../components/MyDecks/TopBar";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../../app/store";
 import { useEffect } from "react";
-import { getDecks } from "../../features/decks/deckSlice";
+import { getUserDecks } from "../../features/decks/deckSlice";
 import DeckCardList from "../../components/MyDecks/DeckCardList";
 import NoResultInfo from "../../components/FilterBar/NoResultInfo";
 
@@ -12,7 +12,7 @@ const MyDecks = () => {
   const dispatch: AppDispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getDecks());
+    dispatch(getUserDecks());
   }, [dispatch]);
 
   return (

@@ -17,7 +17,7 @@ const createDeck = async (deckData: IGetDeckByCodeResponse, token: string) => {
 };
 
 // Get user decks
-const getDecks = async (token: string) => {
+const getUserDecks = async (token: string) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -25,6 +25,19 @@ const getDecks = async (token: string) => {
   };
 
   const response = await axios.get(API_URL, config);
+
+  return response.data;
+};
+
+// Update user deck
+const updateDeck = async (deckId: string, token: string) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+
+  const response = await axios.put(API_URL + deckId, config);
 
   return response.data;
 };
@@ -44,8 +57,9 @@ const deleteDeck = async (deckId: string, token: string) => {
 
 const deckService = {
   createDeck,
-  getDecks,
+  getUserDecks,
   deleteDeck,
+  updateDeck,
 };
 
 export default deckService;

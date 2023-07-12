@@ -30,12 +30,12 @@ export const createDeck = createAsyncThunk<
 });
 
 // Get user decks
-export const getDecks = createAsyncThunk(
-  "decks/getAll",
+export const getUserDecks = createAsyncThunk(
+  "decks/getUserDecks",
   async (_, thunkAPI: any) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await deckService.getDecks(token);
+      return await deckService.getUserDecks(token);
     } catch (error: any) {
       const message =
         (error.response &&
@@ -47,6 +47,24 @@ export const getDecks = createAsyncThunk(
     }
   }
 );
+
+// Update user deck
+export const updateDeck = createAsyncThunk<
+  { id: string },
+  string,
+  { state: RootState }
+>("decks/updateDeck", async (id: string, thunkAPI) => {
+  try {
+    const token = thunkAPI.getState().auth.user.token;
+    return await deckService.updateDeck(id, token);
+  } catch (error: any) {
+    const message =
+      (error.response && error.response.data && error.response.data.message) ||
+      error.message ||
+      error.toString();
+    return thunkAPI.rejectWithValue(message);
+  }
+});
 
 // Delete user deck
 export const deleteDeck = createAsyncThunk<
@@ -91,16 +109,16 @@ export const deckSlice = createSlice({
         state.isSuccess = false;
         state.message = action.payload as string;
       })
-      .addCase(getDecks.fulfilled, (state, action) => {
+      .addCase(getUserDecks.fulfilled, (state, action) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.isError = false;
         state.decks = action.payload;
       })
-      .addCase(getDecks.pending, (state) => {
+      .addCase(getUserDecks.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getDecks.rejected, (state, action) => {
+      .addCase(getUserDecks.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;
@@ -118,6 +136,20 @@ export const deckSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(deleteDeck.rejected, (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+        state.isSuccess = false;
+        state.message = action.payload as string;
+      })
+      .addCase(updateDeck.fulfilled, (state) => {
+        state.isLoading = false;
+        state.isSuccess = true;
+        state.isError = false;
+      })
+      .addCase(updateDeck.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateDeck.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
         state.isSuccess = false;

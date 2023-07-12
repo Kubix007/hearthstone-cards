@@ -1,14 +1,17 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../../app/store";
+import {
+  updateDeck,
+  createDeck,
+} from "../../../../../features/decks/deckSlice";
 import * as Styles from "./SaveDeckButton.styles";
+import * as Types from "./SaveDeckButton.types";
 
-const SaveDeckButton = () => {
+const SaveDeckButton = ({ setOpen }: Types.IProps) => {
   const { deck } = useSelector((state: RootState) => state.createDeck);
 
   const handleClick = () => {
-    if (deck._id) {
-    } else {
-    }
+    setOpen(true);
   };
 
   return (
