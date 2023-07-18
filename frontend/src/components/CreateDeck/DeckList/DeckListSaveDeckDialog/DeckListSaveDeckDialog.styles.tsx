@@ -23,6 +23,15 @@ export const Title = styled(DialogTitle)`
       rgb(0 0 0) -1.30729px -1.5136px 0px, rgb(0 0 0) -0.42159px -1.95506px 0px,
       rgb(0 0 0) 0.56732px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px,
       rgb(0 0 0) 1.92034px -0.55883px 0px;
+    @media only screen and (max-width: 390px) {
+      font-size: 16px;
+    }
+    @media only screen and (max-width: 345px) {
+      font-size: 14px;
+    }
+    @media only screen and (max-width: 320px) {
+      font-size: 10px;
+    }
   }
 `;
 

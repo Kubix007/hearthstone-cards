@@ -1,10 +1,10 @@
 import axios from "axios";
-import { IGetDeckByCodeResponse } from "../../shared/types";
+import { ICreateDeckData, IGetDecksResponse } from "../../shared/types";
 
 const API_URL = "/api/decks/";
 
 // Create new deck
-const createDeck = async (deckData: IGetDeckByCodeResponse, token: string) => {
+const createDeck = async (deckData: ICreateDeckData, token: string) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
@@ -30,14 +30,14 @@ const getUserDecks = async (token: string) => {
 };
 
 // Update user deck
-const updateDeck = async (deckId: string, token: string) => {
+const updateDeck = async (deckData: IGetDecksResponse, token: string) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
 
-  const response = await axios.put(API_URL + deckId, config);
+  const response = await axios.put(API_URL + deckData._id, deckData, config);
 
   return response.data;
 };

@@ -357,7 +357,23 @@ export interface IGetDecksResponse {
   _id: string;
   deckName: string;
   deckCode: string;
-  version: number;
+  version: string;
+  format: string;
+  hero: IHero;
+  heroPower: IHeroPower;
+  class: {
+    slug: string;
+    id: number;
+    name: string;
+  };
+  cards: ICardData[];
+  cardCount: number;
+}
+
+export interface ICreateDeckData {
+  deckName: string;
+  deckCode: string;
+  version: string;
   format: string;
   hero: IHero;
   heroPower: IHeroPower;
@@ -372,10 +388,10 @@ export interface IGetDecksResponse {
 
 export interface IDeckState {
   decks: {
-    _id: string;
+    _id?: string;
     deckName: string;
     deckCode: string;
-    version: number;
+    version: string;
     format: string;
     hero: IHero;
     heroPower: IHeroPower;
@@ -413,6 +429,7 @@ export interface ICreateDeckState {
   deck: {
     _id?: string;
     deckName?: string;
+    version?: string;
     deckCode: string;
     format: string;
     hero: IHero | null;

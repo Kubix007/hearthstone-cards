@@ -1,14 +1,15 @@
 import * as Styles from "./SaveDeckDialogInput.styles";
 import * as Types from "./SaveDeckDialogInput.types";
 
-const SaveDeckDialogInput = ({ inputValue, setInputValue }: Types.IProps) => {
+const SaveDeckDialogInput = ({
+  inputValue,
+  setInputValue,
+  handleSubmit,
+}: Types.IProps) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue((event.target as HTMLInputElement).value);
   };
 
-  const handleSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
-  };
   return (
     <Styles.SearchFilterContainer>
       <Styles.LeftDeckNameLayout />
@@ -19,6 +20,7 @@ const SaveDeckDialogInput = ({ inputValue, setInputValue }: Types.IProps) => {
           disableUnderline
           placeholder="Nazwa talii"
           onChange={handleChange}
+          required
           sx={{
             input: {
               color: "white",

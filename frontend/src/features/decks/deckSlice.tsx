@@ -1,5 +1,9 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { IDeckState, IGetDecksResponse } from "../../shared/types";
+import {
+  ICreateDeckData,
+  IDeckState,
+  IGetDecksResponse,
+} from "../../shared/types";
 import deckService from "./deckService";
 import { RootState } from "../../app/store";
 
@@ -13,10 +17,10 @@ const initialState: IDeckState = {
 
 // Create new deck
 export const createDeck = createAsyncThunk<
-  IGetDecksResponse,
-  IGetDecksResponse,
+  ICreateDeckData,
+  ICreateDeckData,
   { state: RootState }
->("decks/create", async (deckData: IGetDecksResponse, thunkAPI) => {
+>("decks/create", async (deckData: ICreateDeckData, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token;
     return await deckService.createDeck(deckData, token);
@@ -50,13 +54,13 @@ export const getUserDecks = createAsyncThunk(
 
 // Update user deck
 export const updateDeck = createAsyncThunk<
-  { id: string },
-  string,
+  IGetDecksResponse,
+  IGetDecksResponse,
   { state: RootState }
->("decks/updateDeck", async (id: string, thunkAPI) => {
+>("decks/updateDeck", async (deckData: IGetDecksResponse, thunkAPI) => {
   try {
     const token = thunkAPI.getState().auth.user.token;
-    return await deckService.updateDeck(id, token);
+    return await deckService.updateDeck(deckData, token);
   } catch (error: any) {
     const message =
       (error.response && error.response.data && error.response.data.message) ||

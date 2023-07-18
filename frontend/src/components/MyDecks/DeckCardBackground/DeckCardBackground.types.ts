@@ -2,10 +2,10 @@ import * as SharedTypes from "../../../shared/types";
 
 export interface IProps {
   deck: {
-    _id: string;
+    _id?: string;
     deckName: string;
     deckCode: string;
-    version: number;
+    version: string;
     format: string;
     hero: SharedTypes.IHero;
     heroPower: SharedTypes.IHeroPower;

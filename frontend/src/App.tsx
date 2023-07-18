@@ -1,6 +1,10 @@
 import { AppContainer } from "./App.style";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import MyDecks from "./pages/MyDecks";
@@ -37,7 +41,7 @@ function App() {
             </>
           )}
           <Routes>
-            <Route path="/" element={<Dashboard />}></Route>
+            <Route path="/" element={<Navigate to="/browsecards" />}></Route>
             <Route path="/login" element={<Login />}></Route>
             <Route path="/register" element={<Register />}></Route>
             <Route path="/browsecards" element={<BrowseCards />}></Route>
