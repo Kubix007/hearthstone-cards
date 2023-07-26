@@ -1,10 +1,23 @@
 import { useState } from "react";
 import * as Styles from "./DeckListEmpty.styles";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../../../app/store";
+import { getDeckByCode } from "../../../../features/createDeck/createDeckSlice";
+import { toast } from "react-toastify";
 
 const DeckListEmpty = () => {
+  const dispatch: AppDispatch = useDispatch();
+
   const [inputValue, setInputValue] = useState("");
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
+    dispatch(getDeckByCode(inputValue))
+      .then(() => {
+        toast.success("Pomyślnie załadowano talię");
+      })
+      .catch(() => {
+        toast.error("Nie udało się załadować talię");
+      });
   };
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue((event.target as HTMLInputElement).value);
