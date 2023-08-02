@@ -15,4 +15,8 @@ export const ArrowIcon = styled(Box)`
   -webkit-tap-highlight-color: transparent;
   user-select: none;
   transform: translateY(-50%);
+  @media only screen and (max-width: 660px) {
+    left: 139px;
+    top: -25px;
+  }
 `;

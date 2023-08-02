@@ -4,6 +4,11 @@ import highlightedBorder from "../../../img/MyDecks/highlighted-border.png";
 import * as Types from "./DeckCard.types";
 
 export const Container = styled(Box)<Types.IContainerProps>`
+  @media only screen and (max-width: 660px) {
+    background-size: 300px 75px;
+    width: 300px;
+    height: 75px;
+  }
   filter: drop-shadow(rgba(0, 0, 0, 0.6) 0px 10px 10px);
   width: 600px;
   height: 150px;

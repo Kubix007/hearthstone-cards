@@ -13,6 +13,13 @@ export const DeckCardBackground = styled(Box)<Types.IBackgroundProps>`
   position: relative;
   top: 32px;
   right: 30px;
+  @media only screen and (max-width: 660px) {
+    background-size: 245px 45px;
+    width: 245px;
+    height: 45px;
+    top: 17px;
+    right: 15px;
+  }
 `;
 
 export const DeckCardTitle = styled(Typography)`
@@ -29,6 +36,9 @@ export const DeckCardTitle = styled(Typography)`
       rgb(0 0 0) -1.30729px -1.5136px 0px, rgb(0 0 0) -0.42159px -1.95506px 0px,
       rgb(0 0 0) 0.56732px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px,
       rgb(0 0 0) 1.92034px -0.55883px 0px;
+    @media only screen and (max-width: 660px) {
+      font-size: 15px;
+    }
   }
 `;
 
@@ -47,6 +57,10 @@ export const DeckCardDetails = styled(Typography)`
       rgb(0 0 0) -1.30729px -1.5136px 0px, rgb(0 0 0) -0.42159px -1.95506px 0px,
       rgb(0 0 0) 0.56732px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px,
       rgb(0 0 0) 1.92034px -0.55883px 0px;
+    @media only screen and (max-width: 660px) {
+      font-size: 8px;
+      margin-right: 0px;
+    }
   }
 `;
 
@@ -65,6 +79,10 @@ export const DeckCardsAmount = styled(Typography)`
       rgb(0 0 0) -1.30729px -1.5136px 0px, rgb(0 0 0) -0.42159px -1.95506px 0px,
       rgb(0 0 0) 0.56732px -1.91785px 0px, rgb(0 0 0) 1.41734px -1.41108px 0px,
       rgb(0 0 0) 1.92034px -0.55883px 0px;
+    @media only screen and (max-width: 660px) {
+      font-size: 8px;
+      margin-right: 0px;
+    }
   }
 `;
 
