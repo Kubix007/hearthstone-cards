@@ -18,11 +18,7 @@ const DeckCardBackground = ({ deck }: Types.IProps) => {
   }>();
   const { metadata } = useSelector((state: RootState) => state.metadata);
 
-  useEffect(() => {
-    getHeroInfo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const getHeroInfo = () => {
     if (deck.hero!.hasOwnProperty("cardId")) {
       const heroDetails = metadata.classes.filter(
@@ -36,6 +32,10 @@ const DeckCardBackground = ({ deck }: Types.IProps) => {
       setHero(heroDetails[0]);
     }
   };
+
+  useEffect(() => {
+    getHeroInfo();
+  }, [getHeroInfo]);
 
   if (hero) {
     switch (hero.name) {
