@@ -21,6 +21,11 @@ export const Container = styled(Box)<Types.IContainerProps>`
   &:hover {
     background: url(${highlightedBorder}) no-repeat;
     cursor: pointer;
-    background-size: 300px 75px;
+    background-size: 600px 150px;
+    @media only screen and (max-width: 660px) {
+      background-url: url(${highlightedBorder});
+      cursor: pointer;
+      background-size: 300px 75px;
+    }
   }
 `;
